@@ -1,6 +1,7 @@
 import getExam from "../apiServices/exam/getAllExam.js";
 import getImgSchool from "../apiServices/subject/getImgSchool.js";
 import getUserById from "../apiServices/user/getUserById.js";
+import getFileExam from "../apiServices/exam/getFileExam.js";
 
 async function getUser(id) {
     const user = await getUserById(id)
@@ -38,13 +39,14 @@ const getAllExam = async () => {
             const fullName = `${user.firstName} ${user.lastName}`
             const nameExam = item.name
             const date = item.createAt
+            const exam = getFileExam(item._id)
             const idSubject = item.idExamSubject
             const imgSchool = await getImgSchool(idSubject)
             const status = item.isPublic
             if (status == true) {
             const codeHtml =  `
             <div class="card" id="post-id-1">
-            <div class="card-body pb-1">
+             <div class="card-body pb-1">
                 <div class="media">
                     <img class="mr-2 rounded" src="${imgSchool ? imgSchool : "./assets/img/logo-hus.png"}"
                          alt="Generic placeholder image" height="32">
@@ -78,9 +80,8 @@ const getAllExam = async () => {
                     Đề thi và đáp án tham khảo môn Giải Tích 1 kỳ 2 năm học 2021-2022
                     <br>
                     <iframe class="w-100 mt-3" style="height: 50vh"
-                            data-src="https://drive.google.com/file/d/1QP2HkbqWF7aW0sQ93DJyw41j2Nhse4qo/preview">
+                            data-src="${exam}">
                     </iframe>
-                    <!--                                    thêm img or cái gì cx đc-->
                 </div>
                 <hr class="m-0">
 

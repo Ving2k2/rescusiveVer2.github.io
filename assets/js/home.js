@@ -38,11 +38,10 @@ getUser();
  }
 getDataExam()
 
+ async function getDataDepartment () {
+     const data = await getAllDepartment()
+     console.log(data);  
+ }
 
-// async function getDataDepartment () {
-//     const data = await getAllDepartment()
-//     console.log(data);  
-// }
-
-// getDataDepartment()
+getDataDepartment()
 

@@ -1,6 +1,5 @@
 import { get } from "../../utils/request.js";
-import b64toBlob from "../../utils/base64toBolb";
-import base64encode from "../../utils/buffToBase64";
+
 
 const getFileExam = async (idExam) => {
   try {

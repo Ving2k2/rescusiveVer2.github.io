@@ -1,9 +1,4 @@
-import getExam from "../apiServices/exam/getAllExam.js"
-// import getExamByIdDepartment from "../apiServices/exam/getExamByIdDepartment.js"
-// import getExamByIdSubject from "../apiServices/exam/getExamByIdSubject.js"
-// import getExamBy2Id from "../apiServices/exam/getExamBy2Id.js"
-// import getExamByName from "../apiServices/exam/getExamByName.js"
-import getImgSchool from "../apiServices/subject/getImgSchool.js"
+
 import getUserById from "../apiServices/user/getUserById.js"
 import getDepartment from "../apiServices/department/getAllDepartment.js"
 
@@ -21,28 +16,24 @@ const getAllDepartment = async () => {
         // var codeHtml = "";
         
          data.forEach(async(item, index) => {
-            
-
             const nameDepartment = item.name
-            var codeHtml =  `
-            <ul class="Khoa">
-              <div class="Ten-khoa">Khoa ${nameDepartment} <i class="fa-solid fa-caret-down icon-down"></i>
-               <ul class="cac-nganh">
-                  <li class="nganh">
-                    <p class="ten-nganh">Toán</p>
-                  </li>
-                  <li class="nganh">
-                    <p class="ten-nganh">Toán Tin</p>
-                  </li>
-                  <li class="nganh">
-                    <p class="ten-nganh">KHMT</p>
-                  </li>
-                  <li class="nganh">
-                    <p class="ten-nganh">KHDL</p>
-                  </li>
-                </ul>
-              </div>
-            </ul>`  
+            const codeHtml =  `
+            <li class="side-nav-item item-link">
+                    <a href="javascript: void(0);" class="side-nav-link item-link">
+                        <i class="fa-solid fa-flask"></i>
+                        <span> ${nameDepartment} </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="side-nav-second-level item-link" aria-expanded="false">
+                        <li>
+                            <a href="#" class="item-link">Hóa học</a>
+                        </li>
+                        <li>
+                            <a href="#" class="item-link">Thực phẩm</a>
+                        </li>
+                    </ul>
+                </li>`  
+
           const div = document.createElement("div")
           div.innerHTML = codeHtml
           container.appendChild(div)
