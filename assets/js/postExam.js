@@ -1,9 +1,8 @@
-import axios from "axios";
 import addExam from "../apiServices/exam/addExam.js";
 import getUserById from "../apiServices/user/getUserById.js";
 import { getCookie } from "../utils/libCookie.js";
 
-const buttonPostExam = document.querySelector(".buttonPostExam");
+const buttonPost = document.querySelector("#buttonPostExam");
 
 async function handerPostExam(e) {
     const idUserPost = getCookie("idUser");
@@ -32,4 +31,4 @@ async function handerPostExam(e) {
 
 }
 
-buttonPostExam.addEventListener('click', (e) => handerPostExam(e));
+buttonPost.addEventListener('click', (e) => handerPostExam(e));
