@@ -19,7 +19,7 @@ const getAllDepartment = async () => {
          data.forEach(async(item, index) => {
             const nameDepartment = item.name
             var codeHtml =  `
-                    <a href="javascript: void(0);" class="side-nav-link item-link get__id">
+                    <a href="javascript: void(0);" class="side-nav-link item-link">
                         <i class="fa-solid fa-flask"></i>
                         <span> ${nameDepartment} </span>
                         <span class="menu-arrow"></span>
@@ -36,7 +36,7 @@ const getAllDepartment = async () => {
             })
           codeHtml += `</ul>`
           const li = document.createElement("li")
-          li.className = "side-nav-item item-link"
+          li.className = "side-nav-item item-link get__id"
           li.innerHTML = codeHtml
           container.appendChild(li)
         });
@@ -44,10 +44,10 @@ const getAllDepartment = async () => {
 }
 getAllDepartment()
  
-const list = document.getElementsByClassName("get__id")
-console.log(list)
-Array.from(list).forEach(element => {
-    element.addEventListener('click', () => {
-      console.log("123");
-    });
-});
+// const list = document.getElementsByClassName("get__id")
+// console.log(list)
+// Array.from(list).forEach(element => {
+//      element.addEventListener('click', () => {
+//       console.log("123");     
+//     })
+//  });
