@@ -102,13 +102,13 @@ $(document).ready(function () {
         }
     })
 
-    //menu
+    //reload menu
     var observer2 = new MutationObserver(function () {
         $('.side-nav').metisMenu('dispose').metisMenu();
     });
+    observer2.observe($('.side-nav')[0], {childList: true, subtree: true})
 
     //reload body
-    observer2.observe($('.side-nav')[0], {childList: true, subtree: true})
     var observer3 = new MutationObserver(function () {
         $('[data-toggle="tooltip"]').tooltip();
         $('[data-toggle="popover"]').popover();
