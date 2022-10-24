@@ -1,9 +1,11 @@
+Dropzone.autoDiscover = false;
 $(document).ready(function () {
 
     // change content size
     function changeSize() {
         $(".content-page").height(($(".footer").height() + $("#main-content").height()) + "px")
     }
+
     $(window).on('resize', function () {
         changeSize()
     });
@@ -24,12 +26,13 @@ $(document).ready(function () {
             }
         })
     }
+
     underline_only()
 
     // summernote
-    function summernote() {
+    function summernote_init() {
         create = $("#summernote-create")
-        if(create.length)
+        if (create.length)
             create.summernote({
                 placeholder: "Viết giới thiệu, tóm tắt đề tài...",
                 height: 230,
@@ -40,7 +43,7 @@ $(document).ready(function () {
                 }
             })
         edit = $("#summernote-edit")
-        if(edit.length)
+        if (edit.length)
             create.summernote({
                 placeholder: "Viết giới thiệu, tóm tắt đề tài...",
                 height: 230,
@@ -50,19 +53,41 @@ $(document).ready(function () {
                     }
                 }
             })
-        mark=$("#summernote-basic-3")
-        if(mark.length)
+        mark = $("#summernote-basic-3")
+        if (mark.length)
             mark.summernote({
-            placeholder: "Viết bình luận...",
-            height: 230,
-            callbacks: {
-                onInit: function (e) {
-                    $(e.editor).find(".custom-control-description").addClass("custom-control-label").parent().removeAttr("for")
+                placeholder: "Viết bình luận...",
+                height: 230,
+                callbacks: {
+                    onInit: function (e) {
+                        $(e.editor).find(".custom-control-description").addClass("custom-control-label").parent().removeAttr("for")
+                    }
                 }
+            })
+    }
+
+    summernote_init()
+
+    //dropzone
+    let count_dropzone = $('[data-plugin="dropzone"]').length
+
+    function dropzone_init() {
+        $('[data-plugin="dropzone"]').each(function () {
+            let dropzoneControl = $(this)[0].dropzone;
+            if (dropzoneControl) {
+                dropzoneControl.destroy();
             }
+            var t = $(this).data("url"), e = {url: t};
+            var i = $(this).data("previewsContainer")
+            i && (e.previewsContainer = i);
+            var o = $(this).data("uploadPreviewTemplate");
+            o && (e.previewTemplate = $(o).html());
+            var m = $(this).data("maxFile");
+            m && (e.maxFiles=m)
+            $(this).dropzone(e)
         })
     }
-    summernote()
+    dropzone_init()
 
     $(document).on('click', '.like-button', function () {
         $(this).children("i").toggleClass("text-danger")
@@ -84,16 +109,20 @@ $(document).ready(function () {
 
     //reload body
     observer2.observe($('.side-nav')[0], {childList: true, subtree: true})
-    var observer3 =new MutationObserver(function () {
+    var observer3 = new MutationObserver(function () {
         $('[data-toggle="tooltip"]').tooltip();
         $('[data-toggle="popover"]').popover();
         $('[data-toggle="toast"]').toast();
         $('[data-toggle="touchspin"]').TouchSpin();
         underline_only()
-        summernote()
+        summernote_init()
+        dz = $('[data-plugin="dropzone"]')
+        if (count_dropzone != dz.length) {
+            count_dropzone = dz.length
+            dropzone_init()
+        }
     });
     observer3.observe($('body')[0], {childList: true, subtree: true})
-
 
 })
 
