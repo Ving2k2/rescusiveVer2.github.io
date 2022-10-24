@@ -476,15 +476,6 @@
                                         <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên đề
                                             tài:</label>
                                         <input type="text" id="name-theme" class="underline-only">
-                                        <script>
-                                            input = document.getElementById("name-theme");
-                                            input.onkeydown = input.onkeyup = function () {
-                                                size = this.value.length * 9;
-                                                input.style.width = size + "px";
-                                                if (size < 200)
-                                                    input.style.width = "200px";
-                                            }
-                                        </script>
                                     </div>
 
                                     <div class="pl-0 mx-1 h5">
@@ -528,15 +519,6 @@
                                                    class="font-weight-semibold text-dark mb-1 ">Tên đề tài:</label>
                                             <input type="text" id="edit-name-project" class="underline-only"
                                                    value="Đề tài Demo">
-                                            <script>
-                                                input = document.getElementById("edit-name-project");
-                                                input.onkeydown = input.onkeyup = function () {
-                                                    size = this.value.length * 9;
-                                                    input.style.width = size + "px";
-                                                    if (size < 200)
-                                                        input.style.width = "200px";
-                                                }
-                                            </script>
                                         </div>
 
                                         <div class="pl-0 mx-1 h5">
