@@ -6,7 +6,8 @@ if ($("#myAwesomeDropzone").length) {
         url: "/",
         autoProcessQueue: false,
         createImageThumbnails: true,
-        addRemoveLinks: true
+        addRemoveLinks: true,
+        maxFiles: 1
     });
 
     function submitForm() {
@@ -20,7 +21,8 @@ if ($("#myAwesomeDropzone1").length) {
         url: "/",
         autoProcessQueue: false,
         createImageThumbnails: true,
-        addRemoveLinks: true
+        addRemoveLinks: true,
+        maxFiles: 1
     });
 
     function submitForm() {
