@@ -25,9 +25,9 @@ $(document).ready(function () {
             })
         }
     })
-
-
-
-
+    var observer2 = new MutationObserver(function () {
+        $('.side-nav').metisMenu('dispose').metisMenu();
+    });
+    observer2.observe($('.side-nav')[0], {childList: true})
 })
 

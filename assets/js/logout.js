@@ -4,10 +4,12 @@ const buttonLogout = document.getElementById("buttonLogout");
 
 async function handerLogout() {
     const res = await logoutUser()
-    const buttonAvatar = document.getElementById("buttonAvatar");
-    const buttonRegister = document.getElementById("buttonRegister");
+    const blockUser = document.getElementById("blockUser");
+    blockUser.style.display = "none";
+    let buttonRegister = document.getElementById("buttonRegister");
+    let buttonLogin = document.getElementById("buttonLogin");
+    buttonLogin.style.display = "block";
     buttonRegister.style.display = "block";
-    buttonAvatar.style.display = "none";
     console.log("res", res)
 }
 

@@ -9,9 +9,7 @@ async function handerLogin(e) {
         email: textemail,
         password: userpasswordLogin
     }
-    console.log(loginUser)
     const res = await loginUser(user)
-    console.log('res', res)
     if (res) {
         window.location = "/index.html"
     } else {

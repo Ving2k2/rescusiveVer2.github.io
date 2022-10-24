@@ -7626,7 +7626,7 @@ button.bg-dark:focus {
 }
 
 .d-none {
-    display: none !important;
+    display: none;
 }
 
 .d-inline {

@@ -40,119 +40,125 @@
                         <span> Trang chủ </span>
                     </a>
                 </li>
-                <li class="side-nav-item side-nav-item">
-                    <a href="#" class="side-nav-link item-link">
+                <li id="buttonRegister" class="side-nav-item side-nav-item">
+                    <a href="register.html" class="side-nav-link item-link">
                         <i class="fa-solid fa-user-plus"></i>
                         <span> Đăng kí </span>
                     </a>
                 </li>
-                <li class="side-nav-item side-nav-item">
-                    <a href="#" class="side-nav-link item-link">
+                <li id="buttonLogin" class="side-nav-item side-nav-item">
+                    <a href="login.html" class="side-nav-link item-link">
                         <i class="fa-solid fa-arrow-right-to-bracket"></i>
                         <span> Đăng nhập </span>
                     </a>
                 </li>
                 <li class="side-nav-title side-nav-item">Phân loại</li>
                 <div class="box__department"></div>
-                <li class="side-nav-title side-nav-item">Trang giáo viên</li>
-                <li class="side-nav-item item-link">
-                    <a href="#" class="side-nav-link item-link">
-                        <i class="fa fa-plus"></i>
-                        <span> Tạo đề tài </span>
-                    </a>
-                </li>
-                <li class="side-nav-item item-link">
-                    <a href="javascript: void(0);" class="side-nav-link item-link">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <span> Đề tài hướng dẫn </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="side-nav-second-level item-link" aria-expanded="false">
-                        <li>
-                            <a href="#" class="item-link">Đề tài 1</a>
-                        </li>
-                        <li>
-                            <a href="#" class="item-link">Đề tài 2</a>
-                        </li>
-                        <li>
-                            <a href="#" class="item-link">Đề tài 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="side-nav-item item-link">
-                    <a href="javascript: void(0);" class="side-nav-link item-link">
-                        <i class="fa-solid fa-file-signature"></i>
-                        <span> Đề tài chấm điểm </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="side-nav-second-level item-link" aria-expanded="false">
-                        <li>
-                            <a href="#" class="item-link">Đề tài 1</a>
-                        </li>
-                        <li>
-                            <a href="#" class="item-link">Đề tài 2</a>
-                        </li>
-                        <li>
-                            <a href="#" class="item-link">Đề tài 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="side-nav-title side-nav-item">Trang sinh viên</li>
-                <li class="side-nav-item item-link">
-                    <a href="#" class="side-nav-link item-link">
-                        <i class="fa fa-plus"></i>
-                        <span> Tạo đề tài </span>
-                    </a>
-                </li>
-                <li class="side-nav-item item-link">
-                    <a href="javascript: void(0);" class="side-nav-link item-link">
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <span> Đề tài tham gia </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="side-nav-second-level item-link" aria-expanded="false">
-                        <li>
-                            <a href="#" class="item-link">Đề tài 1</a>
-                        </li>
-                        <li>
-                            <a href="#" class="item-link">Đề tài 2</a>
-                        </li>
-                        <li>
-                            <a href="#" class="item-link">Đề tài 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="side-nav-title side-nav-item">Trang admin</li>
-                <li class="side-nav-item item-link">
-                    <a href="#" class="side-nav-link item-link">
-                        <i class="fa fa-chalkboard-user"></i>
-                        <span> Quản lý giáo viên </span>
-                    </a>
-                </li>
-                <li class="side-nav-item item-link">
-                    <a href="#" class="side-nav-link item-link">
-                        <i class="fa fa-user"></i>
-                        <span> Quản lý sinh viên </span>
-                    </a>
-                </li>
-                <li class="side-nav-item item-link">
-                    <a href="#" class="side-nav-link item-link">
-                        <i class="fa fa-diagram-project"></i>
-                        <span> Quản lý đề tài </span>
-                    </a>
-                </li>
-                <li class="side-nav-item item-link">
-                    <a href="#" class="side-nav-link item-link">
-                        <i class="fa-solid fa-file-circle-question"></i>
-                        <span> Quản lý đề thi </span>
-                    </a>
-                </li>
-                <li class="side-nav-item item-link">
-                    <a href="#" class="side-nav-link item-link">
-                        <i class="fa-solid fa-school"></i>
-                        <span> Quản lý khoa </span>
-                    </a>
-                </li>
+                <div id="buttonGV" class="d-none">
+                    <li class="side-nav-title side-nav-item">Trang giáo viên</li>
+                    <li class="side-nav-item item-link">
+                        <a href="#" class="side-nav-link item-link">
+                            <i class="fa fa-plus"></i>
+                            <span> Tạo đề tài </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item item-link">
+                        <a href="javascript: void(0);" class="side-nav-link item-link">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            <span> Đề tài hướng dẫn </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="side-nav-second-level item-link" aria-expanded="false">
+                            <li>
+                                <a href="#" class="item-link">Đề tài 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link">Đề tài 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link">Đề tài 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="side-nav-item item-link">
+                        <a href="javascript: void(0);" class="side-nav-link item-link">
+                            <i class="fa-solid fa-file-signature"></i>
+                            <span> Đề tài chấm điểm </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="side-nav-second-level item-link" aria-expanded="false">
+                            <li>
+                                <a href="#" class="item-link">Đề tài 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link">Đề tài 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link">Đề tài 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+                <div id="buttonSV" class="d-none">
+                    <li class="side-nav-title side-nav-item">Trang sinh viên</li>
+                    <li class="side-nav-item item-link">
+                        <a href="#" class="side-nav-link item-link">
+                            <i class="fa fa-plus"></i>
+                            <span> Tạo đề tài </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item item-link">
+                        <a href="javascript: void(0);" class="side-nav-link item-link">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            <span> Đề tài tham gia </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="side-nav-second-level item-link" aria-expanded="false">
+                            <li>
+                                <a href="#" class="item-link">Đề tài 1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link">Đề tài 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="item-link">Đề tài 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+                <div id="buttonAdmin" class="d-none">
+                    <li class="side-nav-title side-nav-item">Trang admin</li>
+                    <li class="side-nav-item item-link">
+                        <a href="#" class="side-nav-link item-link">
+                            <i class="fa fa-chalkboard-user"></i>
+                            <span> Quản lý giáo viên </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item item-link">
+                        <a href="#" class="side-nav-link item-link">
+                            <i class="fa fa-user"></i>
+                            <span> Quản lý sinh viên </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item item-link">
+                        <a href="#" class="side-nav-link item-link">
+                            <i class="fa fa-diagram-project"></i>
+                            <span> Quản lý đề tài </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item item-link">
+                        <a href="#" class="side-nav-link item-link">
+                            <i class="fa-solid fa-file-circle-question"></i>
+                            <span> Quản lý đề thi </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item item-link">
+                        <a href="#" class="side-nav-link item-link">
+                            <i class="fa-solid fa-school"></i>
+                            <span> Quản lý khoa </span>
+                        </a>
+                    </li>
+                </div>
             </ul>
             <!-- end Help Box -->
             <!-- End Sidebar -->
@@ -252,7 +258,7 @@
                     </li>
 
 
-                    <li class="dropdown notification-list">
+                    <li id="blockUser" class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#"
                            role="button" aria-haspopup="false"
                            aria-expanded="false">
@@ -261,8 +267,8 @@
                                              class="rounded-circle img-fluid">
                                     </span>
                             <span>
-                                        <span class="account-user-name">Phạm Quang Thăng</span>
-                                        <span class="account-position">Sinh viên</span>
+                                        <span id="userName" class="account-user-name">Phạm Quang Thăng</span>
+                                        <span id="typeUser" class="account-position">Sinh viên</span>
                                     </span>
                         </a>
                         <div
@@ -279,7 +285,7 @@
                             </a>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a id="buttonLogout" href="javascript:void(0);" class="dropdown-item notify-item">
                                 <i class="fa-solid fa-arrow-right-from-bracket mr-1"></i>
                                 <span>Đăng xuất</span>
                             </a>
@@ -321,7 +327,7 @@
                                         <div class="btn-rounded h-100 p-2 h5 pl-4 mt-1"
                                              style="background-color: rgba(210, 215, 219,0.35);" data-toggle="modal"
                                              data-target="#new-post-modal">
-                                            Bạn đang nghĩ gì thế?
+                                            Bạn muốn đăng bài? Nhấp vào đây!
                                         </div>
                                     </div>
                                 </div>
@@ -455,177 +461,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="for-detail-post" class="row">
-                    <div id="breadcrumb" class="col-12">
-                        <div class="page-title-box">
-                            <div class="page-title">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb font-weight-semibold">
-                                        <li class="breadcrumb-item"><a href="#">Đề thi</a></li>
-                                        <li class="breadcrumb-item"><a href="#">KHTN</a></li>
-                                        <li class="breadcrumb-item active text-dark" aria-current="page">Đề thi của
-                                            Nhật
-                                        </li>
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="post-only" class="col-12">
-                        <div class="card" id="post-detail">
-                            <div class="card-body pb-1">
-                                <div class="media">
-                                    <img class="mr-2 rounded" src="./assets/img/avatar.jpg"
-                                         alt="Generic placeholder image" height="32">
-                                    <div class="media-body">
-                                        <div class="dropdown float-right text-muted">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                               data-toggle="dropdown" aria-expanded="false">
-                                                <i class="fa-solid fa-ellipsis"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" data-id="1" class="dropdown-item">Sửa</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" data-id="1" class="dropdown-item">Xóa</a>
-                                            </div>
-                                        </div>
-                                        <h5 class="m-0">Trịnh Nhật</h5>
-                                        <p class="text-muted">
-                                            <small>
-                                                <i class="fa-regular fa-clock pr-1"></i>2022-10-14T17:00:43.125Z
-                                            </small>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <hr class="m-0">
-                                <div class="mx-2 py-2 text-left text-dark" style="font-size: 1.0125rem">
-                                    Đề thi và đáp án tham khảo môn Giải Tích 1 kỳ 2 năm học 2021-2022
-                                    <br>
-                                    <iframe class="w-100 mt-3" style="height: 50vh"
-                                            src="https://drive.google.com/file/d/1QP2HkbqWF7aW0sQ93DJyw41j2Nhse4qo/preview">
-                                    </iframe>
-                                    <!--                                    thêm img or cái gì cx đc-->
-                                </div>
-                                <hr class="m-0">
-
-                                <div class="m-0 row">
-                                    <a href="javascript: void(0);"
-                                       class="like-button col-6 text-center btn btn-sm btn-link pl-0"
-                                       data-id="1">
-                                        <i class="fa-regular fa-thumbs-up"></i> 2 Lượt thích
-                                    </a>
-
-                                    <label class="comment-button col-6 text-center btn btn-sm btn-link mb-0"
-                                           for="current-comment">
-                                        <i class="fa-solid fa-comment"></i> 2 Bình luận
-                                    </label>
-
-                                </div>
-
-                                <hr class="m-0">
-
-                                <div class="mt-3">
-                                    <!-- binh luan 1-->
-                                    <div class="media">
-                                        <img class="mr-2 rounded" src="./assets/img/logo-hus.png"
-                                             alt="Generic placeholder image" height="40px">
-                                        <div class="media-body">
-                                            <h5 class="m-0">Nguyễn Văn B </h5>
-
-                                            <p class="my-1">Ôi!!! Mình tìm bài này mãi</p>
-
-                                        </div> <!-- end media-body -->
-                                    </div>
-                                    <!-- binh luan 2-->
-                                    <div class="media">
-                                        <img class="mr-2 rounded" src="./assets/img/logo-hus.png"
-                                             alt="Generic placeholder image" height="40px">
-                                        <div class="media-body">
-                                            <h5 class="m-0">Phạm Văn A</h5>
-
-                                            <p class="my-1">Đề này khó quá, ai có cách giải không ạ?</p>
-
-                                        </div> <!-- end media-body -->
-                                    </div>
-                                    <hr>
-                                    <!-- binh luan se viet -->
-                                    <div class="media mb-2">
-                                        <img src="./assets/img/logo-hus.png" height="40px"
-                                             class="align-self-start rounded mr-2" alt="Arya Stark">
-                                        <form class="media-body mt-1 d-flex flex-row" data-id="1">
-                                            <input type="text" class="form-control border-0 form-control-sm flex-grow-1"
-                                                   placeholder="Write a comment" id="current-comment">
-                                            <button class="border-0 bg-white text-info ml-1" type="submit">
-                                                <i class="fa-regular fa-paper-plane text-22"></i>
-                                            </button>
-                                        </form> <!-- end medi-body -->
-                                    </div> <!-- end media-->
-
-                                </div>
-                            </div> <!-- end card-body -->
-
-                        </div>
-                    </div>
-                    <div id="relative" class="col-12">
-                        <div class="card">
-
-                            <div class="card-header text-dark text-left h3">Tài liệu liên quan
-                                <div class="card-widgets">
-                                    <a data-toggle="collapse" href="#relative-card" role="button" aria-expanded="false"
-                                       aria-controls="relative-card" class="collapsed"><i class="mdi mdi-minus"></i></a>
-                                </div>
-                            </div>
-                            <div class="card-body collapse" id="relative-card">
-                                <div class="card-deck-wrapper">
-                                    <div class="card-deck">
-                                        <div id="related-post-1" class="card d-block">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Đề thi và đáp án tham khảo môn Giải Tích 1 kỳ 2
-                                                    năm học 2021-2022</h5>
-                                                <p class="card-text">
-                                                    <small class="text-muted">2022-10-14T17:00:43.125Z</small>
-                                                    <iframe class="w-100 mt-3" style="height: 25vh"
-                                                            data-src="https://drive.google.com/file/d/1QP2HkbqWF7aW0sQ93DJyw41j2Nhse4qo/preview">
-                                                    </iframe>
-                                                    <!--                                    thêm img or cái gì cx đc-->
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div id="related-post-2" class="card d-block">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Đề thi và đáp án tham khảo môn Giải Tích 1 kỳ 2
-                                                    năm học 2021-2022</h5>
-                                                <p class="card-text">
-                                                    <small class="text-muted">2022-10-14T17:00:43.125Z</small>
-                                                    <iframe class="w-100 mt-3" style="height: 25vh"
-                                                            data-src="https://drive.google.com/file/d/1QP2HkbqWF7aW0sQ93DJyw41j2Nhse4qo/preview">
-                                                    </iframe>
-                                                    <!--                                    thêm img or cái gì cx đc-->
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div id="related-post-3" class="card d-block">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Đề thi và đáp án tham khảo môn Giải Tích 1 kỳ 2
-                                                    năm học 2021-2022</h5>
-                                                <p class="card-text">
-                                                    <small class="text-muted">2022-10-14T17:00:43.125Z</small>
-                                                    <iframe class="w-100 mt-3" style="height: 25vh"
-                                                            data-src="https://drive.google.com/file/d/1QP2HkbqWF7aW0sQ93DJyw41j2Nhse4qo/preview">
-                                                    </iframe>
-                                                    <!--                                    thêm img or cái gì cx đc-->
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div id="for-createNCKH" class="row">
                     <div class="col-12">
                         <div class="page-title-box">
@@ -1429,5 +1265,6 @@
 <script type="module" src="./assets/js/exam.js"></script>
 <script type="module" src="./assets/js/home.js"></script>
 <script type="module" src="./assets/js/department.js"></script>
+<script type="module" src="./assets/js/logout.js"></script>
 </body>
 </html>

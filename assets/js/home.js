@@ -9,21 +9,39 @@ async function getUser() {
     const idUser = getCookie("idUser")
     const user = await getUserByID(idUser)
 
-    const buttonAvatar = document.getElementById("buttonAvatar");
-    const buttonRegister = document.getElementById("buttonRegister");
-    const nameUser = document.getElementById("nameUser");
+    const userName = document.getElementById("userName");
+    const typeUser = document.getElementById("typeUser");
+    // const avatar = await getAvatarUser(user._id);
+    // const nameUser = document.getElementById("nameUser");
     // const buttonProfile = document.getElementById("buttonProfile");
+    const buttonAdmin = document.querySelector("#buttonAdmin");
+    const buttonGV = document.querySelector("#buttonGV");
+    const buttonSV = document.querySelector("#buttonSV");
+    console.log(buttonAdmin);
+    buttonAdmin.style.display = "block !important";
+    console.log(buttonAdmin);
     if (user) {
+        userName.innerText = user.firstName + " " + user.lastName;
+        let buttonRegister = document.getElementById("buttonRegister");
+        let buttonLogin = document.getElementById("buttonLogin");
+        buttonLogin.style.display = "none";
         buttonRegister.style.display = "none";
-        buttonAvatar.style.display = "block";
-        const fullName = user.firstName + " " + user.lastName;
-        nameUser.innerText = fullName;
+            if (user.isAdmin) {
+                typeUser.innerText = "Admin";
+                buttonAdmin.style.display = "block";
+            } else if (user.isStudent) {
+                typeUser.innerText = "Sinh viên";
+                buttonSV.style.display = "block";
+            } else {
+                typeUser.innerText = "Giảng viên";
+                buttonGV.style.display = "block";
+            }
+        }
     }
-}
+
 
 
 getUser();
-
 
 // async function getDataResearch () {
 //     const data = await getAllResearch()
@@ -32,16 +50,16 @@ getUser();
 
 // getDataResearch()
 
- async function getDataExam () {
-     const data = await getAllExam()
-     console.log(data);  
- }
-getDataExam()
+//  async function getDataExam () {
+//      const data = await getAllExam()
+//      console.log(data);  
+//  }
+// getDataExam()
 
- async function getDataDepartment () {
-     const data = await getAllDepartment()
-     console.log(data);  
- }
+//  async function getDataDepartment () {
+//      const data = await getAllDepartment()
+//      console.log(data);  
+//  }
 
-getDataDepartment()
+// getDataDepartment()
 
