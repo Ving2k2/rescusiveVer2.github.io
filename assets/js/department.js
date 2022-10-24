@@ -10,6 +10,7 @@ async function getUser(id) {
 }
 
 const getAllDepartment = async () => {
+
     const data = await getDepartment()
     if(data) {
         const container = document.querySelector(".box__department")
@@ -18,7 +19,7 @@ const getAllDepartment = async () => {
          data.forEach(async(item, index) => {
             const nameDepartment = item.name
             var codeHtml =  `
-                    <a href="javascript: void(0);" class="side-nav-link item-link">
+                    <a href="javascript: void(0);" class="side-nav-link item-link get__id">
                         <i class="fa-solid fa-flask"></i>
                         <span> ${nameDepartment} </span>
                         <span class="menu-arrow"></span>
@@ -39,8 +40,14 @@ const getAllDepartment = async () => {
           li.innerHTML = codeHtml
           container.appendChild(li)
         });
-        // console.log(codeHtml);
       }
 }
-
 getAllDepartment()
+ 
+const list = document.getElementsByClassName("get__id")
+console.log(list)
+Array.from(list).forEach(element => {
+    element.addEventListener('click', () => {
+      console.log("123");
+    });
+});
