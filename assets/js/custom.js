@@ -26,6 +26,44 @@ $(document).ready(function () {
     }
     underline_only()
 
+    // summernote
+    function summernote() {
+        create = $("#summernote-create")
+        if(create.length)
+            create.summernote({
+                placeholder: "Viết giới thiệu, tóm tắt đề tài...",
+                height: 230,
+                callbacks: {
+                    onInit: function (e) {
+                        $(e.editor).find(".custom-control-description").addClass("custom-control-label").parent().removeAttr("for")
+                    }
+                }
+            })
+        edit = $("#summernote-edit")
+        if(edit.length)
+            create.summernote({
+                placeholder: "Viết giới thiệu, tóm tắt đề tài...",
+                height: 230,
+                callbacks: {
+                    onInit: function (e) {
+                        $(e.editor).find(".custom-control-description").addClass("custom-control-label").parent().removeAttr("for")
+                    }
+                }
+            })
+        mark=$("#summernote-basic-3")
+        if(mark.length)
+            mark.summernote({
+            placeholder: "Viết bình luận...",
+            height: 230,
+            callbacks: {
+                onInit: function (e) {
+                    $(e.editor).find(".custom-control-description").addClass("custom-control-label").parent().removeAttr("for")
+                }
+            }
+        })
+    }
+    summernote()
+
     $(document).on('click', '.like-button', function () {
         $(this).children("i").toggleClass("text-danger")
         // ajax send like
@@ -52,6 +90,7 @@ $(document).ready(function () {
         $('[data-toggle="toast"]').toast();
         $('[data-toggle="touchspin"]').TouchSpin();
         underline_only()
+        summernote()
     });
     observer3.observe($('body')[0], {childList: true, subtree: true})
 
