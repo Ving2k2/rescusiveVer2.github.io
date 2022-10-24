@@ -1,5 +1,5 @@
 import loginUser from "../apiServices/user/loginUser.js";
-
+import {url} from "./enviroment.js";
 const buttonLogin = document.querySelector(".button-login");
 async function handerLogin(e) {
     e.preventDefault()
@@ -11,7 +11,7 @@ async function handerLogin(e) {
     }
     const res = await loginUser(user)
     if (res) {
-        window.location = "/index.html"
+        window.location = url+"/index.html"
     } else {
         alert("Tài khoản hoặc mật khẩu không đúng! Vui lòng nhâp lại")
     }

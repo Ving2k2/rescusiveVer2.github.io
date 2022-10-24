@@ -47,18 +47,18 @@ const getDataResearchSearch = async (name) => {
                 </div>
                 <div class="clear"></div>
               </div>
-      
+
               <div class="caption text-start pt-4 px-6 text-xl">${nameResearch}</div>
               <div class="caption text-start pt-4 px-6 text-xl">${descResearch}</div>
             </div>
-      
+
             <!-- <div class="time-and-school text-start text-gray-200 mb-8">
                   <p class="float-left my-1 text-gray-200 mx-2"><i class="fa-regular fa-clock"></i><a class ="text-gray-200 mx-2" href="">09/07/2022</a></p>
                   <p class="float-left my-1 text-gray-200 mx-2"><i class="fa-regular fa-comment"></i><a class ="text-gray-200 mx-2" href="#">0</a><p>
                   <div class="clear"></div>
               </div> -->
             <div class="clear"></div>
-      
+
             <!--Begin View file -->
             <div class="view page">
               <iframe class="inline-flex max-w-full max-h-screen rounded-lg"
@@ -80,23 +80,23 @@ const getDataResearchSearch = async (name) => {
               </div>
               <div class="clear"></div>
             </div>
-      
+
             <div class="reaction max-w-full mx-2 mb-2 border-t-1 border-b-1 ">
               <div
                 class="like-block float-left w-1/2 py-2 text-center hover:border-opacity-60 hover:cursor-pointer hover:bg-slate-500 rounded-lg">
-      
+
                 <p class="text-black"><i class="fa-regular fa-thumbs-up my-2 mx-2"></i>like</p>
               </div>
-      
+
               <div
                 class="comment-block float-left w-1/2 py-2 text-center hover:border-opacity-60 hover:cursor-pointer hover:bg-slate-500 rounded-lg">
-      
+
                 <p class="text-black"><i class="fa-regular fa-comment my-2 mx-2"></i>Comment</p>
               </div>
               <div class="clear"></div>
             </div>
-      
-      
+
+
             <div class="user-comments">
               <div class="user1-comment my-4">
                 <div class="comment">
@@ -111,7 +111,7 @@ const getDataResearchSearch = async (name) => {
                   <div class="clear"></div>
                 </div>
               </div>
-      
+
               <div class="user2-comment my-4">
                 <div class="comment">
                   <div class="avatar float-left mx-4">
@@ -126,9 +126,9 @@ const getDataResearchSearch = async (name) => {
                 </div>
               </div>
             </div>
-      
+
             <div class="max-w-full mx- bg-transparent">
-      
+
               <form>
                 <label for="chat" class="sr-only">Comment</label>
                 <div class="flex items-center py-2 px-3 bg-transparent rounded-lg border-solid border-l-zinc-500">
@@ -161,12 +161,12 @@ const getDataResearchSearch = async (name) => {
                 </div>
               </form>
             </div>
-      
+
           </div>`
           const div = document.createElement("div")
           div.innerHTML = codeHtml
           container.appendChild(div)
-          
+
         });
   } else {
     const container = document.querySelector(".box__research")
@@ -240,18 +240,18 @@ const getAllResearch = async () => {
              </div>
              <div class="clear"></div>
            </div>
-   
+
            <div class="caption text-start pt-4 px-6 text-xl">${nameResearch}</div>
            <div class="caption text-start pt-4 px-6 text-xl">${descResearch}</div>
          </div>
-   
+
          <!-- <div class="time-and-school text-start text-gray-200 mb-8">
                <p class="float-left my-1 text-gray-200 mx-2"><i class="fa-regular fa-clock"></i><a class ="text-gray-200 mx-2" href="">09/07/2022</a></p>
                <p class="float-left my-1 text-gray-200 mx-2"><i class="fa-regular fa-comment"></i><a class ="text-gray-200 mx-2" href="#">0</a><p>
                <div class="clear"></div>
            </div> -->
          <div class="clear"></div>
-   
+
          <!--Begin View file -->
          <div class="view page">
            <iframe class="inline-flex max-w-full max-h-screen rounded-lg"
@@ -273,23 +273,23 @@ const getAllResearch = async () => {
            </div>
            <div class="clear"></div>
          </div>
-   
+
          <div class="reaction max-w-full mx-2 mb-2 border-t-1 border-b-1 ">
            <div
              class="like-block float-left w-1/2 py-2 text-center hover:border-opacity-60 hover:cursor-pointer hover:bg-slate-500 rounded-lg">
-   
+
              <p class="text-black"><i class="fa-regular fa-thumbs-up my-2 mx-2"></i>like</p>
            </div>
-   
+
            <div
              class="comment-block float-left w-1/2 py-2 text-center hover:border-opacity-60 hover:cursor-pointer hover:bg-slate-500 rounded-lg">
-   
+
              <p class="text-black"><i class="fa-regular fa-comment my-2 mx-2"></i>Comment</p>
            </div>
            <div class="clear"></div>
          </div>
-   
-   
+
+
          <div class="user-comments">
            <div class="user1-comment my-4">
              <div class="comment">
@@ -304,7 +304,7 @@ const getAllResearch = async () => {
                <div class="clear"></div>
              </div>
            </div>
-   
+
            <div class="user2-comment my-4">
              <div class="comment">
                <div class="avatar float-left mx-4">
@@ -319,9 +319,9 @@ const getAllResearch = async () => {
              </div>
            </div>
          </div>
-   
+
          <div class="max-w-full mx- bg-transparent">
-   
+
            <form>
              <label for="chat" class="sr-only">Comment</label>
              <div class="flex items-center py-2 px-3 bg-transparent rounded-lg border-solid border-l-zinc-500">
@@ -354,12 +354,12 @@ const getAllResearch = async () => {
              </div>
            </form>
          </div>
-   
+
        </div>`
        const div = document.createElement("div")
        div.innerHTML = codeHtml
        container.appendChild(div)
-       
+
      });
     }
   }

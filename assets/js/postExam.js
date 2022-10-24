@@ -1,8 +1,7 @@
 import addExam from "../apiServices/exam/addExam.js";
 import getUserById from "../apiServices/user/getUserById.js";
 import { getCookie } from "../utils/libCookie.js";
-
-const buttonPost = document.querySelector("#buttonPostExam");
+import {url} from "./enviroment.js";
 
 async function handerPostExam(e) {
     const idUserPost = getCookie("idUser");
@@ -11,7 +10,7 @@ async function handerPostExam(e) {
     console.log(userPost);
     e.preventDefault()
     const name = document.getElementById("post-content-edit").value;
-    const fileExam = document.getElementById("file-previews").value;
+    const fileExam = document.getElementById("file-input").value;
 
     const exam = {
         name: name,
@@ -22,13 +21,18 @@ async function handerPostExam(e) {
         userPost: userPost
     }
     console.log(exam);
-    
+
     const res = await addExam(exam)
     console.log(res);
     if (res) {
-        window.location = "/index.html"
+        window.location = url+"/index.html"
     }
 
 }
+document.body.addEventListener( 'click', function ( e ) {
+  if( e.target.id == 'buttonPostExam' ) {
+    handerPostExam()
+  };
+} );
+// document.querySelector("#buttonPostExam").addEventListener('click', (e) => handerPostExam(e));
 
-buttonPost.addEventListener('click', (e) => handerPostExam(e));

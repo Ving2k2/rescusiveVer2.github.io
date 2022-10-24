@@ -1,5 +1,6 @@
 import axios from "axios";
 import registerUser from "../apiServices/user/registerUser.js";
+import {url} from "./enviroment.js";
 
 // đăng ký
 
@@ -27,17 +28,17 @@ async function handerRegister(e) {
         lastName: lastName,
         email: emailRegister,
         password: passwordRegister,
-        codeSudentOrLecturers: personCode,      
+        codeSudentOrLecturers: personCode,
         isLecturers: isLecturers,
         isStudent: isStudent,
 
     }
     console.log(user);
-    
+
     const res = await registerUser(user)
     console.log(res);
     if (res) {
-        window.location = "/login.html"
+        window.location = url+"/login.html"
     }
 
 }
