@@ -1,7 +1,7 @@
 
 import getUserById from "../apiServices/user/getUserById.js"
 import getDepartment from "../apiServices/department/getAllDepartment.js"
-
+import getSubjectByIdDepartment from "../apiServices/subject/getSubjectByIdDepartment.js"
 async function getUser(id) {
     const user = await getUserById(id)
     if (user) {
@@ -17,26 +17,27 @@ const getAllDepartment = async () => {
         
          data.forEach(async(item, index) => {
             const nameDepartment = item.name
-            const codeHtml =  `
-            <li class="side-nav-item item-link">
+            var codeHtml =  `
                     <a href="javascript: void(0);" class="side-nav-link item-link">
                         <i class="fa-solid fa-flask"></i>
                         <span> ${nameDepartment} </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <ul class="side-nav-second-level item-link" aria-expanded="false">
-                        <li>
-                            <a href="#" class="item-link">Hóa học</a>
-                        </li>
-                        <li>
-                            <a href="#" class="item-link">Thực phẩm</a>
-                        </li>
-                    </ul>
-                </li>`  
-
-          const div = document.createElement("div")
-          div.innerHTML = codeHtml
-          container.appendChild(div)
+                    <ul class="side-nav-second-level item-link" aria-expanded="false">` 
+          const subject = await getSubjectByIdDepartment(item._id)
+            subject.forEach(item2 => {
+                const nameSubject = item2.name
+                codeHtml += `
+                    <li>
+                        <a href="javascript: void(0);" class="side-nav-link">${nameSubject}</a>
+                    </li>
+                `
+            })
+          codeHtml += `</ul>`
+          const li = document.createElement("li")
+          li.className = "side-nav-item item-link"
+          li.innerHTML = codeHtml
+          container.appendChild(li)
         });
         // console.log(codeHtml);
       }

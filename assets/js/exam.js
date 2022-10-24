@@ -9,7 +9,7 @@ async function getUser(id) {
         return user
     }
 }
-console.log("dsgfjsdg");
+//console.log("dsgfjsdg");
 
 // const getDataExamSearch = async () => {
 //   const elementSearchExan = document.querySelector(".search__exam")
@@ -39,9 +39,9 @@ const getAllExam = async () => {
             const fullName = `${user.firstName} ${user.lastName}`
             const nameExam = item.name
             const date = item.createAt
-            const exam = getFileExam(item._id)
             const idSubject = item.idExamSubject
             const imgSchool = await getImgSchool(idSubject)
+            const fileExam = await getFileExam(item._id)
             const status = item.isPublic
             if (status == true) {
             const codeHtml =  `
@@ -80,7 +80,7 @@ const getAllExam = async () => {
                     Đề thi và đáp án tham khảo môn Giải Tích 1 kỳ 2 năm học 2021-2022
                     <br>
                     <iframe class="w-100 mt-3" style="height: 50vh"
-                            data-src="${exam}">
+                            data-src="${fileExam}">
                     </iframe>
                 </div>
                 <hr class="m-0">
