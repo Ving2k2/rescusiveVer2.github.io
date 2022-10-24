@@ -29,7 +29,7 @@ const getAllDepartment = async () => {
                 const nameSubject = item2.name
                 codeHtml += `
                     <li>
-                        <a href="javascript: void(0);" class="side-nav-link">${nameSubject}</a>
+                    <a href="#" class="item-link">${nameSubject}</a>
                     </li>
                 `
             })
