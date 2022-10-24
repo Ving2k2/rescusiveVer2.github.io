@@ -10,6 +10,7 @@ async function getUser(id) {
 }
 
 const getAllDepartment = async () => {
+
     const data = await getDepartment()
     if(data) {
         const container = document.querySelector(".box__department")
@@ -35,12 +36,18 @@ const getAllDepartment = async () => {
             })
           codeHtml += `</ul>`
           const li = document.createElement("li")
-          li.className = "side-nav-item item-link"
+          li.className = "side-nav-item item-link get__id"
           li.innerHTML = codeHtml
           container.appendChild(li)
         });
-        // console.log(codeHtml);
       }
 }
-
 getAllDepartment()
+ 
+// const list = document.getElementsByClassName("get__id")
+// console.log(list)
+// Array.from(list).forEach(element => {
+//      element.addEventListener('click', () => {
+//       console.log("123");     
+//     })
+//  });

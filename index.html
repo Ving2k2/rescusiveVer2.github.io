@@ -299,11 +299,11 @@
                 <div class="app-search dropdown d-none d-lg-block">
                     <form>
                         <div class="input-group">
-                            <input type="text" class="form-control dropdown-toggle" placeholder="Search..."
+                            <input type="text" class="search__exam form-control dropdown-toggle" placeholder="Search..."
                                    id="top-search">
                             <span class="fa-solid fa-magnifying-glass search-icon"></span>
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">Search</button>
+                                <button class="btn btn-primary btn__search" type="submit">Search</button>
                             </div>
                         </div>
 
@@ -377,12 +377,13 @@
                                                      id="myAwesomeDropzone"
                                                      data-plugin="dropzone"
                                                      data-previews-container="#file-previews"
-                                                     data-upload-preview-template="#uploadPreviewTemplate">
+                                                     data-upload-preview-template="#uploadPreviewTemplate"
+                                                     data-url="/" data-maxFile="1">
                                                     <div class="d-flex flex-row-reverse">
                                                         <div data-toggle="collapse"
                                                              href="#dropzone" role="button" aria-expanded="false"
                                                              aria-controls="dropzone"><i
-                                                            class="fa-solid fa-xmark"></i></i>
+                                                            class="fa-solid fa-xmark"></i>
                                                         </div>
                                                     </div>
                                                     <div class="fallback">
@@ -479,9 +480,9 @@
                                     </div>
 
                                     <div class="pl-0 mx-1 h5">
-                                        <label for="summernote-basic" class="mb-2 font-weight-semibold text-dark">Tóm
+                                        <label for="summernote-create" class="mb-2 font-weight-semibold text-dark">Tóm
                                             tắt đề tài:</label>
-                                        <div id="summernote-basic"></div>
+                                        <div id="summernote-create" class="summernote"></div>
                                     </div>
                                     <div style="margin-left: 0.4rem; margin-bottom: 0.5rem">
                                         <input type="checkbox" name="" id="accept" class="">
@@ -561,9 +562,7 @@
 <script src="./assets/js/vendor.js"></script>
 <script src="./assets/js/app.js"></script>
 <script src="assets/js/vendor/summernote-bs4.min.js"></script>
-<script src="assets/js/demo.summernote.js"></script>
 <script src="assets/js/vendor/dropzone.min.js"></script>
-<script src="./assets/js/dropzone.js"></script>
 <script src="./assets/js/custom.js"></script>
 <script type="module" src="./assets/js/exam.js"></script>
 <script type="module" src="./assets/js/home.js"></script>
