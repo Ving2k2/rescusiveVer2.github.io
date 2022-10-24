@@ -16,9 +16,97 @@ async function getUser() {
     const buttonAdmin = document.querySelector("#buttonAdmin");
     const buttonGV = document.querySelector("#buttonGV");
     const buttonSV = document.querySelector("#buttonSV");
+    const customPost = document.querySelector("#customPost");
     buttonAdmin.style.display = "block !important";
     if (user) {
         userName.innerText = user.firstName + " " + user.lastName;
+        let codeHTML = `
+        <img src="./assets/img/Avatar-Facebook-trắng.jpg" alt="table-user"
+             class="mr-2 rounded-circle" height="50px">
+        <span class="h4 font-weight-semibold text-dark">${user.firstName + " " + user.lastName}</span>
+        <form action="">
+        <textarea class="post-content-edit text-dark"
+                  placeholder="${user.lastName} ơi, bạn đang nghĩ gì thế?"></textarea>
+
+            <div class="edit-post-msc h4">
+                <div class="row">
+                    <div class="col-8">
+                        Thêm vào bài viết của bạn:
+                    </div>
+
+                    <div class="col-4 d-flex flex-row-reverse align-content-between ">
+                        <div class="flex-grow-1" data-toggle="collapse"
+                             href="#dropzone" role="button" aria-expanded="false"
+                             aria-controls="dropzone"><i class="fa fa-image"></i>
+                        </div>
+                        <div class="flex-grow-1" data-toggle="collapse"
+                             href="#dropzone" role="button" aria-expanded="false"
+                             aria-controls="dropzone"><i class="fa fa-file"></i></div>
+                        <div class="flex-grow-1" data-toggle="collapse"
+                             href="#dropzone" role="button" aria-expanded="false"
+                             aria-controls="dropzone"><i class="fa fa-video"></i></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="collapse w-100 mt-2 mb-0" id="dropzone">
+
+                <div class="dropzone"
+                     id="myAwesomeDropzone"
+                     data-plugin="dropzone"
+                     data-previews-container="#file-previews"
+                     data-upload-preview-template="#uploadPreviewTemplate"
+                     data-url="/" data-maxFile="1">
+                    <div class="d-flex flex-row-reverse">
+                        <div data-toggle="collapse"
+                             href="#dropzone" role="button" aria-expanded="false"
+                             aria-controls="dropzone"><i
+                            class="fa-solid fa-xmark"></i>
+                        </div>
+                    </div>
+                    <div class="fallback">
+                        <input name="file" type="file" multiple/>
+                    </div>
+
+                    <div class="dz-message needsclick">
+                        <i class="h1 text-muted fa-solid fa-cloud-arrow-up"></i>
+                        <h3>Kéo file hoặc click vào đây để tải lên.</h3>
+                    </div>
+                </div>
+
+                <!-- Preview -->
+                <div class="dropzone-previews mt-3" id="file-previews"></div>
+
+                <!-- file preview template -->
+                <div class="d-none" id="uploadPreviewTemplate">
+                    <div class="card mt-1 mb-0 shadow-none border">
+                        <div class="p-2">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <img data-dz-thumbnail src="#"
+                                         class="avatar-sm rounded bg-light" alt="">
+                                </div>
+                                <div class="col pl-0">
+                                    <a href="javascript:void(0);"
+                                       class="text-muted font-weight-bold"
+                                       data-dz-name></a>
+                                    <p class="mb-0" data-dz-size></p>
+                                </div>
+                                <div class="col-auto">
+                                    <!-- Button -->
+                                    <a href=""
+                                       class="btn btn-link btn-lg text-muted"
+                                       data-dz-remove>
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>`;
+        customPost.innerHTML = codeHTML;
         let buttonRegister = document.getElementById("buttonRegister");
         let buttonLogin = document.getElementById("buttonLogin");
         buttonLogin.style.display = "none";
