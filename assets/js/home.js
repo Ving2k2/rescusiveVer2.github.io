@@ -57,10 +57,21 @@ async function getUser() {
                             <img src="${avatar? avatar :"/src/img/Avatar-Facebook-trắng.jpg"}" alt="table-user"
                                 class="avatar-sm mr-2 rounded-circle" height="50px">
                             <span class="h4 font-weight-semibold text-dark">${userName}</span>
+                            <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
+                                        <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên khoa:</label>
+                                        <input type="text" id="name-department" class="underline-only">
+                            </div>
+                            <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
+                                        <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên môn:</label>
+                                        <input type="text" id="name-subject" class="underline-only">
+                            </div>
+                            <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
+                                        <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên Khoa:</label>
+                                        <input type="text" id="name-exam" class="underline-only">
+                            </div>
                             <form action="">
             <textarea class="post-content-edit text-dark"
-                    placeholder="${user.lastName} ơi, bạn đang nghĩ gì thế?"></textarea>
-
+                    placeholder="${user.lastName} ơi, bạn có thể mô tả thêm về đề thi không?"></textarea>
                                 <div class="edit-post-msc h4">
                                     <div class="row">
                                         <div class="col-8">

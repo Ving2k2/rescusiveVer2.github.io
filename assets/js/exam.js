@@ -20,6 +20,7 @@ async function getUser(id) {
 
 const result = document.querySelector("#search-dropdown");
 const getDataExamSearch = async (name) => {
+    result.innerHTML = "";
     const dataExam = await getAllExamByName(name)
     const dataPublic = []
     dataExam.forEach(item => {
@@ -27,9 +28,7 @@ const getDataExamSearch = async (name) => {
         dataPublic.push(item)
       }
     })
-    console.log(dataPublic)
-    console.log(dataPublic.length)
-    var codeHtml=`<div class="dropdown-header noti-title">
+    var codeHtml =`<div class="dropdown-header noti-title">
     <h5 class="text-overflow mb-2">Tìm thấy <span class="text-danger">${dataPublic.length}</span> kết quả</h5>
     </div>`
     if (dataPublic.length) {
@@ -40,7 +39,7 @@ const getDataExamSearch = async (name) => {
                         </div>
                         <div class="notification-list">`
             result.innerHTML = codeHtml
-           dataPublic.forEach(async(item, index) => {
+            dataPublic.forEach(async(item, index) => {
             const idUser = item.idUserPost
             const user = await getUserById(idUser)
             const fullName = `${user.firstName} ${user.lastName}`
@@ -48,7 +47,7 @@ const getDataExamSearch = async (name) => {
             const date = item.createAt
             const idSubject = item.idExamSubject
             const imgSubject = await getImgSchool(idSubject)
-            let codeHtml =
+            codeHtml +=
                    ` <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item mb-1" data-id="postid">
                                 <div class="media">
@@ -62,11 +61,12 @@ const getDataExamSearch = async (name) => {
                                 </div>
                             </a>
                         `
-            result.innerHTML += codeHtml
+            result.innerHTML = codeHtml
          });
             codeHtml += `</div>`
+
     }
-            result.innerHTML = codeHtml
+    result.innerHTML = codeHtml
 
 }
 
@@ -76,6 +76,7 @@ btnSearch.addEventListener("click", (e) => {
     e.preventDefault()
     const name = elementSearchExam.value
     getDataExamSearch(name)
+    console.log(name)
 })
 elementSearchExam.onkeydown=elementSearchExam.onkeyup=function () {
     if(elementSearchExam.value.length > 3)
