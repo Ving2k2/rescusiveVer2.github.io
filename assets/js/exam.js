@@ -70,7 +70,7 @@ const getDataExamSearch = async (name) => {
 
 }
 
-const elementSearchExam = document.querySelector(".search__exam")
+const elementSearchExam = document.querySelector("#top-search")
 const btnSearch = document.querySelector("#btn-search")
 btnSearch.addEventListener("click", (e) => {
     e.preventDefault()
