@@ -77,10 +77,10 @@ btnSearch.addEventListener("click", (e) => {
     const name = elementSearchExam.value
     getDataExamSearch(name)
 })
-$("#top-search").change(function () {
-    if ($(this).val().length > 3)
-    getDataExamSearch($(this).val())
-});
+elementSearchExam.onkeydown=elementSearchExam.onkeyup=function () {
+    if(elementSearchExam.value.length > 3)
+        getDataExamSearch(elementSearchExam.value)
+}
 
 const getDataExamBy2Id = async (idDepartment, idSubject) => {
      const dataExam = await getExamBy2Id(idDepartment, idSubject)
