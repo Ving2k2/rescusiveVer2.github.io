@@ -132,7 +132,6 @@ i.fa-solid.fa-download:hover{
     border-radius: 2em;
     box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
     padding: 0.4rem 0.5rem 0 0.5rem;
-
     background-color: #ffffff;
 }
 .fa-solid.fa-download{
@@ -186,3 +185,12 @@ i.fa-solid.fa-trash-can:hover{
 .table .action-icon {
     padding: 0 3px;
 }
+
+.search-item{
+    width: calc(85%);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}
+
