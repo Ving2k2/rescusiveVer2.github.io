@@ -39,7 +39,7 @@ const getDataResearchSearch = async (name) => {
               <div class="header-tus">
                 <div class="avatar float-left mx-4">
                   <img class="buttonAvatar after-login w-12 h-12 hover:cursor-pointer rounded-full"
-                    src="${avatar? avatar :"/src/img/Avatar-Facebook-trắng.jpg"}" alt="Rounded avatar">
+                    src="${avatar? avatar :"/src/img/default.jpg"}" alt="Rounded avatar">
                 </div>
                 <div class="name-and-time float-left rounded-3xl pr-1 text-black">
                   <p class="name-user text-start font-semibold text-black">${fullName}</p>
@@ -102,7 +102,7 @@ const getDataResearchSearch = async (name) => {
                 <div class="comment">
                   <div class="avatar float-left mx-4">
                     <img class="buttonAvatar after-login w-12 h-12 hover:cursor-pointer rounded-full"
-                      src="/src/img/Avatar-Facebook-trắng.jpg" alt="Rounded avatar">
+                      src="/src/img/default.jpg" alt="Rounded avatar">
                   </div>
                   <div class="content-comment float-left bg-slate-300 rounded-3xl px-6 py-1">
                     <p class="name-user text-start font-semibold">Nguyễn Văn B</p>
@@ -116,7 +116,7 @@ const getDataResearchSearch = async (name) => {
                 <div class="comment">
                   <div class="avatar float-left mx-4">
                     <img class="buttonAvatar after-login w-12 h-12 hover:cursor-pointer rounded-full"
-                      src="/src/img/Avatar-Facebook-trắng.jpg" alt="Rounded avatar">
+                      src="/src/img/default.jpg" alt="Rounded avatar">
                   </div>
                   <div class="content-comment float-left bg-slate-300 rounded-3xl px-6 py-1">
                     <p class="name-user text-start font-semibold">Phạm Văn A</p>
@@ -197,7 +197,7 @@ elementSearchResearch.addEventListener("keyup", (e) => {
 //                 <div class="comment">
 //                   <div class="avatar float-left mx-4">
 //                     <img class="buttonAvatar after-login w-12 h-12 hover:cursor-pointer rounded-full"
-//                       src="/src/img/Avatar-Facebook-trắng.jpg" alt="Rounded avatar">
+//                       src="/src/img/default.jpg" alt="Rounded avatar">
 //                   </div>
 //                   <div class="content-comment float-left bg-slate-300 rounded-3xl px-6 py-1">
 //                     <p class="name-user text-start font-semibold">${fullName}</p>
@@ -232,7 +232,7 @@ const getAllResearch = async () => {
            <div class="header-tus">
              <div class="avatar float-left mx-4">
                <img class="buttonAvatar after-login w-12 h-12 hover:cursor-pointer rounded-full"
-                 src="${avatar? avatar :"/src/img/Avatar-Facebook-trắng.jpg"}" alt="Rounded avatar">
+                 src="${avatar? avatar :"/src/img/default.jpg"}" alt="Rounded avatar">
              </div>
              <div class="name-and-time float-left rounded-3xl pr-1 text-black">
                <p class="name-user text-start font-semibold text-black">${fullName}</p>
@@ -295,7 +295,7 @@ const getAllResearch = async () => {
              <div class="comment">
                <div class="avatar float-left mx-4">
                  <img class="buttonAvatar after-login w-12 h-12 hover:cursor-pointer rounded-full"
-                   src="/src/img/Avatar-Facebook-trắng.jpg" alt="Rounded avatar">
+                   src="/src/img/default.jpg" alt="Rounded avatar">
                </div>
                <div class="content-comment float-left bg-slate-300 rounded-3xl px-6 py-1">
                  <p class="name-user text-start font-semibold">Nguyễn Văn B</p>
@@ -309,7 +309,7 @@ const getAllResearch = async () => {
              <div class="comment">
                <div class="avatar float-left mx-4">
                  <img class="buttonAvatar after-login w-12 h-12 hover:cursor-pointer rounded-full"
-                   src="/src/img/Avatar-Facebook-trắng.jpg" alt="Rounded avatar">
+                   src="/src/img/default.jpg" alt="Rounded avatar">
                </div>
                <div class="content-comment float-left bg-slate-300 rounded-3xl px-6 py-1">
                  <p class="name-user text-start font-semibold">Phạm Văn A</p>

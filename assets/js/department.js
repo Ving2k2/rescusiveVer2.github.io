@@ -23,7 +23,7 @@ const getAllDepartment = async () => {
             var codeHtml =  `
                     <a href="javascript: void(0);" class="side-nav-link item-link get_id">
                         <i class="fa-solid fa-flask"></i>
-                        <span> ${nameDepartment} </span>
+                        <span> Khoa ${nameDepartment} </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="side-nav-second-level item-link" aria-expanded="false">`
