@@ -280,8 +280,9 @@ const getAllResearch = async () => {
 }
 getAllResearch()
 
-// $(document).on('click', '#buttonNCKH',(e)=>{
-//   //document.querySelector(".box__exam").style.display = "none"
-//   let container = document.querySelector(".box__research")
-//   container.innerHTML = '';
-//   getAllResearch()})
+$(document).on('click', '#buttonNCKH',(e)=>{
+  document.querySelector(".box__exam").style.display = "none"
+//   document.querySelector(".box__research").innerHTML = '';
+  console.log("hehe");
+  getAllResearch()})
+
