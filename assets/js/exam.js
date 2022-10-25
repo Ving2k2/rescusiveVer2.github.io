@@ -5,10 +5,11 @@ import getFileExam from "../apiServices/exam/getFileExam.js";
 import getAllExamByName from "../apiServices/exam/getExamByName.js";
 import getExamBy2Id from "../apiServices/exam/getExamBy2Id.js";
 
-// window.addEventListener("load" , () => {
-//     sessionStorage.setItem("idDepartment" , null)
-//     sessionStorage.setItem("idSubject" , null)
-// })
+window.addEventListener("load" , () => {
+    sessionStorage.clear("idDeapartment")
+    sessionStorage.clear("idSubject")
+    getAllExam()
+})
 
 
 async function getUser(id) {
@@ -222,7 +223,7 @@ searchOnClick.addEventListener("click" , () => {
 })
 
 const getAllExam = async () => {
-    if (sessionStorage.getItem("idDepartment") == null && sessionStorage.getItem("idSubject") == null) {
+    if (sessionStorage.getItem("idDepartment") == null || sessionStorage.getItem("idSubject") == null) {
     const data = await getExam()
     if(data) {
         const container = document.querySelector(".box__exam")

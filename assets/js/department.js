@@ -10,7 +10,8 @@ async function getUser(id) {
 }
 
 const getAllDepartment = async () => {
-
+    var idDepartment = [];
+    var idSubject = [];
     const data = await getDepartment()
     if(data) {
         const container = document.querySelector(".box__department")
@@ -30,9 +31,10 @@ const getAllDepartment = async () => {
           const subject = await getSubjectByIdDepartment(item._id)
             subject.forEach(item2 => {
                 const nameSubject = item2.name
+                idSubject.push(item2._id)
                 codeHtml += `
                     <li>
-                    <a href="#" class="item-link">${nameSubject}</a>
+                    <a href="#" class="item-link get_id_subject">${nameSubject}</a>
                     </li>
                 `
             })
@@ -41,12 +43,19 @@ const getAllDepartment = async () => {
           li.className = "side-nav-item item-link"
           li.innerHTML = codeHtml
           container.appendChild(li)
-            
+        
+          idDepartment.push(item._id)
           const lis = document.querySelectorAll(".get_id")
-            lis.forEach(item => {
+            lis.forEach((item,index) => {
                 item.addEventListener("click", function() {
-                    sessionStorage.setItem("idDepartment", item._id)
-                    console.log(sessionStorage.getItem("idDepartment"))
+                    sessionStorage.setItem("idDepartment", idDepartment[index])
+                })
+            })
+
+            const lis2 = document.querySelectorAll(".get_id_subject")
+            lis2.forEach((item,index) => {
+                item.addEventListener("click", function() {
+                    sessionStorage.setItem("idSubject", idSubject[index])
                 })
             })
         });
