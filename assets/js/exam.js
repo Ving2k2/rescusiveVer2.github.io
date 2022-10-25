@@ -444,14 +444,11 @@ const getAllExam = async () => {
 }
 getAllExam()
 
-$(document).on('click', '#buttonDeThi',(e)=>{
-    // document.querySelector(".box__exam").innerHTML = '';
-    getAllExam()})
-
-// document.querySelector("#buttonDeThi").onclick = function() {
-//     // let mainContent = document.querySelector("#main-content")
-//     // mainContent.innerHTML = "";
-//     (e)=>{getAllExam()}
-    
-// };
+// $(document).on('click', '#buttonDeThi',(e)=>{
+//     //document.querySelector(".box__research").style.display = "none"
+//     let container = document.querySelector(".box__exam")
+//     container.innerHTML = '';
+//     getAllExam()
+// })
+  
 
