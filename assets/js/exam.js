@@ -286,7 +286,7 @@ const getDataExamBy2Id = async (idDepartment, idSubject) => {
                  <div class="post-content">
                      Đề thi và đáp án tham khảo môn Giải Tích 1 kỳ 2 năm học 2021-2022
                      <br>
-                     <iframe class="w-100 mt-3" style="height: 50vh"
+                     <iframe class="w-100 mt-3" style="height: 75vh"
                              data-src="${fileExam}">
                      </iframe>
                  </div>
@@ -427,7 +427,7 @@ const getAllExam = async () => {
                 <div class="post-content">
                     Đề thi và đáp án tham khảo môn Giải Tích 1 kỳ 2 năm học 2021-2022
                     <br>
-                    <iframe class="w-100 mt-3" style="height: 50vh"
+                    <iframe class="w-100 mt-3" style="height: 75vh"
                             data-src="${fileExam}">
                     </iframe>
                 </div>
@@ -499,4 +499,16 @@ const getAllExam = async () => {
     }
 }
 getAllExam()
+
+$(document).on('click', '#buttonDeThi',(e)=>{
+    let container = document.querySelector(".box__exam")
+    container.innerHTML = '';
+    getAllExam()})
+
+// document.querySelector("#buttonDeThi").onclick = function() {
+//     // let mainContent = document.querySelector("#main-content")
+//     // mainContent.innerHTML = "";
+//     (e)=>{getAllExam()}
+    
+// };
 

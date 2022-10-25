@@ -1131,7 +1131,7 @@
                 // remove loading
                 setTimeout(function () {
                     document.body.classList.remove('loading');
-                }, 550);
+                }, 3000);
 
                 $.RightBar.init();
 

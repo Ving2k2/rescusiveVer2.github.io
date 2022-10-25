@@ -9,7 +9,11 @@ import getAvatarUser from "../apiServices/user/getAvatarUser.js";
 // Sau khi đăng nhập từ quyền của mỗi người (admin, gv, sv) sẽ hiển thị ra ở thanh sidebar khác nhau
 async function getUser() {
     const idUser = getCookie("idUser")
+    if (idUser  == ''){
+        return;
+    }
     const user = await getUserByID(idUser)
+    console.log(user);
     const avatar = await getAvatarUser(idUser)
 
     // const avatar = await getAvatarUser(user._id);
@@ -32,7 +36,7 @@ async function getUser() {
                 <div class="card-body">
                     <div class="media mt-2">
                         <img class="mr-3 avatar-sm rounded-circle"
-                            src="${avatar? avatar :"./assets/img/Avatar-Facebook-trắng.jpg"}"
+                            src="${avatar? avatar :"./assets/img/default.jpg"}"
                             alt="Generic placeholder image">
                         <div class="media-body">
                             <div class="btn-rounded h-100 p-2 h5 pl-4 mt-1"
@@ -54,7 +58,7 @@ async function getUser() {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <img src="${avatar? avatar :"/src/img/Avatar-Facebook-trắng.jpg"}" alt="table-user"
+                            <img src="${avatar? avatar :"/src/img/default.jpg"}" alt="table-user"
                                 class="avatar-sm mr-2 rounded-circle" height="50px">
                             <span class="h4 font-weight-semibold text-dark">${userName}</span>
                             <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
@@ -162,7 +166,7 @@ async function getUser() {
                            role="button" aria-haspopup="false"
                            aria-expanded="false">
                                     <span class="account-user-avatar">
-                                        <img id="user-avatar" src="${avatar? avatar : "./assets/img/Avatar-Facebook-trắng.jpg"}" alt="user-image"
+                                        <img id="user-avatar" src="${avatar? avatar : "./assets/img/default.jpg"}" alt="user-image"
                                              class="rounded-circle img-fluid">
                                     </span>
                             <span>
@@ -178,7 +182,7 @@ async function getUser() {
                             </div>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a id = "buttonThongTinCaNhan" href="javascript:void(0);" class="dropdown-item notify-item">
                                 <i class="fa fa-user-pen mr-1"></i>
                                 <span>Thông tin cá nhân</span>
                             </a>
@@ -191,7 +195,6 @@ async function getUser() {
 
                         </div>`
         document.getElementById("blockUser").innerHTML=codeHTML;
-        console.log(document.getElementById("blockUser"));
         document.getElementById("buttonRegister").style.display = "none";
         document.getElementById("buttonLogin").style.display = "none";
 
@@ -222,12 +225,6 @@ async function getUser() {
                         <a href="#" class="side-nav-link item-link">
                             <i class="fa-solid fa-file-circle-question"></i>
                             <span> Quản lý đề thi </span>
-                        </a>
-                    </li>
-                    <li class="side-nav-item item-link">
-                        <a href="#" class="side-nav-link item-link">
-                            <i class="fa-solid fa-school"></i>
-                            <span> Quản lý khoa </span>
                         </a>
                     </li>
                 `
@@ -264,15 +261,52 @@ async function getUser() {
             buttonSV.innerHTML = codeHTML;
 
             const buttonCreateNCKH = document.querySelector("#buttonCreateNCKH");
-            const buttonHuongDan1 = document.querySelector("#buttonThamGia1");
+            const buttonThamGia1 = document.querySelector("#buttonThamGia1");
             let codeHTMLofChucNang = "";
             buttonCreateNCKH.onclick = function () {
                 let boxCreateNCKH = document.querySelector("#for-createNCKH");
-                boxCreateNCKH.style.display = "block"
+                let mainContent = document.querySelector("#main-content")
+                codeHTMLofChucNang = `
+                <div id="for-createNCKH" class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title h4 text-dark">Tạo đề tài nghiên cứu khoa học</div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
+                                        <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên đề
+                                            tài:</label>
+                                        <input type="text" id="name-theme" class="underline-only">
+                                    </div>
+
+                                    <div class="pl-0 mx-1 h5">
+                                        <label for="summernote-create" class="mb-2 font-weight-semibold text-dark">Tóm
+                                            tắt đề tài:</label>
+                                        <div id="summernote-create" class="summernote"></div>
+                                    </div>
+                                    <div style="margin-left: 0.4rem; margin-bottom: 0.5rem">
+                                        <input type="checkbox" name="" id="accept" class="">
+                                        <label for="accept" class="pl-1 mt-1 text-dark">Tôi đồng ý với điều
+                                            khoản</label>
+                                    </div>
+                                    <button class="btn btn-lg btn-outline-success">
+                                        <span>Đăng kí đề tài</span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+                mainContent.innerHTML = codeHTMLofChucNang;
             }
-            codeHTMLofChucNang = "";
-            buttonHuongDan1.onclick = function () {
+            
+            buttonThamGia1.onclick = function () {
                 let boxHuongDan = document.querySelector("#for-tham-gia-huong-dan");
+                let mainContent = document.querySelector("#main-content")
                 codeHTMLofChucNang = `
                     <div class="col-12">
                         <div class="page-title-box">
@@ -385,42 +419,42 @@ async function getUser() {
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Mat Helme" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Michael Zenaty" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="James Anderson" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Mat Helme" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Michael Zenaty" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="James Anderson" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
                                         </div>
@@ -429,7 +463,7 @@ async function getUser() {
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Mat Helme" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
                                         </div>
@@ -654,7 +688,7 @@ async function getUser() {
                                              id="myAwesomeDropzone1"
                                              data-plugin="dropzone"
                                              data-previews-container="#file-previews1"
-                                             data-upload-preview-template="#uploadPreviewTemplate1">
+                                             data-upload-preview-template="#uploadPreviewTemplate1" data-url="/">
                                             <div class="fallback">
                                                 <input name="file" type="file" multiple/>
                                             </div>
@@ -702,7 +736,7 @@ async function getUser() {
                         </div>
                     </div>
                 `;
-                boxHuongDan.innerHTML = codeHTMLofChucNang;
+                mainContent.innerHTML = codeHTMLofChucNang;
             }
             
         
@@ -761,46 +795,46 @@ async function getUser() {
             let codeHTMLofChucNang = "";
             buttonCreateNCKH.onclick = function () {
                 let boxCreateNCKH = document.querySelector("#for-createNCKH");
-                // codeHTMLofChucNang =
-                // `
-                //     <div class="col-12">
-                //         <div class="page-title-box">
-                //             <div class="page-title h4 text-dark">Tạo đề tài nghiên cứu khoa học</div>
-                //         </div>
-                //     </div>
-                //     <div class="col-12">
-                //         <div class="card">
-                //             <div class="card-body">
-                //                 <form>
-                //                     <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
-                //                         <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên đề
-                //                             tài:</label>
-                //                         <input type="text" id="name-theme" class="underline-only">
-                //                     </div>
+                let mainContent = document.querySelector("#main-content")
+                codeHTMLofChucNang = `
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title h4 text-dark">Tạo đề tài nghiên cứu khoa học</div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form>
+                                    <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
+                                        <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên đề
+                                            tài:</label>
+                                        <input type="text" id="name-theme" class="underline-only">
+                                    </div>
 
-                //                     <div class="pl-0 mx-1 h5">
-                //                         <label for="summernote-basic" class="mb-2 font-weight-semibold text-dark">Tóm
-                //                             tắt đề tài:</label>
-                //                         <div id="summernote-basic"></div>
-                //                     </div>
-                //                     <div style="margin-left: 0.4rem; margin-bottom: 0.5rem">
-                //                         <input type="checkbox" name="" id="accept" class="">
-                //                         <label for="accept" class="pl-1 mt-1 text-dark">Tôi đồng ý với điều
-                //                             khoản</label>
-                //                     </div>
-                //                     <button class="btn btn-lg btn-outline-success">
-                //                         <span>Đăng kí đề tài</span></button>
-                //                 </form>
-                //             </div>
-                //         </div>
-                //     </div>
-                // `;
-                // boxCreateNCKH.innerHTML = codeHTMLofChucNang;
-                boxCreateNCKH.style.display = "block"
+                                    <div class="pl-0 mx-1 h5">
+                                        <label for="summernote-create" class="mb-2 font-weight-semibold text-dark">Tóm
+                                            tắt đề tài:</label>
+                                        <div id="summernote-create" class="summernote"></div>
+                                    </div>
+                                    <div style="margin-left: 0.4rem; margin-bottom: 0.5rem">
+                                        <input type="checkbox" name="" id="accept" class="">
+                                        <label for="accept" class="pl-1 mt-1 text-dark">Tôi đồng ý với điều
+                                            khoản</label>
+                                    </div>
+                                    <button class="btn btn-lg btn-outline-success">
+                                        <span>Đăng kí đề tài</span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                mainContent.innerHTML = codeHTMLofChucNang;
             }
             codeHTMLofChucNang = "";
             buttonHuongDan1.onclick = function () {
                 let boxHuongDan = document.querySelector("#for-tham-gia-huong-dan");
+                let mainContent = document.querySelector("#main-content")
                 codeHTMLofChucNang = `
                     <div class="col-12">
                         <div class="page-title-box">
@@ -913,42 +947,42 @@ async function getUser() {
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Mat Helme" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Michael Zenaty" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="James Anderson" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Mat Helme" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Michael Zenaty" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="James Anderson" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
                                         </div>
@@ -957,7 +991,7 @@ async function getUser() {
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Mat Helme" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
                                         </div>
@@ -1182,7 +1216,7 @@ async function getUser() {
                                              id="myAwesomeDropzone1"
                                              data-plugin="dropzone"
                                              data-previews-container="#file-previews1"
-                                             data-upload-preview-template="#uploadPreviewTemplate1">
+                                             data-upload-preview-template="#uploadPreviewTemplate1" data-url="/">
                                             <div class="fallback">
                                                 <input name="file" type="file" multiple/>
                                             </div>
@@ -1230,11 +1264,12 @@ async function getUser() {
                         </div>
                     </div>
                 `;
-                boxHuongDan.innerHTML = codeHTMLofChucNang;
+                mainContent.innerHTML = codeHTMLofChucNang;
             }
             codeHTMLofChucNang = "";
             buttonChamDiem1.onclick = function () {
                 let boxChamDiem = document.querySelector("#for-cham-diem-de-tai");
+                let mainContent = document.querySelector("#main-content")
                 codeHTMLofChucNang = `
                     <div class="col-12">
                         <div class="page-title-box">
@@ -1272,42 +1307,42 @@ async function getUser() {
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Mat Helme" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Michael Zenaty" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="James Anderson" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Mat Helme" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Michael Zenaty" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="James Anderson" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
                                         </div>
@@ -1316,7 +1351,7 @@ async function getUser() {
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
                                                data-original-title="Mat Helme" class="d-inline-block">
-                                                <img src="./assets/img/Avatar-Facebook-trắng.jpg"
+                                                <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
                                         </div>
@@ -1491,8 +1526,69 @@ async function getUser() {
                         </div>
                     </div>
                 `;
-                boxChamDiem.innerHTML = codeHTMLofChucNang;
+                mainContent.innerHTML = codeHTMLofChucNang;
             }
+        }
+
+        // Thông tin cá nhân
+        document.querySelector("#buttonThongTinCaNhan").onclick = function () {
+            let mainContent = document.querySelector("#main-content")
+            let codeHTMLThongTinCaNhan = `
+                    <div id="thong-tin-ca-nhan" class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <h4 class="page-title">Thông tin cá nhân</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <!-- Profile -->
+                            <div class="card">
+                                <div class="card-body profile-user-box">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <div class="media">
+                                                <span class="float-left m-2 mr-4"><img src="assets/img/default.jpg" style="height: 100px;" alt="" class="rounded-circle img-thumbnail"></span>
+                                                <div class="media-body">
+
+                                                    <h4 class="my-1">${userName}</h4>
+                                                    <p class="font-13 text-muted">${type}</p>
+                                                    <h5>Mã ${type}: ${user.codeSudentOrLecturers}</h5>
+                                                    <h5>Email: ${user.email}</h5>
+
+                                                    <ul class="mb-0 list-inline">
+                                                        <li class="list-inline-item mr-3">
+                                                            <h5 class="mb-1">1</h5>
+                                                            <p class="mb-0 font-13">Số đề tài đã tham gia/hướng dẫn</p>
+                                                        </li>
+                                                        <!-- Giao vien only-->
+                                                        <li class="list-inline-item">
+                                                            <h5 class="mb-1">1</h5>
+                                                            <p class="mb-0 font-13">Số đề tài chấm điểm</p>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <h5 class="mb-1">1</h5>
+                                                            <p class="mb-0 font-13">Số bài đã đăng</p>
+                                                        </li>
+                                                    </ul>
+                                                </div> <!-- end media-body-->
+                                            </div>
+                                        </div> <!-- end col-->
+
+                                        <div class="col-sm-4">
+                                            <div class="text-center mt-sm-0 mt-3 text-sm-right">
+                                                <button type="button" class="btn btn-light">
+                                                    <i class="fa-solid fa-pen-to-square mr-1"></i>Sửa thông tin
+                                                </button>
+                                            </div>
+                                        </div> <!-- end col-->
+                                    </div> <!-- end row -->
+
+                                </div> <!-- end card-body/ profile-user-box-->
+                            </div><!--end profile/ card -->
+                        </div>
+                    </div>
+            `;
+            mainContent.innerHTML = codeHTMLThongTinCaNhan;
         }
     }
 }
