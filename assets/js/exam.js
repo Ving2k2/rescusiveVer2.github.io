@@ -38,12 +38,12 @@ const getDataExamSearch = async (name) => {
             const nameExam = item.name
             const date = item.createAt
             const idSubject = item.idExamSubject
-            const imgSchool = await getImgSchool(idSubject)
+            const imgSubject = await getImgSchool(idSubject)
             let codeHtml =
                    ` <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item" data-id="postid">
                                 <div class="media">
-                                    <img class="d-flex mr-2 rounded-circle" src="./assets/img/logo-hus.png" alt="Generic placeholder image" height="32">
+                                    <img class="d-flex mr-2 rounded-circle" src="${imgSubject ? imgSubject : "./assets/img/logo-hus.png"}" alt="Generic placeholder image" height="32">
                                     <div class="media-body">
                                         <h5 class="m-0 font-14">${fullName}</h5>
                                         <span class="font-12 mb-0" style="word-wrap: break-word">
