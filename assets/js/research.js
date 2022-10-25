@@ -215,7 +215,6 @@ async function getUser(id) {
 
 const getAllResearch = async () => {
   const data = await getResearch()
-  console.log(data);
   if(data) {
       const container = document.querySelector(".box__research")
        data.forEach(async(item, index) => {
@@ -226,9 +225,8 @@ const getAllResearch = async () => {
           const nameResearch = item.name
           const date = item.createAt
           const avatar = await getAvatarUser(idUser)
-          const file = await getFileResearchbyId(item._id)
-          const status = item.idPublic
-          if (status == true) {
+          const file = await getFileResearchbyId(item._id);
+          if (item.idPublic) {
           const codeHtml =  `
           <div class="card" id="post-id-1">
            <div class="card-body pb-1">
@@ -268,20 +266,17 @@ const getAllResearch = async () => {
                           data-src="${file}">
                   </iframe>
               </div>
-              
-
           </div>`
         const div = document.createElement("div")
         div.innerHTML = codeHtml;
-        container.appendChild(div)
-          }
+        container.appendChild(div)}
       });
     }
 }
 getAllResearch()
 
-// $(document).on('click', '#buttonNCKH',(e)=>{
-//   //document.querySelector(".box__exam").style.display = "none"
-//   let container = document.querySelector(".box__research")
-//   container.innerHTML = '';
-//   getAllResearch()})
+$(document).on('click', '#buttonNCKH',(e)=>{
+  document.querySelector(".box__research").innerHTML = null
+  document.querySelector(".box__exam").innerHTML = null
+  getAllResearch()
+})

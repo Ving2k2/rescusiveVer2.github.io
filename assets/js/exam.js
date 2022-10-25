@@ -431,8 +431,6 @@ const getAllExam = async () => {
                             data-src="${fileExam}">
                     </iframe>
                 </div>
-                
-
             </div>`
           const div = document.createElement("div")
           div.innerHTML = codeHtml;
@@ -444,14 +442,12 @@ const getAllExam = async () => {
 }
 getAllExam()
 
+// $(document).on('click', '#buttonDeThi',(e)=>{
+//     document.querySelector(".box__exam").innerHTML = '';
+//     getAllExam()})
+
 $(document).on('click', '#buttonDeThi',(e)=>{
-    document.querySelector(".box__exam").innerHTML = '';
-    getAllExam()})
-
-// document.querySelector("#buttonDeThi").onclick = function() {
-//     // let mainContent = document.querySelector("#main-content")
-//     // mainContent.innerHTML = "";
-//     (e)=>{getAllExam()}
-    
-// };
-
+  document.querySelector(".box__research").innerHTML = null
+  document.querySelector(".box__exam").innerHTML = null
+  getAllExam()
+})
