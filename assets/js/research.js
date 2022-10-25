@@ -220,7 +220,7 @@ const getAllResearch = async () => {
       const container = document.querySelector(".box__research")
        data.forEach(async(item, index) => {
           const decs = item.description
-          const idUser = item.idUserPost
+          const idUser = item.idUser
           const user = await getUserById(idUser)
           const fullName = `${user.firstName} ${user.lastName}`
           const nameResearch = item.name
