@@ -14369,33 +14369,9 @@ input[data-switch="dark"]:checked + label {
     vertical-align: middle !important;
 }
 
-.table .table-id {
-    width: 5%
-}
-
-.table .table-msv {
-    width: 15%
-}
-
-.table .table-name {
-    width: 25%;
-}
-
 .table .table-name img {
     height: 30px;
     width: 30px;
-}
-
-.table .table-obj {
-    width: 25%;
-}
-
-.table .table-status {
-    width: 10%;
-}
-
-.table .table-date {
-    width: 10%;
 }
 
 .table .action-icon {

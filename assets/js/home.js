@@ -1,28 +1,188 @@
 import getUserByID from "../apiServices/user/getUserById.js"
-import { getCookie } from "../utils/libCookie.js"
+import {getCookie} from "../utils/libCookie.js"
 import getAllResearch from "../apiServices/research/getAllResearch.js";
 import getAllExam from "../apiServices/exam/getAllExam.js";
 import getAllDepartment from "../apiServices/department/getAllDepartment.js"
+import getAvatarUser from "../apiServices/user/getAvatarUser.js";
 // console.log(buttonAvatar);
 
 // Sau khi đăng nhập từ quyền của mỗi người (admin, gv, sv) sẽ hiển thị ra ở thanh sidebar khác nhau
 async function getUser() {
     const idUser = getCookie("idUser")
     const user = await getUserByID(idUser)
+    const avatar = await getAvatarUser(idUser)
 
-    const userName = document.getElementById("userName");
-    const typeUser = document.getElementById("typeUser");
     // const avatar = await getAvatarUser(user._id);
     const buttonAdmin = document.querySelector("#buttonAdmin");
     const buttonGV = document.querySelector("#buttonGV");
     const buttonSV = document.querySelector("#buttonSV");
+    const customPost = document.querySelector("#new-post");
     buttonAdmin.style.display = "block !important";
     if (user) {
-        userName.innerText = user.firstName + " " + user.lastName;
-        let buttonRegister = document.getElementById("buttonRegister");
-        let buttonLogin = document.getElementById("buttonLogin");
-        buttonLogin.style.display = "none";
-        buttonRegister.style.display = "none";
+        var type=''
+        if (user.isStudent)
+            type="Sinh viên"
+        else if (user.isLecturers)
+            type="Giảng viên"
+        else
+            type='Admin'
+        var userName = user.firstName + " " + user.lastName;
+        let codeHTML = `
+<div class="card">
+    <div class="card-body">
+        <div class="media mt-2">
+            <img class="mr-3 avatar-sm rounded-circle"
+                 src="${avatar? avatar :"./assets/img/Avatar-Facebook-trắng.jpg"}"
+                 alt="Generic placeholder image">
+            <div class="media-body">
+                <div class="btn-rounded h-100 p-2 h5 pl-4 mt-1"
+                     style="background-color: rgba(210, 215, 219,0.35);" data-toggle="modal"
+                     data-target="#new-post-modal">
+                    Bạn muốn đăng bài? Nhấp vào đây!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="new-post-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="standard-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-center">Đăng bài</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="${avatar? avatar :"/src/img/Avatar-Facebook-trắng.jpg"}" alt="table-user"
+                     class="avatar-sm mr-2 rounded-circle" height="50px">
+                <span class="h4 font-weight-semibold text-dark">${userName}</span>
+                <form action="">
+<textarea class="post-content-edit text-dark"
+          placeholder="${user.lastName} ơi, bạn đang nghĩ gì thế?"></textarea>
+
+                    <div class="edit-post-msc h4">
+                        <div class="row">
+                            <div class="col-8">
+                                Thêm vào bài viết của bạn:
+                            </div>
+
+                            <div class="col-4 d-flex flex-row-reverse align-content-between ">
+                                <div class="flex-grow-1" data-toggle="collapse"
+                                     href="#dropzone" role="button" aria-expanded="false"
+                                     aria-controls="dropzone"><i class="fa fa-image"></i>
+                                </div>
+                                <div class="flex-grow-1" data-toggle="collapse"
+                                     href="#dropzone" role="button" aria-expanded="false"
+                                     aria-controls="dropzone"><i class="fa fa-file"></i></div>
+                                <div class="flex-grow-1" data-toggle="collapse"
+                                     href="#dropzone" role="button" aria-expanded="false"
+                                     aria-controls="dropzone"><i class="fa fa-video"></i></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="collapse w-100 mt-2 mb-0" id="dropzone">
+
+                        <div class="dropzone"
+                             id="myAwesomeDropzone"
+                             data-plugin="dropzone"
+                             data-previews-container="#file-previews"
+                             data-upload-preview-template="#uploadPreviewTemplate"
+                             data-url="/" data-maxFile="1">
+                            <div class="d-flex flex-row-reverse">
+                                <div data-toggle="collapse"
+                                     href="#dropzone" role="button" aria-expanded="false"
+                                     aria-controls="dropzone"><i
+                                        class="fa-solid fa-xmark"></i>
+                                </div>
+                            </div>
+                            <div class="fallback">
+                                <input name="file" id="file-input" type="file" multiple/>
+                            </div>
+
+                            <div class="dz-message needsclick">
+                                <i class="h1 text-muted fa-solid fa-cloud-arrow-up"></i>
+                                <h3>Kéo file hoặc click vào đây để tải lên.</h3>
+                            </div>
+                        </div>
+
+                        <!-- Preview -->
+                        <div class="dropzone-previews mt-3" id="file-previews"></div>
+
+                        <!-- file preview template -->
+                        <div class="d-none" id="uploadPreviewTemplate">
+                            <div class="card mt-1 mb-0 shadow-none border">
+                                <div class="p-2">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <img data-dz-thumbnail src="#"
+                                                 class="avatar-sm rounded bg-light" alt="">
+                                        </div>
+                                        <div class="col pl-0">
+                                            <a href="javascript:void(0);"
+                                               class="text-muted font-weight-bold"
+                                               data-dz-name></a>
+                                            <p class="mb-0" data-dz-size></p>
+                                        </div>
+                                        <div class="col-auto">
+                                            <!-- Button -->
+                                            <a href=""
+                                               class="btn btn-link btn-lg text-muted"
+                                               data-dz-remove>
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="buttonPostExam btn btn-primary w-100 h3">Đăng bài</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+</div>`;
+        customPost.innerHTML = codeHTML;
+        codeHTML=`<a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#"
+                           role="button" aria-haspopup="false"
+                           aria-expanded="false">
+                                    <span class="account-user-avatar">
+                                        <img id="user-avatar" src="${avatar? avatar : "./assets/img/Avatar-Facebook-trắng.jpg"}" alt="user-image"
+                                             class="rounded-circle img-fluid">
+                                    </span>
+                            <span>
+                                        <span id="userName" class="account-user-name">${userName}</span>
+                                        <span id="typeUser" class="account-position">${type}</span>
+                                    </span>
+                        </a>
+                        <div
+                            class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                            <!-- item-->
+                            <div class=" dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Chào mừng !</h6>
+                            </div>
+
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <i class="fa fa-user-pen mr-1"></i>
+                                <span>Thông tin cá nhân</span>
+                            </a>
+
+                            <!-- item-->
+                            <a id="buttonLogout" href="javascript:void(0);" class="dropdown-item notify-item">
+                                <i class="fa-solid fa-arrow-right-from-bracket mr-1"></i>
+                                <span>Đăng xuất</span>
+                            </a>
+
+                        </div>`
+        document.getElementById("blockUser").innerHTML=codeHTML;
+        document.getElementById("buttonRegister").style.display = "none";
+        document.getElementById("buttonLogin").style.display = "none";
+
         if (user.isAdmin) {
             typeUser.innerText = "Admin";
             let codeHTML =
@@ -624,7 +784,7 @@ async function getUser() {
             let codeHTMLofChucNang = "";
             buttonCreateNCKH.onclick = function () {
                 let boxCreateNCKH = document.querySelector("#for-createNCKH");
-                // codeHTMLofChucNang = 
+                // codeHTMLofChucNang =
                 // `
                 //     <div class="col-12">
                 //         <div class="page-title-box">
@@ -1359,7 +1519,6 @@ async function getUser() {
         }
     }
 }
-
 
 
 getUser();

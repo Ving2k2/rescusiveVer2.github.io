@@ -1,7 +1,5 @@
 import logoutUser from "../apiServices/user/logoutUser.js";
 
-const buttonLogout = document.getElementById("buttonLogout");
-
 async function handerLogout() {
     const res = await logoutUser()
     const blockUser = document.getElementById("blockUser");
@@ -10,10 +8,12 @@ async function handerLogout() {
     let buttonLogin = document.getElementById("buttonLogin");
     buttonLogin.style.display = "block";
     buttonRegister.style.display = "block";
+    document.getElementById("new-post").innerHTML=''
     console.log("res", res)
 }
+$(document).on('click', '#buttonLogout',handerLogout())
 
-buttonLogout.addEventListener('click',(e) => {
-    e.preventDefault()
-    handerLogout()
-});
+// document.getElementById("buttonLogout").addEventListener('click',(e) => {
+//     e.preventDefault()
+//     handerLogout()
+// });

@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     $(window).on('resize', function () {
         changeSize()
+
     });
     changeSize()
     var observer = new MutationObserver(function () {
@@ -108,7 +109,7 @@ $(document).ready(function () {
     });
     observer2.observe($('.side-nav')[0], {childList: true, subtree: true})
 
-    //reload body
+    //reload content
     var observer3 = new MutationObserver(function () {
         $('[data-toggle="tooltip"]').tooltip();
         $('[data-toggle="popover"]').popover();
@@ -122,7 +123,6 @@ $(document).ready(function () {
             dropzone_init()
         }
     });
-    observer3.observe($('body')[0], {childList: true, subtree: true})
+    observer3.observe($(".content-page")[0], {childList: true, subtree: true})
 
 })
-
