@@ -18,13 +18,15 @@ const getAllDepartment = async () => {
         
          data.forEach(async(item, index) => {
             const nameDepartment = item.name
+            
             var codeHtml =  `
-                    <a href="javascript: void(0);" class="side-nav-link item-link">
+                    <a href="javascript: void(0);" class="side-nav-link item-link get_id">
                         <i class="fa-solid fa-flask"></i>
                         <span> ${nameDepartment} </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <ul class="side-nav-second-level item-link" aria-expanded="false">` 
+                    <ul class="side-nav-second-level item-link" aria-expanded="false">`
+        
           const subject = await getSubjectByIdDepartment(item._id)
             subject.forEach(item2 => {
                 const nameSubject = item2.name
@@ -36,18 +38,18 @@ const getAllDepartment = async () => {
             })
           codeHtml += `</ul>`
           const li = document.createElement("li")
-          li.className = "side-nav-item item-link get__id"
+          li.className = "side-nav-item item-link"
           li.innerHTML = codeHtml
           container.appendChild(li)
+            
+          const lis = document.querySelectorAll(".get_id")
+            lis.forEach(item => {
+                item.addEventListener("click", function() {
+                    sessionStorage.setItem("idDepartment", item._id)
+                    console.log(sessionStorage.getItem("idDepartment"))
+                })
+            })
         });
       }
-}
+};
 getAllDepartment()
- 
-// const list = document.getElementsByClassName("get__id")
-// console.log(list)
-// Array.from(list).forEach(element => {
-//      element.addEventListener('click', () => {
-//       console.log("123");     
-//     })
-//  });
