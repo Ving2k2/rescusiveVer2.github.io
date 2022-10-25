@@ -29,10 +29,7 @@ async function handerPostExam(e) {
     }
 
 }
-document.body.addEventListener( 'click', function ( e ) {
-  if( e.target.id == 'buttonPostExam' ) {
-    handerPostExam()
-  };
-} );
+$(document).on('click', '#buttonPostExam',handerPostExam())
+
 // document.querySelector("#buttonPostExam").addEventListener('click', (e) => handerPostExam(e));
 

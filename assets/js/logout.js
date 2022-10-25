@@ -11,13 +11,7 @@ async function handerLogout() {
     document.getElementById("new-post").innerHTML=''
     console.log("res", res)
 }
-
-document.body.addEventListener( 'click', function ( e ) {
-  if( e.target.id == 'buttonLogout' ) {
-    e.preventDefault()
-    handerLogout()
-  };
-} );
+$(document).on('click', '#buttonLogout',handerLogout())
 
 // document.getElementById("buttonLogout").addEventListener('click',(e) => {
 //     e.preventDefault()
