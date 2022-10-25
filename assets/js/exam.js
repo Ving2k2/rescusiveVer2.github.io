@@ -27,11 +27,13 @@ const getDataExamSearch = async (name) => {
         dataPublic.push(item)
       }
     })
+    console.log(dataPublic)
+    console.log(dataPublic.length)
+    var codeHtml=`<div class="dropdown-header noti-title">
+    <h5 class="text-overflow mb-2">Tìm thấy <span class="text-danger">${dataPublic.length}</span> kết quả</h5>
+    </div>`
     if (dataPublic.length) {
-            var codeHtml =  `
-            <div class="dropdown-header noti-title">
-                <h5 class="text-overflow mb-2">Tìm thấy <span class="text-danger">${dataPublic.length}</span> kết quả</h5>
-            </div>
+            codeHtml +=  `
             <!-- item-->
                         <div class="dropdown-header noti-title">
                             <h6 class="text-overflow mb-2 text-uppercase">Đề thi</h6>
@@ -63,8 +65,8 @@ const getDataExamSearch = async (name) => {
             result.innerHTML += codeHtml
          });
             codeHtml += `</div>`
-            result.innerHTML = codeHtml
     }
+            result.innerHTML = codeHtml
 
 }
 
