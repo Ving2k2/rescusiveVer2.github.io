@@ -20,6 +20,7 @@ async function getUser(id) {
 
 const result = document.querySelector("#search-dropdown");
 const getDataExamSearch = async (name) => {
+    result.innerHTML = "";
     const dataExam = await getAllExamByName(name)
     const dataPublic = []
     dataExam.forEach(item => {
@@ -27,18 +28,18 @@ const getDataExamSearch = async (name) => {
         dataPublic.push(item)
       }
     })
+    var codeHtml =`<div class="dropdown-header noti-title">
+    <h5 class="text-overflow mb-2">Tìm thấy <span class="text-danger">${dataPublic.length}</span> kết quả</h5>
+    </div>`
     if (dataPublic.length) {
-            var codeHtml =  `
-            <div class="dropdown-header noti-title">
-                <h5 class="text-overflow mb-2">Tìm thấy <span class="text-danger">${dataPublic.length}</span> kết quả</h5>
-            </div>
+            codeHtml +=  `
             <!-- item-->
                         <div class="dropdown-header noti-title">
                             <h6 class="text-overflow mb-2 text-uppercase">Đề thi</h6>
                         </div>
                         <div class="notification-list">`
             result.innerHTML = codeHtml
-           dataPublic.forEach(async(item, index) => {
+            dataPublic.forEach(async(item, index) => {
             const idUser = item.idUserPost
             const user = await getUserById(idUser)
             const fullName = `${user.firstName} ${user.lastName}`
@@ -46,7 +47,7 @@ const getDataExamSearch = async (name) => {
             const date = item.createAt
             const idSubject = item.idExamSubject
             const imgSubject = await getImgSchool(idSubject)
-            let codeHtml =
+            codeHtml +=
                    ` <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item mb-1" data-id="postid">
                                 <div class="media">
@@ -60,21 +61,27 @@ const getDataExamSearch = async (name) => {
                                 </div>
                             </a>
                         `
-            result.innerHTML += codeHtml
+            result.innerHTML = codeHtml
          });
             codeHtml += `</div>`
-            result.innerHTML = codeHtml
+
     }
+    result.innerHTML = codeHtml
 
 }
 
-const elementSearchExam = document.querySelector(".search__exam")
+const elementSearchExam = document.querySelector("#top-search")
 const btnSearch = document.querySelector("#btn-search")
 btnSearch.addEventListener("click", (e) => {
     e.preventDefault()
     const name = elementSearchExam.value
     getDataExamSearch(name)
+    console.log(name)
 })
+elementSearchExam.onkeydown=elementSearchExam.onkeyup=function () {
+    if(elementSearchExam.value.length > 3)
+        getDataExamSearch(elementSearchExam.value)
+}
 
 const getDataExamBy2Id = async (idDepartment, idSubject) => {
      const dataExam = await getExamBy2Id(idDepartment, idSubject)
