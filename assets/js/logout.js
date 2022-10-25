@@ -8,12 +8,17 @@ async function handerLogout() {
     let buttonLogin = document.getElementById("buttonLogin");
     buttonLogin.style.display = "block";
     buttonRegister.style.display = "block";
-    document.getElementById("new-post").innerHTML=''
-    console.log("res", res)
+    document.getElementById("new-post").innerHTML='';
+    console.log(document.getElementById("new-post"));
+    console.log(res);
 }
-$(document).on('click', '#buttonLogout',handerLogout())
 
-// document.getElementById("buttonLogout").addEventListener('click',(e) => {
+    $(document).on('click', '#buttonLogout',(e)=>{handerLogout()})
+
+
+// const buttonLogout = document.querySelector("#buttonLogout");
+// console.log(buttonLogout);
+// buttonLogout.addEventListener('click',(e) => {
 //     e.preventDefault()
 //     handerLogout()
 // });

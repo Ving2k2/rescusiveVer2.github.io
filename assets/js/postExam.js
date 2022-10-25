@@ -29,7 +29,7 @@ async function handerPostExam(e) {
     }
 
 }
-$(document).on('click', '#buttonPostExam',handerPostExam())
+$(document).on('click', '#buttonPostExam',(e) =>{handerPostExam(e)} )
 
 // document.querySelector("#buttonPostExam").addEventListener('click', (e) => handerPostExam(e));
 

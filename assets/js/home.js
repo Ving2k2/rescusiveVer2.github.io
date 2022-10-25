@@ -28,124 +28,124 @@ async function getUser() {
             type='Admin'
         var userName = user.firstName + " " + user.lastName;
         let codeHTML = `
-<div class="card">
-    <div class="card-body">
-        <div class="media mt-2">
-            <img class="mr-3 avatar-sm rounded-circle"
-                 src="${avatar? avatar :"./assets/img/Avatar-Facebook-trắng.jpg"}"
-                 alt="Generic placeholder image">
-            <div class="media-body">
-                <div class="btn-rounded h-100 p-2 h5 pl-4 mt-1"
-                     style="background-color: rgba(210, 215, 219,0.35);" data-toggle="modal"
-                     data-target="#new-post-modal">
-                    Bạn muốn đăng bài? Nhấp vào đây!
+            <div class="card">
+                <div class="card-body">
+                    <div class="media mt-2">
+                        <img class="mr-3 avatar-sm rounded-circle"
+                            src="${avatar? avatar :"./assets/img/Avatar-Facebook-trắng.jpg"}"
+                            alt="Generic placeholder image">
+                        <div class="media-body">
+                            <div class="btn-rounded h-100 p-2 h5 pl-4 mt-1"
+                                style="background-color: rgba(210, 215, 219,0.35);" data-toggle="modal"
+                                data-target="#new-post-modal">
+                                Bạn muốn đăng bài? Nhấp vào đây!
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<div id="new-post-modal" class="modal fade" tabindex="-1" role="dialog"
-     aria-labelledby="standard-modalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title text-center">Đăng bài</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
-                </button>
-            </div>
-            <div class="modal-body">
-                <img src="${avatar? avatar :"/src/img/Avatar-Facebook-trắng.jpg"}" alt="table-user"
-                     class="avatar-sm mr-2 rounded-circle" height="50px">
-                <span class="h4 font-weight-semibold text-dark">${userName}</span>
-                <form action="">
-<textarea class="post-content-edit text-dark"
-          placeholder="${user.lastName} ơi, bạn đang nghĩ gì thế?"></textarea>
-
-                    <div class="edit-post-msc h4">
-                        <div class="row">
-                            <div class="col-8">
-                                Thêm vào bài viết của bạn:
-                            </div>
-
-                            <div class="col-4 d-flex flex-row-reverse align-content-between ">
-                                <div class="flex-grow-1" data-toggle="collapse"
-                                     href="#dropzone" role="button" aria-expanded="false"
-                                     aria-controls="dropzone"><i class="fa fa-image"></i>
-                                </div>
-                                <div class="flex-grow-1" data-toggle="collapse"
-                                     href="#dropzone" role="button" aria-expanded="false"
-                                     aria-controls="dropzone"><i class="fa fa-file"></i></div>
-                                <div class="flex-grow-1" data-toggle="collapse"
-                                     href="#dropzone" role="button" aria-expanded="false"
-                                     aria-controls="dropzone"><i class="fa fa-video"></i></div>
-                            </div>
+            <div id="new-post-modal" class="modal fade" tabindex="-1" role="dialog"
+                aria-labelledby="standard-modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center">Đăng bài</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                            </button>
                         </div>
+                        <div class="modal-body">
+                            <img src="${avatar? avatar :"/src/img/Avatar-Facebook-trắng.jpg"}" alt="table-user"
+                                class="avatar-sm mr-2 rounded-circle" height="50px">
+                            <span class="h4 font-weight-semibold text-dark">${userName}</span>
+                            <form action="">
+            <textarea class="post-content-edit text-dark"
+                    placeholder="${user.lastName} ơi, bạn đang nghĩ gì thế?"></textarea>
 
-                    </div>
-                    <div class="collapse w-100 mt-2 mb-0" id="dropzone">
+                                <div class="edit-post-msc h4">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            Thêm vào bài viết của bạn:
+                                        </div>
 
-                        <div class="dropzone"
-                             id="myAwesomeDropzone"
-                             data-plugin="dropzone"
-                             data-previews-container="#file-previews"
-                             data-upload-preview-template="#uploadPreviewTemplate"
-                             data-url="/" data-maxFile="1">
-                            <div class="d-flex flex-row-reverse">
-                                <div data-toggle="collapse"
-                                     href="#dropzone" role="button" aria-expanded="false"
-                                     aria-controls="dropzone"><i
-                                        class="fa-solid fa-xmark"></i>
+                                        <div class="col-4 d-flex flex-row-reverse align-content-between ">
+                                            <div class="flex-grow-1" data-toggle="collapse"
+                                                href="#dropzone" role="button" aria-expanded="false"
+                                                aria-controls="dropzone"><i class="fa fa-image"></i>
+                                            </div>
+                                            <div class="flex-grow-1" data-toggle="collapse"
+                                                href="#dropzone" role="button" aria-expanded="false"
+                                                aria-controls="dropzone"><i class="fa fa-file"></i></div>
+                                            <div class="flex-grow-1" data-toggle="collapse"
+                                                href="#dropzone" role="button" aria-expanded="false"
+                                                aria-controls="dropzone"><i class="fa fa-video"></i></div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                            </div>
-                            <div class="fallback">
-                                <input name="file" id="file-input" type="file" multiple/>
-                            </div>
+                                <div class="collapse w-100 mt-2 mb-0" id="dropzone">
 
-                            <div class="dz-message needsclick">
-                                <i class="h1 text-muted fa-solid fa-cloud-arrow-up"></i>
-                                <h3>Kéo file hoặc click vào đây để tải lên.</h3>
-                            </div>
-                        </div>
-
-                        <!-- Preview -->
-                        <div class="dropzone-previews mt-3" id="file-previews"></div>
-
-                        <!-- file preview template -->
-                        <div class="d-none" id="uploadPreviewTemplate">
-                            <div class="card mt-1 mb-0 shadow-none border">
-                                <div class="p-2">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <img data-dz-thumbnail src="#"
-                                                 class="avatar-sm rounded bg-light" alt="">
+                                    <div class="dropzone"
+                                        id="myAwesomeDropzone"
+                                        data-plugin="dropzone"
+                                        data-previews-container="#file-previews"
+                                        data-upload-preview-template="#uploadPreviewTemplate"
+                                        data-url="/" data-maxFile="1">
+                                        <div class="d-flex flex-row-reverse">
+                                            <div data-toggle="collapse"
+                                                href="#dropzone" role="button" aria-expanded="false"
+                                                aria-controls="dropzone"><i
+                                                    class="fa-solid fa-xmark"></i>
+                                            </div>
                                         </div>
-                                        <div class="col pl-0">
-                                            <a href="javascript:void(0);"
-                                               class="text-muted font-weight-bold"
-                                               data-dz-name></a>
-                                            <p class="mb-0" data-dz-size></p>
+                                        <div class="fallback">
+                                            <input name="file" id="file-input" type="file" multiple/>
                                         </div>
-                                        <div class="col-auto">
-                                            <!-- Button -->
-                                            <a href=""
-                                               class="btn btn-link btn-lg text-muted"
-                                               data-dz-remove>
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </a>
+
+                                        <div class="dz-message needsclick">
+                                            <i class="h1 text-muted fa-solid fa-cloud-arrow-up"></i>
+                                            <h3>Kéo file hoặc click vào đây để tải lên.</h3>
+                                        </div>
+                                    </div>
+
+                                    <!-- Preview -->
+                                    <div class="dropzone-previews mt-3" id="file-previews"></div>
+
+                                    <!-- file preview template -->
+                                    <div class="d-none" id="uploadPreviewTemplate">
+                                        <div class="card mt-1 mb-0 shadow-none border">
+                                            <div class="p-2">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <img data-dz-thumbnail src="#"
+                                                            class="avatar-sm rounded bg-light" alt="">
+                                                    </div>
+                                                    <div class="col pl-0">
+                                                        <a href="javascript:void(0);"
+                                                        class="text-muted font-weight-bold"
+                                                        data-dz-name></a>
+                                                        <p class="mb-0" data-dz-size></p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <!-- Button -->
+                                                        <a href=""
+                                                        class="btn btn-link btn-lg text-muted"
+                                                        data-dz-remove>
+                                                            <i class="fa-solid fa-xmark"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="buttonPostExam btn btn-primary w-100 h3">Đăng bài</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div>
-</div>`;
+                        <div class="modal-footer">
+                            <button type="button" class="buttonPostExam btn btn-primary w-100 h3">Đăng bài</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div>
+            </div>`;
         customPost.innerHTML = codeHTML;
         codeHTML=`<a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#"
                            role="button" aria-haspopup="false"
@@ -180,6 +180,7 @@ async function getUser() {
 
                         </div>`
         document.getElementById("blockUser").innerHTML=codeHTML;
+        console.log(document.getElementById("blockUser"));
         document.getElementById("buttonRegister").style.display = "none";
         document.getElementById("buttonLogin").style.display = "none";
 
@@ -256,41 +257,6 @@ async function getUser() {
             let codeHTMLofChucNang = "";
             buttonCreateNCKH.onclick = function () {
                 let boxCreateNCKH = document.querySelector("#for-createNCKH");
-                // codeHTMLofChucNang = 
-                // `
-                //     <div class="col-12">
-                //         <div class="page-title-box">
-                //             <div class="page-title h4 text-dark">Tạo đề tài nghiên cứu khoa học</div>
-                //         </div>
-                //     </div>
-                //     <div class="col-12">
-                //         <div class="card">
-                //             <div class="card-body">
-                //                 <form>
-                //                     <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
-                //                         <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên đề
-                //                             tài:</label>
-                //                         <input type="text" id="name-theme" class="underline-only">
-                //                     </div>
-
-                //                     <div class="pl-0 mx-1 h5">
-                //                         <label for="summernote-basic" class="mb-2 font-weight-semibold text-dark">Tóm
-                //                             tắt đề tài:</label>
-                //                         <div id="summernote-basic"></div>
-                //                     </div>
-                //                     <div style="margin-left: 0.4rem; margin-bottom: 0.5rem">
-                //                         <input type="checkbox" name="" id="accept" class="">
-                //                         <label for="accept" class="pl-1 mt-1 text-dark">Tôi đồng ý với điều
-                //                             khoản</label>
-                //                     </div>
-                //                     <button class="btn btn-lg btn-outline-success">
-                //                         <span>Đăng kí đề tài</span></button>
-                //                 </form>
-                //             </div>
-                //         </div>
-                //     </div>
-                // `;
-                // boxCreateNCKH.innerHTML = codeHTMLofChucNang;
                 boxCreateNCKH.style.display = "block"
             }
             codeHTMLofChucNang = "";
@@ -1514,7 +1480,7 @@ async function getUser() {
                         </div>
                     </div>
                 `;
-                boxChamDiem.innerHTML = codeHTMLofChucNang
+                boxChamDiem.innerHTML = codeHTMLofChucNang;
             }
         }
     }
