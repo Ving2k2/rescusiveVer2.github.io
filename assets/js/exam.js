@@ -445,7 +445,7 @@ const getAllExam = async () => {
 getAllExam()
 
 $(document).on('click', '#buttonDeThi',(e)=>{
-    // document.querySelector(".box__exam").innerHTML = '';
+    document.querySelector(".box__exam").innerHTML = '';
     getAllExam()})
 
 // document.querySelector("#buttonDeThi").onclick = function() {
