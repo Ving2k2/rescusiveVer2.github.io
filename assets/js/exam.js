@@ -378,7 +378,6 @@ searchOnClick.addEventListener("click" , () => {
 const getAllExam = async () => {
     if (sessionStorage.getItem("idDepartment") == null || sessionStorage.getItem("idSubject") == null || sessionStorage.getItem("idSubject") == "null") {
     const data = await getExam()
-    console.log(data);
     if(data) {
         const container = document.querySelector(".box__exam")
         // var codeHtml = "";
@@ -434,9 +433,9 @@ const getAllExam = async () => {
                 </div>
                 
 
-        </div>`
+            </div>`
           const div = document.createElement("div")
-          div.innerHTML = codeHtml
+          div.innerHTML = codeHtml;
           container.appendChild(div)
             }
         });
@@ -446,8 +445,7 @@ const getAllExam = async () => {
 getAllExam()
 
 $(document).on('click', '#buttonDeThi',(e)=>{
-    let container = document.querySelector(".box__exam")
-    container.innerHTML = '';
+    // document.querySelector(".box__exam").innerHTML = '';
     getAllExam()})
 
 // document.querySelector("#buttonDeThi").onclick = function() {
