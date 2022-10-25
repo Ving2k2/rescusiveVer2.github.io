@@ -384,7 +384,6 @@ const getAllExam = async () => {
          data.forEach(async(item, index) => {
             const idUser = item.idUserPost
             const user = await getUserById(idUser)
-            console.log(user);
             const fullName = `${user.firstName} ${user.lastName}`
             const nameExam = item.name
             const date = item.createAt
