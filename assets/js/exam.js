@@ -8,7 +8,6 @@ import getExamBy2Id from "../apiServices/exam/getExamBy2Id.js";
 window.addEventListener("load" , () => {
     sessionStorage.clear("idDeapartment")
     sessionStorage.clear("idSubject")
-    getAllExam()
 })
 
 
