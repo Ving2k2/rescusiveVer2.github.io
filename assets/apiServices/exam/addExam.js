@@ -1,6 +1,6 @@
 import { getCookie } from "../../utils/libCookie.js";
 import { post } from "../../utils/request.js";
-
+import {headerCORS} from "../../utils/request.js";
 /**
  * @param {*} data (Trong data gồm có name, idDepartment, idExamSubject, flieExam, idUserPost, userPost)
  * @returns {String}
@@ -18,9 +18,9 @@ const addExam = async (data) => {
   try {
     const idToken = getCookie("idToken");
     const res = await post("exam/add", data, {
-      headers: {
-        idtoken: idToken,
-      },
+      headers: {...{
+          idtoken: idToken,
+      },...headerCORS} ,
     });
     return res;
   } catch (error) {
