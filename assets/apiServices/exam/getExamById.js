@@ -7,6 +7,6 @@ const getExamById = async (idExam) => {
     } catch (error) {
         console.log(error.message);
     }
-}
+};
 
 export default getExamById;
