@@ -32,7 +32,7 @@ $(document).ready(function () {
 
     // summernote
     function summernote_init() {
-        create = $("#summernote-create")
+        var create = $("#summernote-create")
         if (create.length)
             create.summernote({
                 placeholder: "Viết giới thiệu, tóm tắt đề tài...",
@@ -43,7 +43,7 @@ $(document).ready(function () {
                     }
                 }
             })
-        edit = $("#summernote-edit")
+        var edit = $("#summernote-edit")
         if (edit.length)
             create.summernote({
                 placeholder: "Viết giới thiệu, tóm tắt đề tài...",
@@ -54,7 +54,7 @@ $(document).ready(function () {
                     }
                 }
             })
-        mark = $("#summernote-basic-3")
+        var mark = $("#summernote-basic-3")
         if (mark.length)
             mark.summernote({
                 placeholder: "Viết bình luận...",
@@ -94,7 +94,7 @@ $(document).ready(function () {
                         $('#file-neee').val(base64String)
                     };
                     reader.readAsDataURL(file);
-    
+
                 });
             };
             $(this).dropzone(e)
@@ -129,12 +129,11 @@ $(document).ready(function () {
         $('[data-toggle="touchspin"]').TouchSpin();
         underline_only()
         summernote_init()
-        dz = $('[data-plugin="dropzone"]')
+        var dz = $('[data-plugin="dropzone"]')
         if (count_dropzone != dz.length) {
             count_dropzone = dz.length
             dropzone_init()
         }
     });
     observer3.observe($(".content-page")[0], {childList: true, subtree: true})
-
 })
