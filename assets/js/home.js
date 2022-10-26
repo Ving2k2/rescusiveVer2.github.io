@@ -224,7 +224,7 @@ async function getUser() {
                             <span> Quản lý đề tài </span>
                         </a>
                     </li>
-                    <li buttonQLDeThi class="side-nav-item item-link">
+                    <li id="buttonQLDeThi" class="side-nav-item item-link">
                         <a href="#" class="side-nav-link item-link">
                             <i class="fa-solid fa-file-circle-question"></i>
                             <span> Quản lý đề thi </span>
@@ -453,7 +453,6 @@ async function getUser() {
                 let bodyTableDeTai = document.querySelector("#table-body-qldtai");
                 console.log(bodyTableDeTai);
                 allDeTai.forEach(async (item, index) => {
-                    console.log("hehe");
                     const tenDeTai = item.name;
                     // const avatar = await getAvatarUser(item.idUser);
 
@@ -519,7 +518,6 @@ async function getUser() {
                     `;
                 });
                 bodyTableDeTai.innerHTML = codeHTMLofChucNang;
-                console.log(bodyTableDeTai);
             }
 
             const buttonQLDeTai = document.querySelector("#buttonQLDeTai");
@@ -586,15 +584,17 @@ async function getUser() {
                 console.log(allDeThi);
                 let codeHTMLofChucNang = '';
                 let bodyTableDeThi = document.querySelector("#table-body-qldthi");
+                let count = 0;
                 allDeThi.forEach(async (item, index) => {
                     const idUser = item.idUserPost
                     const user = await getUserById(idUser)
                     const fullName = `${user.firstName} ${user.lastName}`
                     const nameExam = item.name
-                    // const idSubject = item.idExamSubject
+                    const idSubject = item.idExamSubject
                     const status = item.isPublic;
-
-                    if (status == false) {
+                    console.log(status);
+                    while (status == false) {
+                        count++;
                         codeHTMLofChucNang +=  `
                             <tr id="row-qldthi-1">
                                 <a href=" ">
@@ -639,7 +639,7 @@ async function getUser() {
                                         </div>
                                     </div>
                                 </td>
-                                <td class="table-qldthi-date">${20-index}/10/2022</td>
+                                <td class="table-qldthi-date">08/10/2022</td>
                                 <td class="table-qldthi-action">
                                     <a href="javascript: void(0);" class="action-icon"> <i
                                             class="fa fa-light fa-pen"></i></a>
@@ -654,10 +654,66 @@ async function getUser() {
                 });
                 bodyTableDeThi.innerHTML = codeHTMLofChucNang;
                 console.log(bodyTableDeThi);
+                console.log(count);
             }
-            renderDeThi();
             const buttonQLDeThi = document.querySelector("#buttonQLDeThi");
-
+            buttonQLDeThi.onclick = function () {
+                let mainContent = document.querySelector("#main-content");
+                renderDeThi();
+                let codeHTMLofTable = `
+                    <div id="for-homepage" class="row">
+                    <div class="col-12" id="bang-quan-ly-de-tai">
+                        <div class="page-title-right" id="table-head-dthi">
+                            Quản lý đề thi <a href="#" class="ml-1"><i class="fa fa-plus"></i></a>
+                        </div>
+                        <table class="table table-hover table-centered mb-0 table-responsive-lg">
+                            <thead>
+                                <tr>
+                                    <th>Tên đề thi</th>
+                                    <th>Tên khoa</th>
+                                    <th>Tên môn</th>
+                                    <th>Số lượng file</th>
+                                    <th>Tình trạng</th>
+                                    <th>Người đăng</th>
+                                    <th>Ngày đăng</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-qldthi">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div id="pagination" class="col-12">
+                        <div class="page-title-box"></div>
+                        <div class="page-title">
+                            <nav aria-label="Pagination">
+                                <ul class="pagination pagination-md justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="javascript: void(0);">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                `;
+                mainContent.innerHTML = codeHTMLofTable;
+            }
 
 
 
@@ -742,7 +798,7 @@ async function getUser() {
                         codeHTMLofChucNang = `
                     <div class="col-12">
                         <div class="page-title-box">
-                            <div class="page-title h4 text-dark">Đề tài tham gia nghiên cứu/hướng dẫn</div>
+                            <div class="page-title h4 text-dark">Đề tài tham gia nghiên cứu</div>
                         </div>
                     </div>
                     <div id="edit-modal" class="modal fade" tabindex="-1" role="dialog"
@@ -1257,7 +1313,7 @@ async function getUser() {
                         codeHTMLofChucNang = `
                     <div class="col-12">
                         <div class="page-title-box">
-                            <div class="page-title h4 text-dark">Đề tài tham gia nghiên cứu/hướng dẫn</div>
+                            <div class="page-title h4 text-dark">Đề tài tham gia hướng dẫn</div>
                         </div>
                     </div>
                     <div id="edit-modal" class="modal fade" tabindex="-1" role="dialog"
