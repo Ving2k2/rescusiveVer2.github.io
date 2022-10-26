@@ -13,16 +13,26 @@ async function handerPostExam(e) {
     const nameDepartment = document.getElementById("name-department").value;
     const deapartment = await getDepartmentByName(nameDepartment);
     console.log(deapartment);
-    const idDepartment = deapartment.data[0].id;
+    const idDepartment = deapartment[0]._id;
 
 
     const nameSubject = document.getElementById("name-subject").value;
     const subject = await getSubjectByName(nameSubject);
     console.log(subject);
-    const idSubject = subject.data[0].id;
+    const idSubject = subject[0]._id;
 
     const nameExam = document.getElementById("name-exam").value;
-    const fileExam = document.getElementById("file-input").value;
+    const fileExam = $("#file-neee").val();
+    
+        // const file = fileList[0];
+        // const formData = new FormData();
+        // formData.append("file", file);
+        // const res = await addExam(idUserPost, idDepartment, idSubject, nameExam, userPost, formData);
+        // console.log(res);
+        // if (res) {
+        //     window.location = url+"/listExam.html"
+        // }
+    
     const exam = {
         name: nameExam,
         idDepartment: idDepartment,
@@ -35,11 +45,11 @@ async function handerPostExam(e) {
     const res = addExam(exam)
     console.log(res);
     if (res) {
-        window.location = url+"/index.html"
+        // window.location = url+"/index.html"
     }
 
 }
-$(document).on('click', '#buttonPostExam',(e) =>{handerPostExam(e)} )
+$(document).on('click', '.buttonPostExam',(e) =>{handerPostExam(e)} )
 
 // document.querySelector("#buttonPostExam").addEventListener('click', (e) => handerPostExam(e));
 

@@ -85,6 +85,18 @@ $(document).ready(function () {
             o && (e.previewTemplate = $(o).html());
             var m = $(this).data("maxFile");
             m && (e.maxFiles=m)
+            e.init = function () {
+                this.on("addedfile", function (file) {
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                        var base64String = event.target.result;
+                        // console.log(base64String);
+                        $('#file-neee').val(base64String)
+                    };
+                    reader.readAsDataURL(file);
+    
+                });
+            };
             $(this).dropzone(e)
         })
     }
