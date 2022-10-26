@@ -39,7 +39,7 @@
     font-weight: 400;
     padding: 1.5rem;
     outline: none;
-    font-size:1.125rem
+    font-size: 1.125rem
 }
 
 .edit-post-msc {
@@ -50,25 +50,30 @@
     border-radius: 2rem;
     padding: 0.75rem 1.25rem 0.75rem 1.25rem;
     font-weight: 400;
-    font-size:1.125rem
+    font-size: 1.125rem
 }
-.like-button{
+
+.like-button {
     border-left: 1px solid #d5d5db;
     color: #6e7989 !important;
 }
-.like-button:hover{
+
+.like-button:hover {
     color: #2d3437 !important;
     background-color: #d5d5db;
 }
-.comment-button{
+
+.comment-button {
     border-left: 1px solid #d5d5db;
     border-right: 1px solid #d5d5db;
     color: #6e7989 !important;
 }
-.comment-button:hover{
+
+.comment-button:hover {
     color: #2d3437 !important;
     background-color: #d5d5db;
 }
+
 .post-content:not(.expended) {
     height: 1.7rem;
     width: calc(100%);
@@ -76,18 +81,21 @@
     text-overflow: ellipsis;
     white-space: nowrap
 }
-.post-content{
+
+.post-content {
     text-align: left;
-    color:#474d56;
-    margin:.75rem 0;
+    color: #474d56;
+    margin: .75rem 0;
     padding: 0 .75rem;
     font-size: 1.0125rem;
 }
+
 .breadcrumb-item + .breadcrumb-item::before, .menu-arrow:before {
-    font-family: 'Font Awesome 6 Free'!important;
-    content: '\F054'!important;
-    font-weight: 900!important;
+    font-family: 'Font Awesome 6 Free' !important;
+    content: '\F054' !important;
+    font-weight: 900 !important;
 }
+
 .pagination-md .page-link {
     padding: 0.5rem 1rem;
     font-size: 1.0625rem;
@@ -103,18 +111,21 @@
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
 }
-.card .card-widgets>a.collapsed i:before {
-    font-family: 'Font Awesome 6 Free'!important;
-    content: '\2b'!important;
-    font-weight: 900!important;
+
+.card .card-widgets > a.collapsed i:before {
+    font-family: 'Font Awesome 6 Free' !important;
+    content: '\2b' !important;
+    font-weight: 900 !important;
     font-style: normal;
 }
-.mdi-minus::before{
-    font-family: 'Font Awesome 6 Free'!important;
-    content: '\f068'!important;
-    font-weight: 900!important;
+
+.mdi-minus::before {
+    font-family: 'Font Awesome 6 Free' !important;
+    content: '\f068' !important;
+    font-weight: 900 !important;
 }
-input.underline-only{
+
+input.underline-only {
     width: 200px;
     margin: 0 10px;
     border-bottom: 1px black solid;
@@ -123,70 +134,67 @@ input.underline-only{
     border-right-style: hidden;
     outline: none;
 }
-.fa-solid.fa-download{
-    color:#474d56;
+
+.fa-solid.fa-download {
+    color: #474d56;
 }
-i.fa-solid.fa-download:hover{
-    height:35px;
-    width:35px;
+
+i.fa-solid.fa-download:hover {
+    height: 35px;
+    width: 35px;
     border-radius: 2em;
     box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
     padding: 0.4rem 0.5rem 0 0.5rem;
     background-color: #ffffff;
 }
-.fa-solid.fa-download{
-    height:35px;
-    width:35px;
-    color:#474d56;
+
+.fa-solid.fa-download {
+    height: 35px;
+    width: 35px;
+    color: #474d56;
 }
-i.fa-solid.fa-download:hover{
+
+i.fa-solid.fa-download:hover {
     border-radius: 2em;
     box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
     padding: 0.4rem 0.5rem 0 0.5rem;
 
     background-color: #ffffff;
 }
-.fa-solid.fa-trash-can{
-    height:35px;
-    width:35px;
+
+.fa-solid.fa-trash-can {
+    height: 35px;
+    width: 35px;
     color: #fa6767 !important;
 }
-i.fa-solid.fa-trash-can:hover{
+
+i.fa-solid.fa-trash-can:hover {
     border-radius: 2em;
     box-shadow: rgba(14, 30, 37, 0.12) 0 2px 4px 0, rgba(14, 30, 37, 0.32) 0 2px 16px 0;
     padding: 0.5rem 0.5rem 0 0.5rem;
     color: #f81d1d !important;
     background-color: #ffffff;
 }
-.table .table-id {
-    width: 5%
+
+td .table-id{
+    width:5rem;
 }
 
-.table .table-msv {
-    width: 15%
+@media only screen and (max-width: 576px) {
+    .action-icon {
+        font-size: 1rem;
+    }
 }
 
-.table .table-name {
-    width: 25%;
+a.action-icon{
+    padding: 0 0.2rem!important;
 }
 
-.table .table-obj {
-    width: 25%;
+.action-icon ::before {
+    color: #3e63d2da;
 }
 
-.table .table-status {
-    width: 10%;
-}
-
-.table .table-date {
-    width: 10%;
-}
-
-.table .action-icon {
-    padding: 0 3px;
-}
-
-.search-item{
+.search-item {
     width: calc(85%);
     overflow: hidden;
     text-overflow: ellipsis;
@@ -194,3 +202,92 @@ i.fa-solid.fa-trash-can:hover{
     display: block;
 }
 
+td.table-qlsv-msv, td.table-qlgv-msv {
+    min-width: 113px;text-align: center;
+}
+
+td.table-qlsv-name, td.table-qlgv-name {
+    min-width: 178px;
+}
+
+td.table-qlsv-date, td.table-qlgv-date {
+    min-width: 124px;text-align: center;
+}
+
+td.table-qlsv-action, td.table-qlgv-action, td.table-tk-action, td.table-qldthi-action, td.table-qldthi-sl {
+    min-width: 95px;
+    text-align: center;
+}
+
+td.table-qldtai-name {
+    min-width: 180px;
+}
+
+td.table-qldtai-status, td.table-qldthi-status {
+    min-width: 97px;
+}
+
+td.table-qldtai-sv {
+    min-width: 112px;
+}
+
+td.table-qldtai-gv {
+    min-width: 128px;
+    text-align: center;
+}
+
+td.table-qldtai-date, td.table-qldthi-date {
+    min-width: 108px;
+    text-align: center;
+}
+
+td.table-qldtai-action {
+    min-width: 112px;
+    text-align: center;
+}
+
+td.table-tk-name {
+    min-width: 138px;
+}
+
+td.table-tk-msv {
+    min-width: 117px;
+    text-align: center;
+}
+
+td.table-tk-type {
+    min-width: 125px;
+    text-align: center;
+}
+
+td.table-tk-email {
+    min-width: 300px;
+}
+
+td.table-tk-date {
+    min-width: 109px;
+    text-align: center;
+}
+
+td.table-qldthi-khoa {
+    min-width: 109px;
+}
+
+.table thead tr th {
+    text-align: center;
+}
+
+td.table-qldthi-dethi {
+    min-width: 182px;
+}
+
+td.table-qldthi-mon {
+    min-width: 95px;
+}
+td.table-qldthi-sl {
+    text-align: center;
+}
+
+td.table-qldthi-nguoi-dang {
+    min-width: 140px;
+}

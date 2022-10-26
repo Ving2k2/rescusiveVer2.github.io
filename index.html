@@ -57,7 +57,7 @@
                     <li id="buttonRegister" class="side-nav-item side-nav-item">
                         <a href="register.html" class="side-nav-link item-link">
                             <i class="fa-solid fa-user-plus"></i>
-                            <span> Đăng kí </span>
+                            <span> Đăng ký </span>
                         </a>
                     </li>
                     <li id="buttonLogin" class="side-nav-item side-nav-item">
@@ -249,6 +249,397 @@
                     <div id="for-cham-diem-de-tai" class="row">
                     </div>
 
+                    <div class="col-12" id="bang-quan-ly-sv">
+                        <div class="page-title-right" id="table-head-qlsv">
+                            Quản lý sinh viên
+                        </div>
+                        <table class="table table-hover table-centered mb-0 table-responsive-lg">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã SV</th>
+                                    <th>Họ và tên</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-qlsv">
+                                <tr id="row-qlsv-1">
+                                    <td class="table-id text-center">1</td>
+                                    <td class="table-qlsv-msv">2100695</td>
+                                    <td class="table-qlsv-name">
+                                        <div class="d-flex flex-row">
+                                            <div class="flex-grow-0 mr-2">
+                                                <img class="img-fluid avatar-xs"
+                                                    src="./assets/img/default.jpg"
+                                                    alt="" />
+                                            </div>
+                                            <div class="flex-1">
+                                                <p class="font-semibold my-0">Minh Ngọc</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="table-qlsv-date">18/10/2022</td>
+                                    <td class="table-qlsv-action">
+                                        <a href="javascript: void(0);" class="action-icon"> <i
+                                                class="fa fa-light fa-pen"></i></a>
+                                        <a href="javascript: void(0);" class="action-icon "> <i
+                                                class="fa fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                <tr id="row-qlsv-2">
+                                    <td class="table-id">2</td>
+                                    <td class="table-qlsv-msv">2100345</td>
+                                    <td class="table-qlsv-name">
+                                        <div class="d-flex flex-row">
+                                            <div class="flex-grow-0 mr-2">
+                                                <img class="img-fluid avatar-xs"
+                                                    src="https://anhdephd.vn/wp-content/uploads/2022/05/anh-soai-ca-cuc-ngau-507x600.jpg"
+                                                    alt="" />
+                                            </div>
+                                            <div class="flex-1">
+                                                <p class="font-semibold my-0">Quang Thăng</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="table-qlsv-date">18/10/2022</td>
+                                    <td class="table-qlsv-action">
+                                        <a href="javascript: void(0);" class="action-icon"> <i
+                                                class="fa fa-light fa-pen"></i></a>
+                                        <a href="javascript: void(0);" class="action-icon"> <i
+                                                class="fa fa-solid fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-12 d-none" id="bang-quan-ly-gv">
+                        <div class="page-title-right" id="table-head-qlgv">
+                            Quản lý giảng viên
+                        </div>
+                        <table class="table table-hover table-centered mb-0 table-responsive-lg">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã GV</th>
+                                    <th>Họ và tên</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-qlgv">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+
+                    <!-- Bảng admin -->
+                    <div class="col-12" id="bang-quan-ly-de-tai">
+                        <div class="page-title-right" id="table-head-dtai">
+                            Quản lý đề tài <a href="#" class="ml-1"><i class="fa fa-plus"></i></a>
+                        </div>
+                        <table class="table table-hover table-centered mb-0 table-responsive-lg">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên đề tài</th>
+                                    <th>Tình trạng</th>
+                                    <th>SV tham gia</th>
+                                    <th>GV hướng dẫn</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-qldtai">
+                                <tr id="row-qldtai-1">
+                                    <td class="table-id">1</td>
+                                    <td class="table-qldtai-name">
+                                        <div class="d-flex flex-row">
+                                            <div class="flex-grow-0 mr-2"> </div>
+                                            <div class="flex-1">
+                                                <p class="font-semibold my-0">Sự hình thành và phát triển của xe cộ</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="table-qldtai-status">
+                                        <span class="badge badge-success-lighten badge-pill">Approved</span>
+                                    </td>
+                                    <td class="table-qldtai-sv">
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Mat Helme" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                alt="image" class="img-fluid avatar-xs rounded-circle">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Michael Zenaty" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="James Anderson" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Mat Helme" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Michael Zenaty" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="James Anderson" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                    </td>
+                                    <td class="table-qldtai-gv">
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Mat Helme" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="rounded-circle img-thumbnail avatar-sm" alt="friend">
+                                        </a>
+
+                                    </td>
+                                    <td class="table-qldtai-date">18/10/2022</td>
+                                    <td class="table-qldtai-action">
+                                        <a href="javascript: void(0);" class="action-icon"> <i
+                                                class="fa fa-light fa-pen"></i></a>
+                                        <a href="javascript: void(0);" class="action-icon "> <i
+                                                class="fa fa-solid fa-trash"></i></a>
+                                        <a href="javascript: void(0);" class="action-icon "> <i
+                                                class="fa fa-solid fa-circle-up"></i></a>
+                                    </td>
+                                </tr>
+                                <tr id="row-qldtai-2">
+                                    <td class="table-id">2</td>
+                                    <td class="table-qldtai-name">
+                                        <div class="d-flex flex-row">
+                                            <div class="flex-grow-0 mr-2"> </div>
+                                            <div class="flex-1">
+                                                <p class="font-semibold my-0">Sự hình thành và phát triển của xe cộ</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="table-qldtai-status">
+                                        <span class="badge badge-danger-lighten badge-pill">Denied</span>
+                                    </td>
+                                    <td class="table-qldthi-sv">
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Mat Helme" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                alt="image" class="img-fluid avatar-xs rounded-circle">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Michael Zenaty" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="James Anderson" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Mat Helme" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Michael Zenaty" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="James Anderson" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                    </td>
+                                    <td class="table-qldtai-gv">
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Mat Helme" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="rounded-circle img-thumbnail avatar-sm" alt="friend">
+                                        </a>
+
+                                    </td>
+                                    <td class="table-qldtai-date">18/10/2022</td>
+                                    <td class="table-qldtai-action">
+                                        <a href="javascript: void(0);" class="action-icon"> <i
+                                                class="fa fa-light fa-pen"></i></a>
+                                        <a href="javascript: void(0);" class="action-icon "> <i
+                                                class="fa fa-solid fa-trash"></i></a>
+                                        <a href="javascript: void(0);" class="action-icon "> <i
+                                                class="fa fa-solid fa-circle-up"></i></a>
+                                    </td>
+                                </tr>
+                                <tr id="row-qldtai-3">
+                                    <td class="table-id">3</td>
+                                    <td class="table-qldtai-name">
+                                        <div class="d-flex flex-row">
+                                            <div class="flex-grow-0 mr-2"> </div>
+                                            <div class="flex-1">
+                                                <p class="font-semibold my-0">Sự hình thành và phát triển của xe cộ</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="table-qldtai-status">
+                                        <span class="badge badge-warning-lighten badge-pill">Pending</span>
+                                    </td>
+                                    <td class="table-qldtai-sv">
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Mat Helme" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                alt="image" class="img-fluid avatar-xs rounded-circle">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Michael Zenaty" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="James Anderson" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Mat Helme" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Michael Zenaty" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="James Anderson" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                        </a>
+
+                                    </td>
+                                    <td class="table-qldtai-gv">
+                                        <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                            title="" data-original-title="Mat Helme" class="d-inline-block">
+                                            <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                class="rounded-circle img-thumbnail avatar-sm" alt="friend">
+                                        </a>
+
+                                    </td>
+                                    <td class="table-qldtai-date">18/10/2022</td>
+                                    <td class="table-qldtai-action">
+                                        <a href="javascript: void(0);" class="action-icon"> <i
+                                                class="fa fa-light fa-pen"></i></a>
+                                        <a href="javascript: void(0);" class="action-icon "> <i
+                                                class="fa fa-solid fa-trash"></i></a>
+                                        <a href="javascript: void(0);" class="action-icon "> <i
+                                                class="fa fa-solid fa-circle-up"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-12" id="bang-quan-ly-de-thi">
+                        <div class="page-title-right" id="table-head-dthi">
+                            Quản lý đề thi <a href="#" class="ml-1"><i class="fa fa-plus"></i></a>
+                        </div>
+                        <table class="table table-hover table-centered mb-0 table-responsive-lg">
+                            <thead>
+                                <tr>
+                                    <th>Tên đề thi</th>
+                                    <th>Tên khoa</th>
+                                    <th>Tên môn</th>
+                                    <th>Số lượng file</th>
+                                    <th>Tình trạng</th>
+                                    <th>Người đăng</th>
+                                    <th>Ngày đăng</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-qldthi">
+                                <tr id="row-qldthi-1">
+                                    <a href=" ">
+                                        <td class="table-qldthi-dethi ">
+                                            <div class="text-center">
+                                                <div class="flex-grow-0 mr-2"> </div>
+                                                <div class="flex-1">
+                                                    <p class="font-semibold my-0"> baksbđgchd</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </a>
+                                    <td class="table-qldthi-khoa">
+                                        <div class="text-center">
+                                            <div class="flex-grow-0 mr-2"> </div>
+                                            <div class="flex-1">
+                                                <p class="font-semibold my-0">Toán - Cơ - Tin học</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="table-qldthi-mon">
+                                        <div class="text-center">
+                                            <div class="flex-grow-0 mr-2"> </div>
+                                            <div class="flex-1">
+                                                <p class="font-semibold my-0">Giải tích 1</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="table-qldthi-sl text-center">1</td>
+                                    <td class="table-qldthi-status">
+                                        <span class="badge badge-success-lighten badge-pill ">Approved</span>
+                                    </td>
+                                    <td class="table-qldthi-nguoi-dang">
+                                        <div class="d-flex flex-row">
+                                            <div class="flex-grow-0 mr-2">
+                                                <img class="img-fluid avatar-xs"
+                                                    src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                    alt="" />
+                                            </div>
+                                            <div class="flex-1">
+                                                <p class="font-semibold my-0">Minh Ngọc</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="table-qldthi-date">18/10/2022</td>
+                                    <td class="table-qldthi-action">
+                                        <a href="javascript: void(0);" class="action-icon"> <i
+                                                class="fa fa-light fa-pen"></i></a>
+                                        <a href="javascript: void(0);" class="action-icon "> <i
+                                                class="fa fa-solid fa-trash"></i></a>
+                                        <a href="javascript: void(0);" class="action-icon "> <i
+                                                class="fa fa-solid fa-circle-up"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <!-- container -->
 
@@ -306,6 +697,10 @@
     <!-- End Page content -->
     <!-- ============================================================== -->
     <!--Data Js-->
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
     <script type="module" src="./assets/js/exam.js"></script>
     <script type="module" src="./assets/js/research.js"></script>
     <script type="module" src="./assets/js/home.js"></script>
@@ -315,6 +710,8 @@
     <script type="module" src="./assets/js/research.js"></script>
     <script type="module" src="./assets/js/search.js"></script>
     <script type="module" src="./assets/js/postExam.js"></script>
+    <script type="module" src="./assets/js/admin.js"></script>
+
 
     <!--Theme Js-->
     <script src="./assets/js/vendor.js"></script>
