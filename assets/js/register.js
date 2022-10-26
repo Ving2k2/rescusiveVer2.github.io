@@ -5,7 +5,6 @@ import {url} from "./enviroment.js";
 // đăng ký
 
 const buttonRegister = document.querySelector(".buttonRegister");
-console.log(buttonRegister);
 
 const isLecturers = document.querySelector("#pickGV").checked ? 1 : 0 ;
 const isStudent = document.querySelector("#pickSV").checked ? 1 : 0;
@@ -33,12 +32,12 @@ async function handerRegister(e) {
         isStudent: isStudent,
 
     }
-    console.log(user);
-
     const res = await registerUser(user)
     console.log(res);
     if (res) {
         window.location = url+"/login.html"
+    } else {
+        alert("oops! Có vẻ như thông tin bạn nhập chưa chính xác! Vui lòng nhập lại nha")
     }
 
 }
