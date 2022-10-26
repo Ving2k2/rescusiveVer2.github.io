@@ -14378,11 +14378,13 @@ input[data-switch="dark"]:checked + label {
     color: #98a6ad;
     font-size: 1.2rem;
     display: inline-block;
-    padding: 0 10px;
+    padding: 0 16px;
 }
 
 .table .action-icon:hover {
     color: #919ca7;
+    border-radius: 4px;
+    background-color: #ccc;
 }
 
 .table-nowrap th, .table-nowrap td {

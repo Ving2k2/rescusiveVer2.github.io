@@ -82,38 +82,38 @@ $(document).on('click', '#buttonDeThi',(e)=>{
     mainContent.innerHTML = ''
     getAllExam()
     const codeHtml = `
-    <div id="for-homepage" class="row">
-                          <div id="new-post" class="col-12">
-                          </div>
-                          <div id="news-feed" class="col-12">
-                              <div class="box__exam"></div>
-                          </div>
-                          <div id="pagination" class="col-12">
-                              <div class="page-title-box"></div>
-                              <div class="page-title">
-                                  <nav aria-label="Pagination">
-                                      <ul class="pagination pagination-md justify-content-center">
-                                          <li class="page-item disabled">
-                                              <a class="page-link" href="javascript: void(0);" tabindex="-1">
-                                                  <i class="fa-solid fa-chevron-left"></i>
-                                              </a>
-                                          </li>
-                                          <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
-                                          </li>
-                                          <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
-                                          </li>
-                                          <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
-                                          </li>
-                                          <li class="page-item">
-                                              <a class="page-link" href="javascript: void(0);">
-                                                  <i class="fa-solid fa-chevron-right"></i>
-                                              </a>
-                                          </li>
-                                      </ul>
-                                  </nav>
-                              </div>
-                          </div>
-                      </div>
+        <div id="for-homepage" class="row">
+            <div id="new-post" class="col-12">
+            </div>
+            <div id="news-feed" class="col-12">
+                <div class="box__exam"></div>
+            </div>
+            <div id="pagination" class="col-12">
+                <div class="page-title-box"></div>
+                <div class="page-title">
+                    <nav aria-label="Pagination">
+                        <ul class="pagination pagination-md justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="javascript: void(0);" tabindex="-1">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="javascript: void(0);">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
     `
     mainContent.innerHTML = codeHtml;
     console.log(mainContent)

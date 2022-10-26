@@ -187,7 +187,7 @@ td .table-id{
 }
 
 a.action-icon{
-    padding: 0 0.2rem!important;
+    padding: 0 0.5rem!important;
 }
 
 .action-icon ::before {
@@ -217,6 +217,10 @@ td.table-qlsv-date, td.table-qlgv-date {
 td.table-qlsv-action, td.table-qlgv-action, td.table-tk-action, td.table-qldthi-action, td.table-qldthi-sl {
     min-width: 95px;
     text-align: center;
+}
+
+td.table-qlgv-action{
+    padding: 0.95rem 0rem;
 }
 
 td.table-qldtai-name {
