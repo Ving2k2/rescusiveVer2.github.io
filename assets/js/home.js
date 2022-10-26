@@ -4,6 +4,9 @@ import getAvatarUser from "../apiServices/user/getAvatarUser.js";
 import allUserByType from "../apiServices/user/getAllUserByType.js";
 import deleteUser from "../apiServices/user/deleteUser.js";
 import getAllResearch from "../apiServices/research/getAllResearch.js"
+import getAllResearchPrivate from "../apiServices/research/getAllResearchPrivate.js"
+import getAllExam from "../apiServices/exam/getAllExam.js"
+import getUserById from "../apiServices/user/getUserById.js";
 // console.log(buttonAvatar);
 
 // Sau khi đăng nhập từ quyền của mỗi người (admin, gv, sv) sẽ hiển thị ra ở thanh sidebar khác nhau
@@ -444,18 +447,223 @@ async function getUser() {
 
             // render bảng đề tài nghiên cứu khoa học
             async function renderDeTai() {
-                const allDeTai = await getAllResearch 
-            }
-            const buttonQLDeTai = document.querySelector("#buttonQLDeTai");
+                const allDeTai = await getAllResearchPrivate();
+                console.log(allDeTai);
+                let codeHTMLofChucNang = '';
+                let bodyTableDeTai = document.querySelector("#table-body-qldtai");
+                console.log(bodyTableDeTai);
+                allDeTai.forEach(async (item, index) => {
+                    console.log("hehe");
+                    const tenDeTai = item.name;
+                    // const avatar = await getAvatarUser(item.idUser);
 
+                    codeHTMLofChucNang += `
+                        <tr id="row-qldtai-1">
+                            <td class="table-id text-center">${++index}</td>
+                            <td class="table-qldtai-name">
+                                <div class="text-center flex-row">
+                                    <div class="flex-grow-0 mr-2"> </div>
+                                    <div class="flex-1">
+                                        <p class="font-semibold my-0">${tenDeTai}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-qldtai-status text-center">
+                                <span class="badge badge-success-lighten badge-pill">Approved</span>
+                            </td>
+                            <td class="table-qldtai-sv text-center">
+
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                    title="" data-original-title="Mat Helme" class="d-inline-block">
+                                    <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                        alt="image" class="img-fluid avatar-xs rounded-circle">
+                                </a>
+
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                    title="" data-original-title="Michael Zenaty" class="d-inline-block">
+                                    <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                        class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                </a>
+
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                    title="" data-original-title="James Anderson" class="d-inline-block">
+                                    <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                        class="img-fluid avatar-xs rounded-circle" alt="friend">
+                                </a>
+
+                            </td>
+                            <td class="table-qldtai-gv">
+
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
+                                    title="" data-original-title="Mat Helme" class="d-inline-block">
+                                    <img src="./assets/img/default.jpg"
+                                        class="rounded-circle img-thumbnail avatar-sm" alt="friend">
+                                </a>
+
+                            </td>
+                            <td class="table-qldtai-date">18/10/2022</td>
+                            <td class="table-qldtai-action">
+                                <a data-toggle="tooltip" data-placement="top"
+                                title="" data-original-title="Chỉnh sửa" 
+                                href="javascript: void(0);" class="action-icon"> <i
+                                        class="fa fa-light fa-pen"></i></a>
+                                <a data-toggle="tooltip" data-placement="top"
+                                title="" data-original-title="Gỡ bỏ" 
+                                href="javascript: void(0);" class="action-icon "> <i
+                                        class="fa fa-solid fa-trash"></i></a>
+                                <a data-toggle="tooltip" data-placement="top"
+                                title="" data-original-title="Phê duyệt"
+                                href="javascript: void(0);" class="action-icon "> <i class="fa-solid fa-check"></i></a>
+                            </td>
+                        </tr>
+                    `;
+                });
+                bodyTableDeTai.innerHTML = codeHTMLofChucNang;
+                console.log(bodyTableDeTai);
+            }
+
+            const buttonQLDeTai = document.querySelector("#buttonQLDeTai");
+            buttonQLDeTai.onclick = function () {
+                let mainContent = document.querySelector("#main-content");
+                renderDeTai();
+                let codeHTMLofTable = `
+                    <div id="for-homepage" class="row">
+                    <div class="col-12" id="bang-quan-ly-de-tai">
+                        <div class="page-title-right" id="table-head-dtai">
+                            Quản lý đề tài <a href="#" class="ml-1"><i class="fa fa-plus"></i></a>
+                        </div>
+                        <table class="table table-hover table-centered mb-0 table-responsive-lg">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên đề tài</th>
+                                    <th>Tình trạng</th>
+                                    <th>SV tham gia</th>
+                                    <th>GV hướng dẫn</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-qldtai">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div id="pagination" class="col-12">
+                        <div class="page-title-box"></div>
+                        <div class="page-title">
+                            <nav aria-label="Pagination">
+                                <ul class="pagination pagination-md justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="javascript: void(0);">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                `;
+                mainContent.innerHTML = codeHTMLofTable;
+            }
+
+            // render bảng quản lí đề thi
+            async function renderDeThi() {
+                const allDeThi = await getAllExam();
+                console.log(allDeThi);
+                let codeHTMLofChucNang = '';
+                let bodyTableDeThi = document.querySelector("#table-body-qldthi");
+                allDeThi.forEach(async (item, index) => {
+                    const idUser = item.idUserPost
+                    const user = await getUserById(idUser)
+                    const fullName = `${user.firstName} ${user.lastName}`
+                    const nameExam = item.name
+                    // const idSubject = item.idExamSubject
+                    const status = item.isPublic;
+
+                    if (status == false) {
+                        codeHTMLofChucNang +=  `
+                            <tr id="row-qldthi-1">
+                                <a href=" ">
+                                    <td class="table-qldthi-dethi ">
+                                        <div class="text-center">
+                                            <div class="flex-grow-0 mr-2"> </div>
+                                            <div class="flex-1">
+                                                <p class="font-semibold my-0">${nameExam}</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </a>
+                                <td class="table-qldthi-khoa">
+                                    <div class="text-center">
+                                        <div class="flex-grow-0 mr-2"> </div>
+                                        <div class="flex-1">
+                                            <p class="font-semibold my-0">Toán - Cơ - Tin học</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="table-qldthi-mon">
+                                    <div class="text-center">
+                                        <div class="flex-grow-0 mr-2"> </div>
+                                        <div class="flex-1">
+                                            <p class="font-semibold my-0">Giải tích 1</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="table-qldthi-sl text-center">1</td>
+                                <td class="table-qldthi-status">
+                                    <span class="badge badge-success-lighten badge-pill ">Approved</span>
+                                </td>
+                                <td class="table-qldthi-nguoi-dang">
+                                    <div class="d-flex flex-row">
+                                        <div class="flex-grow-0 mr-2">
+                                            <img class="img-fluid avatar-xs"
+                                                src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                                alt="" />
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="font-semibold my-0">${fullName}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="table-qldthi-date">${20-index}/10/2022</td>
+                                <td class="table-qldthi-action">
+                                    <a href="javascript: void(0);" class="action-icon"> <i
+                                            class="fa fa-light fa-pen"></i></a>
+                                    <a href="javascript: void(0);" class="action-icon "> <i
+                                            class="fa fa-solid fa-trash"></i></a>
+                                    <a href="javascript: void(0);" class="action-icon "> <i
+                                            class="fa fa-solid fa-circle-up"></i></a>
+                                </td>
+                            </tr>
+                        `;
+                    }
+                });
+                bodyTableDeThi.innerHTML = codeHTMLofChucNang;
+                console.log(bodyTableDeThi);
+            }
+            renderDeThi();
             const buttonQLDeThi = document.querySelector("#buttonQLDeThi");
 
 
 
 
-        } else if (user.isStudent) {
-            typeUser.innerText = "Sinh viên";
-            let codeHTML = `
+                } else if (user.isStudent) {
+                    typeUser.innerText = "Sinh viên";
+                    let codeHTML = `
                     <li class="side-nav-title side-nav-item">Trang sinh viên</li>
                     <li id="buttonCreateNCKH" class="side-nav-item item-link">
                         <a href="#" class="side-nav-link item-link">
@@ -482,15 +690,15 @@ async function getUser() {
                         </ul>
                     </li>
                 `;
-            buttonSV.innerHTML = codeHTML;
+                    buttonSV.innerHTML = codeHTML;
 
-            const buttonCreateNCKH = document.querySelector("#buttonCreateNCKH");
-            const buttonThamGia1 = document.querySelector("#buttonThamGia1");
-            let codeHTMLofChucNang = "";
-            buttonCreateNCKH.onclick = function () {
-                let boxCreateNCKH = document.querySelector("#for-createNCKH");
-                let mainContent = document.querySelector("#main-content")
-                codeHTMLofChucNang = `
+                    const buttonCreateNCKH = document.querySelector("#buttonCreateNCKH");
+                    const buttonThamGia1 = document.querySelector("#buttonThamGia1");
+                    let codeHTMLofChucNang = "";
+                    buttonCreateNCKH.onclick = function () {
+                        let boxCreateNCKH = document.querySelector("#for-createNCKH");
+                        let mainContent = document.querySelector("#main-content")
+                        codeHTMLofChucNang = `
                 <div id="for-createNCKH" class="row">
                     <div class="col-12">
                         <div class="page-title-box">
@@ -525,13 +733,13 @@ async function getUser() {
                     </div>
                 </div>
                 `;
-                mainContent.innerHTML = codeHTMLofChucNang;
-            }
+                        mainContent.innerHTML = codeHTMLofChucNang;
+                    }
 
-            buttonThamGia1.onclick = function () {
-                let boxHuongDan = document.querySelector("#for-tham-gia-huong-dan");
-                let mainContent = document.querySelector("#main-content")
-                codeHTMLofChucNang = `
+                    buttonThamGia1.onclick = function () {
+                        let boxHuongDan = document.querySelector("#for-tham-gia-huong-dan");
+                        let mainContent = document.querySelector("#main-content")
+                        codeHTMLofChucNang = `
                     <div class="col-12">
                         <div class="page-title-box">
                             <div class="page-title h4 text-dark">Đề tài tham gia nghiên cứu/hướng dẫn</div>
@@ -947,13 +1155,13 @@ async function getUser() {
                         </div>
                     </div>
                 `;
-                mainContent.innerHTML = codeHTMLofChucNang;
-            }
+                        mainContent.innerHTML = codeHTMLofChucNang;
+                    }
 
 
-        } else {
-            typeUser.innerText = "Giảng viên";
-            let codeHTML = `
+                } else {
+                    typeUser.innerText = "Giảng viên";
+                    let codeHTML = `
                 <li class="side-nav-title side-nav-item">Trang giáo viên</li>
                     <li id="buttonCreateNCKH" class="side-nav-item item-link">
                         <a href="#" class="side-nav-link item-link">
@@ -998,16 +1206,16 @@ async function getUser() {
                         </ul>
                     </li>
                 `;
-            buttonGV.innerHTML = codeHTML;
+                    buttonGV.innerHTML = codeHTML;
 
-            const buttonCreateNCKH = document.querySelector("#buttonCreateNCKH");
-            const buttonHuongDan1 = document.querySelector("#buttonHuongDan1");
-            const buttonChamDiem1 = document.querySelector("#buttonChamDiem1");
-            let codeHTMLofChucNang = "";
-            buttonCreateNCKH.onclick = function () {
-                let boxCreateNCKH = document.querySelector("#for-createNCKH");
-                let mainContent = document.querySelector("#main-content")
-                codeHTMLofChucNang = `
+                    const buttonCreateNCKH = document.querySelector("#buttonCreateNCKH");
+                    const buttonHuongDan1 = document.querySelector("#buttonHuongDan1");
+                    const buttonChamDiem1 = document.querySelector("#buttonChamDiem1");
+                    let codeHTMLofChucNang = "";
+                    buttonCreateNCKH.onclick = function () {
+                        let boxCreateNCKH = document.querySelector("#for-createNCKH");
+                        let mainContent = document.querySelector("#main-content")
+                        codeHTMLofChucNang = `
                     <div class="col-12">
                         <div class="page-title-box">
                             <div class="page-title h4 text-dark">Tạo đề tài nghiên cứu khoa học</div>
@@ -1040,13 +1248,13 @@ async function getUser() {
                         </div>
                     </div>
                 `;
-                mainContent.innerHTML = codeHTMLofChucNang;
-            }
-            codeHTMLofChucNang = "";
-            buttonHuongDan1.onclick = function () {
-                let boxHuongDan = document.querySelector("#for-tham-gia-huong-dan");
-                let mainContent = document.querySelector("#main-content")
-                codeHTMLofChucNang = `
+                        mainContent.innerHTML = codeHTMLofChucNang;
+                    }
+                    codeHTMLofChucNang = "";
+                    buttonHuongDan1.onclick = function () {
+                        let boxHuongDan = document.querySelector("#for-tham-gia-huong-dan");
+                        let mainContent = document.querySelector("#main-content")
+                        codeHTMLofChucNang = `
                     <div class="col-12">
                         <div class="page-title-box">
                             <div class="page-title h4 text-dark">Đề tài tham gia nghiên cứu/hướng dẫn</div>
@@ -1460,13 +1668,13 @@ async function getUser() {
                         </div>
                     </div>
                 `;
-                mainContent.innerHTML = codeHTMLofChucNang;
-            }
-            codeHTMLofChucNang = "";
-            buttonChamDiem1.onclick = function () {
-                let boxChamDiem = document.querySelector("#for-cham-diem-de-tai");
-                let mainContent = document.querySelector("#main-content")
-                codeHTMLofChucNang = `
+                        mainContent.innerHTML = codeHTMLofChucNang;
+                    }
+                    codeHTMLofChucNang = "";
+                    buttonChamDiem1.onclick = function () {
+                        let boxChamDiem = document.querySelector("#for-cham-diem-de-tai");
+                        let mainContent = document.querySelector("#main-content")
+                        codeHTMLofChucNang = `
                     <div class="col-12">
                         <div class="page-title-box">
                             <div class="page-title h4 text-dark">Chấm điểm đề tài nghiên cứu khoa học</div>
@@ -1719,14 +1927,14 @@ async function getUser() {
                         </div>
                     </div>
                 `;
-                mainContent.innerHTML = codeHTMLofChucNang;
-            }
-        }
+                        mainContent.innerHTML = codeHTMLofChucNang;
+                    }
+                }
 
-        // Thông tin cá nhân
-        document.querySelector("#buttonThongTinCaNhan").onclick = function () {
-            let mainContent = document.querySelector("#main-content")
-            let codeHTMLThongTinCaNhan = `
+                // Thông tin cá nhân
+                document.querySelector("#buttonThongTinCaNhan").onclick = function () {
+                    let mainContent = document.querySelector("#main-content")
+                    let codeHTMLThongTinCaNhan = `
                     <div id="thong-tin-ca-nhan" class="row">
                         <div class="col-12">
                             <div class="page-title-box">
@@ -1781,13 +1989,13 @@ async function getUser() {
                         </div>
                     </div>
             `;
-            mainContent.innerHTML = codeHTMLThongTinCaNhan;
+                    mainContent.innerHTML = codeHTMLThongTinCaNhan;
+                }
+            }
         }
-    }
-}
 
 
-getUser();
+        getUser();
 
 
 // async function getDataResearch () {
