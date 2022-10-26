@@ -38,23 +38,9 @@ async function handerPostExam(e) {
         userPost: userPost
     }
     const res = addExam(exam)
-    if (res) {
-        makeAdminPublic();
-    }
+    console.log(res.status);
 }
 $(document).on('click', '.buttonPostExam',(e) =>{handerPostExam(e)} )
 
-const makeAdminPublic = async () => {
-    const idUser = getCookie("idUser");
-    const user = await getUserById(idUser);
-    console.log(tmpname);
-    if (user.isAdmin) {
-        const searchExam = await getExamByName(tmpname);
-        console.log(searchExam);
-        if (searchExam.length > 0) {
-            setExamPublicOrPrivate(searchExam[0]._id, true);
-        }
-    }
-}
 // document.querySelector("#buttonPostExam").addEventListener('click', (e) => handerPostExam(e));
 
