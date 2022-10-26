@@ -392,23 +392,20 @@ async function getUser() {
                                     </div>
                                     <!-- project title-->
                                     <h3 class="mt-0">
-                                        Đề tài Demo
+                                        Đề tài ứng dụng của thống kê vào website
                                     </h3>
 
                                     <h5>Tóm tắt đề tài:</h5>
 
                                     <p class="text-muted mb-2">
-                                        With supporting text below as a natural lead-in to additional contenposuere erat
-                                        a ante. Voluptates, illo, iste itaque voluptas corrupti ratione reprehenderit
-                                        magni similique? Tempore, quos delectus asperiores libero voluptas quod
-                                        perferendis! Voluptate, quod illo rerum? Lorem ipsum dolor sit amet.
+                                    Với vai trò là người quản trị trang web thì việc thống kê lượt truy cập website là vô cùng cần thiết hơn cả.
+                                     Không những thế, ngay cả đối với những người thường xuyên truy cập website hằng ngày, có bao giờ bạn tự hỏi rằng trang web này có bao nhiêu người truy cập mỗi ngày không.
                                     </p>
 
                                     <p class="text-muted mb-2">
-                                        Voluptates, illo, iste itaque voluptas corrupti ratione reprehenderit magni
-                                        similique? Tempore, quos delectus asperiores libero voluptas quod perferendis!
-                                        Voluptate, quod illo rerum? Lorem ipsum dolor sit amet. With supporting text
-                                        below as a natural lead-in to additional contenposuere erat a ante.
+                                    Nếu như bạn vẫn đang băn khoăn trong vấn đề làm thế nào để có thể thống kê lượt truy cập website hoặc đang
+                                     muốn tìm hiểu xem có bao nhiêu người ghé thăm website này thì ở đây, tôi sẽ giới thiệu đến bạn những lợi
+                                     ích của thống kê trong website và tầm quan trọng của nó như thế nào
                                     </p>
                                     <div class="row mt-2">
                                         <div class="col-6">
@@ -538,20 +535,18 @@ async function getUser() {
                                                     <a href="javascript:void(0);" class="text-muted font-weight-bold">Design.zip</a>
                                                     <p class="mb-0">2.3 MB</p>
                                                 </div>
-                                                <div class="col-auto">
+                                                <div class="col-auto text-center">
                                                     <!-- Button -->
                                                     <a href="#" download=""
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-download"></i>
                                                     </a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <!-- Button -->
                                                     <a href="#"
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </a>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -571,20 +566,18 @@ async function getUser() {
                                                     <a href="javascript:void(0);" class="text-muted font-weight-bold">Design.img</a>
                                                     <p class="mb-0">2.3 MB</p>
                                                 </div>
-                                                <div class="col-auto">
+                                                <div class="col-auto text-center">
                                                     <!-- Button -->
                                                     <a href="#" download=""
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-download"></i>
                                                     </a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <!-- Button -->
                                                     <a href="#"
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </a>
                                                 </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -604,17 +597,14 @@ async function getUser() {
                                                     <a href="javascript:void(0);" class="text-muted font-weight-bold">Design.mp4</a>
                                                     <p class="mb-0">2.3 MB</p>
                                                 </div>
-                                                <div class="col-auto">
+                                                <div class="col-auto text-center">
                                                     <!-- Button -->
                                                     <a href="#" download=""
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-download"></i>
                                                     </a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <!-- Button -->
                                                     <a href="#"
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </a>
                                                 </div>
@@ -638,19 +628,16 @@ async function getUser() {
                                                     <p class="mb-0">2.3 MB</p>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <!-- Button -->
-                                                    <a href="#" download=""
-                                                       class="btn btn-link btn-lg text-muted">
-                                                        <i class="fa-solid fa-download"></i>
-                                                    </a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <!-- Button -->
-                                                    <a href="#"
-                                                       class="btn btn-link btn-lg text-muted">
-                                                        <i class="fa-solid fa-trash-can"></i>
-                                                    </a>
-                                                </div>
+                                                <!-- Button -->
+                                                <a href="#" download=""
+                                                   class="btn btn-link btn-lg text-muted">
+                                                    <i class="fa-solid fa-download"></i>
+                                                </a>
+                                                <a href="#"
+                                                   class="btn btn-link btn-lg text-muted">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </a>
+                                            </div>
                                             </div>
                                         </div>
                                     </div>
@@ -672,7 +659,7 @@ async function getUser() {
                                                 <div class="col-auto">
                                                     <!-- Button -->
                                                     <a href="#"
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </a>
                                                 </div>
@@ -920,23 +907,20 @@ async function getUser() {
                                     </div>
                                     <!-- project title-->
                                     <h3 class="mt-0">
-                                        Đề tài Demo
+                                        Đề tài ứng dụng của thống kê vào website
                                     </h3>
 
                                     <h5>Tóm tắt đề tài:</h5>
 
                                     <p class="text-muted mb-2">
-                                        With supporting text below as a natural lead-in to additional contenposuere erat
-                                        a ante. Voluptates, illo, iste itaque voluptas corrupti ratione reprehenderit
-                                        magni similique? Tempore, quos delectus asperiores libero voluptas quod
-                                        perferendis! Voluptate, quod illo rerum? Lorem ipsum dolor sit amet.
+                                    Với vai trò là người quản trị trang web thì việc thống kê lượt truy cập website là vô cùng cần thiết hơn cả.
+                                     Không những thế, ngay cả đối với những người thường xuyên truy cập website hằng ngày, có bao giờ bạn tự hỏi rằng trang web này có bao nhiêu người truy cập mỗi ngày không.
                                     </p>
 
                                     <p class="text-muted mb-2">
-                                        Voluptates, illo, iste itaque voluptas corrupti ratione reprehenderit magni
-                                        similique? Tempore, quos delectus asperiores libero voluptas quod perferendis!
-                                        Voluptate, quod illo rerum? Lorem ipsum dolor sit amet. With supporting text
-                                        below as a natural lead-in to additional contenposuere erat a ante.
+                                    Nếu như bạn vẫn đang băn khoăn trong vấn đề làm thế nào để có thể thống kê lượt truy cập website hoặc đang
+                                     muốn tìm hiểu xem có bao nhiêu người ghé thăm website này thì ở đây, tôi sẽ giới thiệu đến bạn những lợi
+                                     ích của thống kê trong website và tầm quan trọng của nó như thế nào
                                     </p>
                                     <div class="row mt-2">
                                         <div class="col-6">
@@ -1066,17 +1050,14 @@ async function getUser() {
                                                     <a href="javascript:void(0);" class="text-muted font-weight-bold">Design.zip</a>
                                                     <p class="mb-0">2.3 MB</p>
                                                 </div>
-                                                <div class="col-auto">
+                                                <div class="col-auto text-center">
                                                     <!-- Button -->
                                                     <a href="#" download=""
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-download"></i>
                                                     </a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <!-- Button -->
                                                     <a href="#"
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </a>
                                                 </div>
@@ -1099,17 +1080,14 @@ async function getUser() {
                                                     <a href="javascript:void(0);" class="text-muted font-weight-bold">Design.img</a>
                                                     <p class="mb-0">2.3 MB</p>
                                                 </div>
-                                                <div class="col-auto">
+                                                <div class="col-auto text-center">
                                                     <!-- Button -->
                                                     <a href="#" download=""
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-download"></i>
                                                     </a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <!-- Button -->
                                                     <a href="#"
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </a>
                                                 </div>
@@ -1132,17 +1110,14 @@ async function getUser() {
                                                     <a href="javascript:void(0);" class="text-muted font-weight-bold">Design.mp4</a>
                                                     <p class="mb-0">2.3 MB</p>
                                                 </div>
-                                                <div class="col-auto">
+                                                <div class="col-auto text-center">
                                                     <!-- Button -->
                                                     <a href="#" download=""
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-download"></i>
                                                     </a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <!-- Button -->
                                                     <a href="#"
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </a>
                                                 </div>
@@ -1165,17 +1140,14 @@ async function getUser() {
                                                     <a href="javascript:void(0);" class="text-muted font-weight-bold">Design.pdf</a>
                                                     <p class="mb-0">2.3 MB</p>
                                                 </div>
-                                                <div class="col-auto">
+                                                <div class="col-auto text-center">
                                                     <!-- Button -->
                                                     <a href="#" download=""
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-download"></i>
                                                     </a>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <!-- Button -->
                                                     <a href="#"
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </a>
                                                 </div>
@@ -1200,7 +1172,7 @@ async function getUser() {
                                                 <div class="col-auto">
                                                     <!-- Button -->
                                                     <a href="#"
-                                                       class="btn btn-link btn-lg text-muted">
+                                                       class="btn btn-link btn-lg text-muted px-1">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                     </a>
                                                 </div>
@@ -1280,23 +1252,20 @@ async function getUser() {
                                 <div class="card-body">
                                     <!-- project title-->
                                     <h3 class="mt-0">
-                                        Đề tài Demo
+                                        Đề tài ứng dụng của thống kê vào website
                                     </h3>
 
                                     <h5>Tóm tắt đề tài:</h5>
 
                                     <p class="text-muted mb-2">
-                                        With supporting text below as a natural lead-in to additional contenposuere erat
-                                        a ante. Voluptates, illo, iste itaque voluptas corrupti ratione reprehenderit
-                                        magni similique? Tempore, quos delectus asperiores libero voluptas quod
-                                        perferendis! Voluptate, quod illo rerum? Lorem ipsum dolor sit amet.
+                                    Với vai trò là người quản trị trang web thì việc thống kê lượt truy cập website là vô cùng cần thiết hơn cả.
+                                     Không những thế, ngay cả đối với những người thường xuyên truy cập website hằng ngày, có bao giờ bạn tự hỏi rằng trang web này có bao nhiêu người truy cập mỗi ngày không.
                                     </p>
 
                                     <p class="text-muted mb-2">
-                                        Voluptates, illo, iste itaque voluptas corrupti ratione reprehenderit magni
-                                        similique? Tempore, quos delectus asperiores libero voluptas quod perferendis!
-                                        Voluptate, quod illo rerum? Lorem ipsum dolor sit amet. With supporting text
-                                        below as a natural lead-in to additional contenposuere erat a ante.
+                                    Nếu như bạn vẫn đang băn khoăn trong vấn đề làm thế nào để có thể thống kê lượt truy cập website hoặc đang
+                                     muốn tìm hiểu xem có bao nhiêu người ghé thăm website này thì ở đây, tôi sẽ giới thiệu đến bạn những lợi
+                                     ích của thống kê trong website và tầm quan trọng của nó như thế nào
                                     </p>
                                     <div class="row mt-2">
                                         <div class="col-6">
@@ -1512,7 +1481,7 @@ async function getUser() {
                                                     </div>
                                                 </div>
                                                 <div class="col pl-0">
-                                                    <a href="#" class="text-muted font-weight-bold">github.com</a>
+                                                    <a href="#" class="text-muted font-weight-bold px-1">github.com</a>
                                                 </div>
                                             </div>
                                         </div>
