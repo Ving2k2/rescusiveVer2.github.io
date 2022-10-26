@@ -1,17 +1,10 @@
-import axios from "axios";
+// import axios from "axios";
 import registerUser from "../apiServices/user/registerUser.js";
-import {url} from "./enviroment.js";
+import { url } from "./enviroment.js";
 
 // đăng ký
 
 const buttonRegister = document.querySelector(".buttonRegister");
-
-const isLecturers = document.querySelector("#pickGV").checked ? 1 : 0 ;
-const isStudent = document.querySelector("#pickSV").checked ? 1 : 0;
-
-
-console.log(isStudent);
-console.log(isLecturers)
 
 async function handerRegister(e) {
     e.preventDefault()
@@ -21,7 +14,8 @@ async function handerRegister(e) {
     const personCode = document.getElementById("personCode").value;
     const passwordRegister = document.getElementById("passwordRegister").value;
     const passwordRegisterAgain = document.getElementById('passwordRegisterAgain').value;
-
+    const isLecturers = document.querySelector("#pickGV").checked ? 1 : 0;
+    const isStudent = document.querySelector("#pickSV").checked ? 1 : 0;
     const user = {
         firstName: firstName,
         lastName: lastName,
@@ -32,10 +26,11 @@ async function handerRegister(e) {
         isStudent: isStudent,
 
     }
+    
     const res = await registerUser(user)
     console.log(res);
     if (res) {
-        window.location = url+"/login.html"
+        window.location = url + "/login.html"
     } else {
         alert("oops! Có vẻ như thông tin bạn nhập chưa chính xác! Vui lòng nhập lại nha")
     }
