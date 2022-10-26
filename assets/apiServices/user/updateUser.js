@@ -3,7 +3,7 @@ import { put } from "../../utils/request.js";
 
 /**
  * @param {*} idUser
- * @param {*} data (Trong data gồm có fristName, lastName, email, password)
+ * @param {*} data (Trong data gồm có firstName, lastName, email, password)
  * const newUser = {
         firstName,
         lastName,

@@ -1,12 +1,14 @@
 import getUserByID from "../apiServices/user/getUserById.js"
-import {getCookie} from "../utils/libCookie.js"
+import { getCookie } from "../utils/libCookie.js"
 import getAvatarUser from "../apiServices/user/getAvatarUser.js";
+import allUserByType from "../apiServices/user/getAllUserByType.js";
+import deleteUser from "../apiServices/user/deleteUser.js";
 // console.log(buttonAvatar);
 
 // Sau khi đăng nhập từ quyền của mỗi người (admin, gv, sv) sẽ hiển thị ra ở thanh sidebar khác nhau
 async function getUser() {
     const idUser = getCookie("idUser")
-    if (idUser  == ''){
+    if (idUser == '') {
         return;
     }
     const user = await getUserByID(idUser)
@@ -20,20 +22,20 @@ async function getUser() {
     const customPost = document.querySelector("#new-post");
     buttonAdmin.style.display = "block !important";
     if (user) {
-        var type=''
+        var type = ''
         if (user.isStudent)
-            type="Sinh viên"
+            type = "Sinh viên"
         else if (user.isLecturers)
-            type="Giảng viên"
+            type = "Giảng viên"
         else
-            type='Admin'
+            type = 'Admin'
         var userName = user.firstName + " " + user.lastName;
         let codeHTML = `
             <div class="card">
                 <div class="card-body">
                     <div class="media mt-2">
                         <img class="mr-3 avatar-sm rounded-circle"
-                            src="${avatar? avatar :"./assets/img/default.jpg"}"
+                            src="${avatar ? avatar : "./assets/img/default.jpg"}"
                             alt="Generic placeholder image">
                         <div class="media-body">
                             <div class="btn-rounded h-100 p-2 h5 pl-4 mt-1"
@@ -55,7 +57,7 @@ async function getUser() {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <img src="${avatar? avatar :"/src/img/default.jpg"}" alt="table-user"
+                            <img src="${avatar ? avatar : "/src/img/default.jpg"}" alt="table-user"
                                 class="avatar-sm mr-2 rounded-circle" height="50px">
                             <span class="h4 font-weight-semibold text-dark">${userName}</span>
                             <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
@@ -159,11 +161,11 @@ async function getUser() {
                 </div>
             </div>`;
         customPost.innerHTML = codeHTML;
-        codeHTML=`<a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#"
+        codeHTML = `<a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#"
                            role="button" aria-haspopup="false"
                            aria-expanded="false">
                                     <span class="account-user-avatar">
-                                        <img id="user-avatar" src="${avatar? avatar : "./assets/img/default.jpg"}" alt="user-image"
+                                        <img id="user-avatar" src="${avatar ? avatar : "./assets/img/default.jpg"}" alt="user-image"
                                              class="rounded-circle img-fluid">
                                     </span>
                             <span>
@@ -191,7 +193,7 @@ async function getUser() {
                             </a>
 
                         </div>`
-        document.getElementById("blockUser").innerHTML=codeHTML;
+        document.getElementById("blockUser").innerHTML = codeHTML;
         document.getElementById("buttonRegister").style.display = "none";
         document.getElementById("buttonLogin").style.display = "none";
 
@@ -200,25 +202,25 @@ async function getUser() {
             let codeHTML =
                 `
                     <li class="side-nav-title side-nav-item">Trang admin</li>
-                    <li class="side-nav-item item-link">
+                    <li id = "buttonQLGV" class="side-nav-item item-link">
                         <a href="#" class="side-nav-link item-link">
                             <i class="fa fa-chalkboard-user"></i>
                             <span> Quản lý giáo viên </span>
                         </a>
                     </li>
-                    <li class="side-nav-item item-link">
+                    <li id="buttonQLSV" class="side-nav-item item-link">
                         <a href="#" class="side-nav-link item-link">
                             <i class="fa fa-user"></i>
                             <span> Quản lý sinh viên </span>
                         </a>
                     </li>
-                    <li class="side-nav-item item-link">
+                    <li id="buttonQLDeTai" class="side-nav-item item-link">
                         <a href="#" class="side-nav-link item-link">
                             <i class="fa fa-diagram-project"></i>
                             <span> Quản lý đề tài </span>
                         </a>
                     </li>
-                    <li class="side-nav-item item-link">
+                    <li buttonQLDeThi class="side-nav-item item-link">
                         <a href="#" class="side-nav-link item-link">
                             <i class="fa-solid fa-file-circle-question"></i>
                             <span> Quản lý đề thi </span>
@@ -226,6 +228,107 @@ async function getUser() {
                     </li>
                 `
             buttonAdmin.innerHTML = codeHTML;
+            
+            // render danh sách giảng viên
+            async function renderLecturer() {
+                const allLecturers = await allUserByType("lecturers");
+                let codeHTMLofChucNang = ``;
+                let bodyTableQLGV = document.querySelector("#table-body-qlgv");
+                console.log(document.querySelector("#table-body-qlgv"));
+
+                allLecturers.forEach(async (item, index) => {
+                    const maSV = item.codeSudentOrLecturers;
+                    const fullName = `${item.firstName} ${item.lastName}`;
+                    // const typePeople = (item.isStudent) ? "Sinh viên" : "Giảng viên";
+
+                    codeHTMLofChucNang += `
+                        <tr id="row-qlgv-1">
+                            <td class="table-id text-center">${++index}</td>
+                            <td class="table-qlgv-msv">${maSV}</td>
+                            <td class="table-qlgv-name">
+                                <div class="d-flex flex-row">
+                                    <div class="flex-grow-0 mr-2">
+                                        <img class="img-fluid avatar-xs"
+                                        src="./assets/img/default.jpg"
+                                            alt="" />
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-semibold my-0">${fullName}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-qlgv-date">18/10/2022</td>
+                            <td class="table-qlgv-action">
+                                <a href="javascript: void(0);" class="action-icon"> <i
+                                        class="fa fa-light fa-pen"></i></a>
+                                <a href="javascript: void(0);" class="action-icon "> <i
+                                        class="fa fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    `;
+                });
+                bodyTableQLGV.innerHTML = codeHTMLofChucNang;
+            }
+            const buttonQLGV = document.querySelector("#buttonQLGV");
+            buttonQLGV.onclick = function() {
+                document.getElementById("bang-quan-ly-gv").style.display = "block";
+                renderLecturer();
+
+            }
+
+            // render danh sách sinh viên
+            async function renderStudent() {
+                const allStudents = await allUserByType("student");
+                let codeHTMLofChucNang = ``;
+                let bodyTableQLSV = document.querySelector("#table-body-qlsv");
+                console.log(document.querySelector("#table-body-qlsv"));
+
+                allStudents.forEach(async (item, index) => {
+                    const maSV = item.codeSudentOrLecturers;
+                    const fullName = `${item.firstName} ${item.lastName}`;
+                    // const typePeople = (item.isStudent) ? "Sinh viên" : "Giảng viên";
+
+                    codeHTMLofChucNang += `
+                        <tr id="row-qlgv-1">
+                            <td class="table-id text-center">${++index}</td>
+                            <td class="table-qlgv-msv">${maSV}</td>
+                            <td class="table-qlgv-name">
+                                <div class="d-flex flex-row">
+                                    <div class="flex-grow-0 mr-2">
+                                        <img class="img-fluid avatar-xs"
+                                        src="./assets/img/default.jpg"
+                                            alt="" />
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-semibold my-0">${fullName}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-qlgv-date">18/10/2022</td>
+                            <td class="table-qlgv-action">
+                                <a href="javascript: void(0);" class="action-icon"> <i
+                                        class="fa fa-light fa-pen"></i></a>
+                                <a href="javascript: void(0);" class="action-icon "> <i
+                                        class="fa fa-solid fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    `;
+                });
+                bodyTableQLSV.innerHTML = codeHTMLofChucNang;
+            }
+            const buttonQLSV = document.querySelector("#buttonQLSV");
+            buttonQLSV.onclick = function() {
+                document.getElementById("bang-quan-ly-gv").style.display = "block";
+                renderStudent();
+
+            }
+
+            const buttonQLDeTai = document.querySelector("#buttonQLDeTai");
+            const buttonQLDeThi = document.querySelector("#buttonQLDeThi");
+            
+
+
+
         } else if (user.isStudent) {
             typeUser.innerText = "Sinh viên";
             let codeHTML = `
@@ -300,7 +403,7 @@ async function getUser() {
                 `;
                 mainContent.innerHTML = codeHTMLofChucNang;
             }
-            
+
             buttonThamGia1.onclick = function () {
                 let boxHuongDan = document.querySelector("#for-tham-gia-huong-dan");
                 let mainContent = document.querySelector("#main-content")
@@ -722,8 +825,8 @@ async function getUser() {
                 `;
                 mainContent.innerHTML = codeHTMLofChucNang;
             }
-            
-        
+
+
         } else {
             typeUser.innerText = "Giảng viên";
             let codeHTML = `

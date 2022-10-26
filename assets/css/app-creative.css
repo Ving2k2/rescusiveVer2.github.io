@@ -7709,7 +7709,7 @@ button.bg-dark:focus {
 
 @media (min-width: 768px) {
     .d-md-none {
-        display: none !important;
+        display: none;
     }
 
     .d-md-inline {
@@ -8928,7 +8928,7 @@ button.bg-dark:focus {
     }
 
     .float-md-none {
-        float: none !important;
+        float: none;
     }
 }
 
