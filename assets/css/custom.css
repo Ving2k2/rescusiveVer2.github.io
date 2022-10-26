@@ -125,7 +125,7 @@
     font-weight: 900 !important;
 }
 
-input.underline-only {
+input.underline-only, select.underline-only {
     width: 200px;
     margin: 0 10px;
     border-bottom: 1px black solid;
@@ -133,6 +133,7 @@ input.underline-only {
     border-left-style: hidden;
     border-right-style: hidden;
     outline: none;
+    background-color: inherit;
 }
 
 .fa-solid.fa-download {
