@@ -1,5 +1,6 @@
 import { getCookie } from "../../utils/libCookie.js";
 import { put } from "../../utils/request.js";
+import {headerCORS} from "../../utils/request.js";
 
 /**
  * 
@@ -18,9 +19,9 @@ const updateAvatarUser = async (idUser, data) => {
   try {
     const idToken = getCookie("idToken");
     const res = await put(`/user/update/avatar/${idUser}`, data, {
-      headers: {
+      headers: {...{
         idtoken: idToken,
-      },
+    },...headerCORS} ,
     });
     return res;
   } catch (error) {

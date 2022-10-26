@@ -4,6 +4,11 @@ import { getCookie } from "../utils/libCookie.js";
 import {url} from "./enviroment.js";
 import getDepartmentByName from "../apiServices/department/getDepartmentByName.js";
 import getSubjectByName from "../apiServices/subject/getSubjectByName.js";
+import setExamPublicOrPrivate from "../apiServices/exam/setExamPublicOrPrivate.js";
+import getExamByName from "../apiServices/exam/getExamByName.js";
+
+
+var tmpname = "";
 
 async function handerPostExam(e) {
     const idUserPost = getCookie("idUser");
@@ -22,17 +27,8 @@ async function handerPostExam(e) {
     const idSubject = subject[0]._id;
 
     const nameExam = document.getElementById("name-exam").value;
+    tmpname = nameExam;
     const fileExam = $("#file-neee").val();
-    
-        // const file = fileList[0];
-        // const formData = new FormData();
-        // formData.append("file", file);
-        // const res = await addExam(idUserPost, idDepartment, idSubject, nameExam, userPost, formData);
-        // console.log(res);
-        // if (res) {
-        //     window.location = url+"/listExam.html"
-        // }
-    
     const exam = {
         name: nameExam,
         idDepartment: idDepartment,
@@ -41,15 +37,24 @@ async function handerPostExam(e) {
         idUserPost: idUserPost,
         userPost: userPost
     }
-    console.log(exam);
     const res = addExam(exam)
-    console.log(res);
     if (res) {
-        // window.location = url+"/index.html"
+        makeAdminPublic();
     }
-
 }
 $(document).on('click', '.buttonPostExam',(e) =>{handerPostExam(e)} )
 
+const makeAdminPublic = async () => {
+    const idUser = getCookie("idUser");
+    const user = await getUserById(idUser);
+    console.log(tmpname);
+    if (user.isAdmin) {
+        const searchExam = await getExamByName(tmpname);
+        console.log(searchExam);
+        if (searchExam.length > 0) {
+            setExamPublicOrPrivate(searchExam[0]._id, true);
+        }
+    }
+}
 // document.querySelector("#buttonPostExam").addEventListener('click', (e) => handerPostExam(e));
 
