@@ -1,6 +1,5 @@
 import getUserByID from "../apiServices/user/getUserById.js"
 import {getCookie} from "../utils/libCookie.js"
-import getAllResearch from "../apiServices/research/getAllResearch.js";
 import getAvatarUser from "../apiServices/user/getAvatarUser.js";
 // console.log(buttonAvatar);
 
@@ -68,7 +67,7 @@ async function getUser() {
                                         <input type="text" id="name-subject" class="underline-only">
                             </div>
                             <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
-                                        <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên Khoa:</label>
+                                        <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên đề thi:</label>
                                         <input type="text" id="name-exam" class="underline-only">
                             </div>
                             <form action="">
