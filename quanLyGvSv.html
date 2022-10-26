@@ -216,15 +216,15 @@
 
             <!-- Start Content-->
             <div class="container-fluid" id="main-content" style="padding: 1rem; height:fit-content">
-                <div class="col-12" id="bang-quan-ly-sv-gv">
+                <div class="col-12" id="bang-quan-ly-sv">
                     <div class="page-title-right" id="table-head-qlsv">
-                        Quản lý giáo viên/sinh viên
+                        Quản lý sinh viên
                     </div>
                     <table class="table table-hover table-centered mb-0 table-responsive-lg">
                         <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Mã SV/GV</th>
+                            <th>Mã SV</th>
                             <th>Họ và tên</th>
                             <th>Ngày tạo</th>
                             <th>Actions</th>
@@ -232,7 +232,7 @@
                         </thead>
                         <tbody id="table-body-qlsv">
                         <tr id="row-qlsv-1">
-                            <td class="table-qlsv-id">1</td>
+                            <td class="table-id">1</td>
                             <td class="table-qlsv-msv">2100695</td>
                             <td class="table-qlsv-name">
                                 <div class="d-flex flex-row">
@@ -255,7 +255,7 @@
                             </td>
                         </tr>
                         <tr id="row-qlsv-2">
-                            <td class="table-qlsv-id">2</td>
+                            <td class="table-id">2</td>
                             <td class="table-qlsv-msv">2100345</td>
                             <td class="table-qlsv-name">
                                 <div class="d-flex flex-row">
@@ -296,7 +296,7 @@
                         </thead>
                         <tbody id="table-body-qlgv">
                         <tr id="row-qlgv-1">
-                            <td class="table-qlgv-id">1</td>
+                            <td class="table-id">1</td>
                             <td class="table-qlgv-msv">2100695</td>
                             <td class="table-qlgv-name">
                                 <div class="d-flex flex-row">
@@ -319,7 +319,7 @@
                             </td>
                         </tr>
                         <tr id="row-qlgv-2">
-                            <td class="table-qlgv-id">2</td>
+                            <td class="table-id">2</td>
                             <td class="table-qlgv-msv">2100345</td>
                             <td class="table-qlgv-name">
                                 <div class="d-flex flex-row">
@@ -362,7 +362,7 @@
                         </thead>
                         <tbody id="table-body-tk">
                         <tr id="row-qltk-1">
-                            <td class="table-tk-id">1</td>
+                            <td class="table-id">1</td>
                             <td class="table-tk-name">
                                 <div class="d-flex flex-row">
                                     <div class="flex-grow-0 mr-2">
@@ -391,7 +391,7 @@
                 </div>
                 <div class="col-12" id="bang-quan-ly-de-tai">
                     <div class="page-title-right" id="table-head-dtai">
-                        Quản lý đề tài
+                        Quản lý đề tài  <a href="#" class="ml-1"><i class="fa fa-plus"></i></a>
                     </div>
                     <table class="table table-hover table-centered mb-0 table-responsive-lg">
                         <thead>
@@ -407,7 +407,7 @@
                         </thead>
                         <tbody id="table-body-qldtai">
                         <tr id="row-qldtai-1">
-                            <td class="table-qldtai-id">1</td>
+                            <td class="table-id">1</td>
                             <td class="table-qldtai-name">
                                 <div class="d-flex flex-row">
                                     <div class="flex-grow-0 mr-2"> </div>
@@ -484,7 +484,7 @@
                             </td>
                         </tr>
                         <tr id="row-qldtai-2">
-                            <td class="table-qldtai-id">1</td>
+                            <td class="table-id">2</td>
                             <td class="table-qldtai-name">
                                 <div class="d-flex flex-row">
                                     <div class="flex-grow-0 mr-2"> </div>
@@ -496,7 +496,7 @@
                             <td class="table-qldtai-status">
                                 <span class="badge badge-danger-lighten badge-pill">Denied</span>
                             </td>
-                            <td class="table-qldtai-sv">
+                            <td class="table-qldthi-sv">
 
                                     <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                        title=""
@@ -560,8 +560,8 @@
                                         class="fa fa-solid fa-circle-up"></i></a>
                             </td>
                         </tr>
-                        <tr id="row-qldtai-2">
-                            <td class="table-qldtai-id">1</td>
+                        <tr id="row-qldtai-3">
+                            <td class="table-id">3</td>
                             <td class="table-qldtai-name">
                                 <div class="d-flex flex-row">
                                     <div class="flex-grow-0 mr-2"> </div>
@@ -638,6 +638,80 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="col-12" id="bang-quan-ly-de-thi">
+                    <div class="page-title-right" id="table-head-dthi">
+                        Quản lý đề thi  <a href="#" class="ml-1"><i class="fa fa-plus"></i></a>
+                    </div>
+                    <table class="table table-hover table-centered mb-0 table-responsive-lg">
+                        <thead>
+                        <tr>
+                            <th>Tên đề thi</th>
+                            <th>Tên khoa</th>
+                            <th>Tên môn</th>
+                            <th>Số lượng file</th>
+                            <th>Tình trạng</th>
+                            <th>Người đăng</th>
+                            <th>Ngày đăng</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody id="table-body-qldthi">
+                        <tr id="row-qldthi-1">
+                            <a href=" ">
+                                <td class="table-qldthi-dethi ">
+                                    <div class="text-center">
+                                        <div class="flex-grow-0 mr-2"> </div>
+                                        <div class="flex-1">
+                                            <p class="font-semibold my-0"> baksbđgchd</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </a>
+                            <td class="table-qldthi-khoa">
+                                <div class="text-center">
+                                    <div class="flex-grow-0 mr-2"> </div>
+                                    <div class="flex-1">
+                                        <p class="font-semibold my-0">Toán - Cơ - Tin học</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-qldthi-mon">
+                                <div class="text-center">
+                                    <div class="flex-grow-0 mr-2"> </div>
+                                    <div class="flex-1">
+                                        <p class="font-semibold my-0">Giải tích 1</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-qldthi-sl text-center">1</td>
+                            <td class="table-qldthi-status">
+                            <span class="badge badge-success-lighten badge-pill ">Approved</span>
+                        </td>
+                            <td class="table-qldthi-nguoi-dang">
+                                <div class="d-flex flex-row">
+                                    <div class="flex-grow-0 mr-2">
+                                        <img class="img-fluid avatar-xs"
+                                             src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
+                                             alt="" />
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-semibold my-0">Minh Ngọc</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="table-qldthi-date">18/10/2022</td>
+                            <td class="table-qldthi-action">
+                                <a href="javascript: void(0);" class="action-icon"> <i
+                                        class="fa fa-light fa-pen"></i></a>
+                                <a href="javascript: void(0);" class="action-icon "> <i
+                                        class="fa fa-solid fa-trash"></i></a>
+                                <a href="javascript: void(0);" class="action-icon "> <i
+                                        class="fa fa-solid fa-circle-up"></i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="col-12" id="bang-quan-ly-khoa">
                     <div class="page-title-right" id="table-head-dthi">
                         Quản lý Khoa
@@ -652,16 +726,20 @@
                         </thead>
                         <tbody id="table-body-qldtai">
                         <tr id="row-qlk-1">
-                            <td class="table-qlk-name">
-                                <div class="d-flex flex-row">
+                            <td class="table-qlk-name ">
+                                <div class="text-center">
                                     <div class="flex-grow-0 mr-2"> </div>
                                     <div class="flex-1">
-                                        <p class="font-semibold my-0">Toán - Cơ - Tin học</p>
+                                        <p class="font-semibold my-0 ">Toán - Cơ - Tin học</p>
                                     </div>
                                 </div>
                             </td>
                             <td class="table-qlk-ma-khoa">
-
+                                <div class="text-center">
+                                    <div class="flex-1">
+                                        <p class="font-semibold my-0 ">QHT.210</p>
+                                    </div>
+                                </div>
                             </td>
                             <td class="table-qlk-action text-center">
                                 <a href="javascript: void(0);" class="action-icon"> <i
