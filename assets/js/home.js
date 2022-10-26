@@ -3,6 +3,7 @@ import { getCookie } from "../utils/libCookie.js"
 import getAvatarUser from "../apiServices/user/getAvatarUser.js";
 import allUserByType from "../apiServices/user/getAllUserByType.js";
 import deleteUser from "../apiServices/user/deleteUser.js";
+import getAllResearch from "../apiServices/research/getAllResearch.js"
 // console.log(buttonAvatar);
 
 // Sau khi đăng nhập từ quyền của mỗi người (admin, gv, sv) sẽ hiển thị ra ở thanh sidebar khác nhau
@@ -228,7 +229,7 @@ async function getUser() {
                     </li>
                 `
             buttonAdmin.innerHTML = codeHTML;
-            
+
             // render danh sách giảng viên
             async function renderLecturer() {
                 const allLecturers = await allUserByType("lecturers");
@@ -261,18 +262,78 @@ async function getUser() {
                             <td class="table-qlgv-action">
                                 <a href="javascript: void(0);" class="action-icon"> <i
                                         class="fa fa-light fa-pen"></i></a>
-                                <a href="javascript: void(0);" class="action-icon "> <i
+                                <a id ="buttonDelete" keyId = ${item._id} href="javascript: void(0);" class="action-icon delete__user"> <i
                                         class="fa fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     `;
                 });
                 bodyTableQLGV.innerHTML = codeHTMLofChucNang;
+                const allButtonDelete = document.getElementsByClassName("delete__user");
+                for (let i = 0; i < allButtonDelete.length; i++) {
+                    const element = allButtonDelete[i];
+                    element.addEventListener("click", async () => {
+                        const statusDelete = await deleteUser(element.getAttribute("keyId"))
+                        console.log(statusDelete);
+                        renderLecturer()
+                    })
+                }
             }
             const buttonQLGV = document.querySelector("#buttonQLGV");
-            buttonQLGV.onclick = function() {
-                document.getElementById("bang-quan-ly-gv").style.display = "block";
+            buttonQLGV.onclick = function () {
+                // document.getElementById("bang-quan-ly-gv").style.display = "block";
+                let mainContent = document.querySelector("#main-content");
                 renderLecturer();
+                let codeHTMLofTable = `
+                <div id="for-homepage" class="row">
+                    <div class="col-12" id="bang-quan-ly-gv">
+                        <div class="page-title-right" id="table-head-qlgv">
+                            Quản lý giảng viên
+                        </div>
+                        <table class="table table-hover table-centered mb-0 table-responsive-lg">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã GV</th>
+                                    <th>Họ và tên</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-qlgv">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                    <div id="pagination" class="col-12">
+                        <div class="page-title-box"></div>
+                        <div class="page-title">
+                            <nav aria-label="Pagination">
+                                <ul class="pagination pagination-md justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="javascript: void(0);">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                `;
+                mainContent.innerHTML = codeHTMLofTable;
 
             }
 
@@ -304,28 +365,91 @@ async function getUser() {
                                     </div>
                                 </div>
                             </td>
-                            <td class="table-qlgv-date">18/10/2022</td>
+                            <td class="table-qlgv-date">${30 - (index++)}/10/2022</td>
                             <td class="table-qlgv-action">
                                 <a href="javascript: void(0);" class="action-icon"> <i
                                         class="fa fa-light fa-pen"></i></a>
-                                <a href="javascript: void(0);" class="action-icon "> <i
+                                <a id ="buttonDelete" keyId = ${item._id} href="javascript: void(0);" class="action-icon delete__user"> <i
                                         class="fa fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     `;
                 });
+
                 bodyTableQLSV.innerHTML = codeHTMLofChucNang;
+                const allButtonDelete = document.getElementsByClassName("delete__user");
+                for (let i = 0; i < allButtonDelete.length; i++) {
+                    const element = allButtonDelete[i];
+                    element.addEventListener("click", async () => {
+                        const statusDelete = await deleteUser(element.getAttribute("keyId"))
+                        console.log(statusDelete);
+                        renderStudent()
+                    })
+                }
             }
             const buttonQLSV = document.querySelector("#buttonQLSV");
-            buttonQLSV.onclick = function() {
-                document.getElementById("bang-quan-ly-gv").style.display = "block";
+            buttonQLSV.onclick = function () {
+                let mainContent = document.querySelector("#main-content");
                 renderStudent();
-
+                let codeHTMLofTable = `
+                    <div id="for-homepage" class="row">
+                    <div class="col-12" id="bang-quan-ly-sv">
+                        <div class="page-title-right" id="table-head-qlsv">
+                            Quản lý sinh viên
+                        </div>
+                        <table class="table table-hover table-centered mb-0 table-responsive-lg">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã SV</th>
+                                    <th>Họ và tên</th>
+                                    <th>Ngày tạo</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-qlsv">
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div id="pagination" class="col-12">
+                        <div class="page-title-box"></div>
+                        <div class="page-title">
+                            <nav aria-label="Pagination">
+                                <ul class="pagination pagination-md justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="javascript: void(0);">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                `;
+                mainContent.innerHTML = codeHTMLofTable;
             }
 
+            // render bảng đề tài nghiên cứu khoa học
+            async function renderDeTai() {
+                const allDeTai = await getAllResearch 
+            }
             const buttonQLDeTai = document.querySelector("#buttonQLDeTai");
+
             const buttonQLDeThi = document.querySelector("#buttonQLDeThi");
-            
+
 
 
 
