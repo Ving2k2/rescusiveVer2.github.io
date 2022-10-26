@@ -1,13 +1,14 @@
 import { getCookie } from "../../utils/libCookie.js";
 import { put } from "../../utils/request.js";
+import {headerCORS} from "../../utils/request.js";
 
 const setExamPublicOrPrivate = async (idExam, data) => {
   try {
     const idToken = getCookie("idToken");
     const res = await put(`/exam/update/status/${idExam}`, data, {
-      headers: {
+      headers: {...{
         idtoken: idToken,
-      },
+    },...headerCORS} ,
     });
     return res;
   } catch (error) {

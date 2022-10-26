@@ -1,5 +1,6 @@
 import { getCookie } from "../../utils/libCookie.js";
 import { post } from "../../utils/request.js";
+import {headerCORS} from "../../utils/request.js";
 
 /**
  *
@@ -13,9 +14,9 @@ const addCommentResearch = async (data) => {
   try {
     const idToken = getCookie("idToken");
     const res = await post("research/comment", data, {
-      headers: {
+      headers: {...{
         idtoken: idToken,
-      },
+    },...headerCORS} ,
     });
     return res;
   } catch (error) {
