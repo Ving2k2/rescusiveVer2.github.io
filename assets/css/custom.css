@@ -176,36 +176,21 @@ i.fa-solid.fa-trash-can:hover {
     background-color: #ffffff;
 }
 
-.table .table-id {
-    width: 5%
-}
-
-.table .table-msv {
-    width: 15%
-}
-
-.table .table-name {
-    min-width: fit-content;
-    margin: 0.5rem;
-    white-space: nowrap;
+td .table-id{
+    width:5rem;
 }
 
 @media only screen and (max-width: 576px) {
-    .table .action-icon{
+    .action-icon {
         font-size: 1rem;
     }
 }
 
-.table .table-status {
-    width: 20%;
+a.action-icon{
+    padding: 0 0.2rem!important;
 }
 
-.table .table-date {
-    width: 20%;
-}
-
-.table .action-icon {
-    padding: 0 3px;
+.action-icon ::before {
     color: #3e63d2da;
 }
 
@@ -216,31 +201,33 @@ i.fa-solid.fa-trash-can:hover {
     white-space: nowrap;
     display: block;
 }
-td.table-qlsv-msv,td.table-qlgv-msv{
-    min-width: 113px;
+
+td.table-qlsv-msv, td.table-qlgv-msv {
+    min-width: 113px;text-align: center;
 }
 
-td.table-qlsv-name, td.table-qlgv-name{
+td.table-qlsv-name, td.table-qlgv-name {
     min-width: 178px;
 }
 
-td.table-qlsv-date, td.table-qlgv-date{
-    min-width: 124px;
+td.table-qlsv-date, td.table-qlgv-date {
+    min-width: 124px;text-align: center;
 }
 
-td.table-qlsv-action,td.table-qlgv-action,td.table-tk-action {
+td.table-qlsv-action, td.table-qlgv-action, td.table-tk-action, td.table-qldthi-action, td.table-qldthi-sl {
     min-width: 95px;
+    text-align: center;
 }
 
-td.table-qldtai-name{
+td.table-qldtai-name {
     min-width: 180px;
 }
 
-td.table-qldtai-status{
+td.table-qldtai-status, td.table-qldthi-status {
     min-width: 97px;
 }
 
-td.table-qldtai-sv{
+td.table-qldtai-sv {
     min-width: 112px;
 }
 
@@ -249,30 +236,58 @@ td.table-qldtai-gv {
     text-align: center;
 }
 
-td.table-qldtai-date{
+td.table-qldtai-date, td.table-qldthi-date {
     min-width: 108px;
+    text-align: center;
 }
 
-td.table-qldtai-action{
+td.table-qldtai-action {
     min-width: 112px;
+    text-align: center;
 }
 
-td.table-tk-name{
+td.table-tk-name {
     min-width: 138px;
 }
 
-td.table-tk-msv{
+td.table-tk-msv {
     min-width: 117px;
+    text-align: center;
 }
 
-td.table-tk-type{
+td.table-tk-type {
     min-width: 125px;
+    text-align: center;
 }
 
-td.table-tk-email{
+td.table-tk-email {
     min-width: 300px;
 }
 
-td.table-tk-date{
+td.table-tk-date {
     min-width: 109px;
+    text-align: center;
+}
+
+td.table-qldthi-khoa {
+    min-width: 109px;
+}
+
+.table thead tr th {
+    text-align: center;
+}
+
+td.table-qldthi-dethi {
+    min-width: 182px;
+}
+
+td.table-qldthi-mon {
+    min-width: 95px;
+}
+td.table-qldthi-sl {
+    text-align: center;
+}
+
+td.table-qldthi-nguoi-dang {
+    min-width: 140px;
 }
