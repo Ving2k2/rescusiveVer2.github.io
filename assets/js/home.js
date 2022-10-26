@@ -257,7 +257,7 @@ async function getUser() {
                                     </div>
                                 </div>
                             </td>
-                            <td class="table-qlgv-date">18/10/2022</td>
+                            <td class="table-qlgv-date">${++index}/10/2022</td>
                             <td class="table-qlgv-action">
                                 <a href="javascript: void(0);" class="action-icon"> <i
                                         class="fa fa-light fa-pen"></i></a>
