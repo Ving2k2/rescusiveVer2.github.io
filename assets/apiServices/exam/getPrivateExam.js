@@ -4,7 +4,7 @@ import { getCookie } from "../../utils/libCookie.js";
 const getPrivateExam = async () => {
     try {
         const idToken = getCookie("idToken");
-    const res = await get(`/exam/find/private/}`, {
+    const res = await get(`/exam/find/private`, {
       headers: {
         idtoken: idToken,
       },
