@@ -222,7 +222,7 @@ btnSearch.addEventListener("click", (e) => {
 elementSearchExam.onkeydown=elementSearchExam.onkeyup=function () {
       if(elementSearchExam.value.length > 2) {
            getDataSearch(elementSearchExam.value)
-}
+}}
 
 const getDataExamById = async (idExam) => {
     const dataExam = await getExamById(idExam)
