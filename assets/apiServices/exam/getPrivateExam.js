@@ -1,5 +1,5 @@
-import { get } from "../../utils/request";
-import { getCookie } from "../../utils/libCookie";
+import { get } from "../../utils/request.js";
+import { getCookie } from "../../utils/libCookie.js";
 
 const getPrivateExam = async () => {
     try {
