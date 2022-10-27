@@ -25,8 +25,15 @@ async function handerPostExam(e) {
         userPost: userPost
     }
     console.log(exam);
-    const res = addExam(exam)
-    console.log(res);
+    const res = await addExam(exam)
+    if (res == "Add exam successfully") {
+        window.alert("Add exam successfully");
+        window.location.href = `${url}/index.html`;
+    } else if (res == "Exam already exists") {
+        window.alert("Exam already exists");
+    } else {
+        window.alert("Error");
+    }
 }
 $(document).on('click', '.buttonPostExam',(e) =>{handerPostExam(e)} )
 
