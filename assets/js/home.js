@@ -717,15 +717,15 @@ async function getUser() {
                     // console.log(lis);
 
 
-                    for (let i = 0; i < allButtonDelete.length; i++) {
-                        let element = allButtonDelete[i];
-                        console.log(element.getAttribute("keyId"));
-                        element.addEventListener("click", async () => {
-                            const statusDelete = await deleteExam(element.getAttribute("keyId"))
-                            console.log(statusDelete);
-                            renderDeThi()
-                        })
-                    }
+                    // for (let i = 0; i < allButtonDelete.length; i++) {
+                    //     let element = allButtonDelete[i];
+                    //     console.log(element.getAttribute("keyId"));
+                    //     element.addEventListener("click", async () => {
+                    //         const statusDelete = await deleteExam(element.getAttribute("keyId"))
+                    //         console.log(statusDelete);
+                    //         renderDeThi()
+                    //     })
+                    // }
                 }
             }
             const buttonQLDeThi = document.querySelector("#buttonQLDeThi");
