@@ -8,26 +8,16 @@ import setExamPublicOrPrivate from "../apiServices/exam/setExamPublicOrPrivate.j
 import getExamByName from "../apiServices/exam/getExamByName.js";
 
 
-var tmpname = "";
 
 async function handerPostExam(e) {
     const idUserPost = getCookie("idUser");
     const user = await getUserById(idUserPost);
     const userPost = `${user.firstName} ${user.lastName}`;
-    console.log(userPost);
-    const nameDepartment = document.getElementById("name-department").value;
-    const deapartment = await getDepartmentByName(nameDepartment);
-    console.log(deapartment);
-    const idDepartment = deapartment[0]._id;
 
+    const idDepartment = document.getElementById("name-department").value;
 
-    const nameSubject = document.getElementById("name-subject").value;
-    const subject = await getSubjectByName(nameSubject);
-    console.log(subject);
-    const idSubject = subject[0]._id;
-
+    const idSubject = document.getElementById("name-subject").value;
     const nameExam = document.getElementById("name-exam").value;
-    tmpname = nameExam;
     const fileExam = $("#file-neee").val();
     const exam = {
         name: nameExam,
@@ -37,8 +27,9 @@ async function handerPostExam(e) {
         idUserPost: idUserPost,
         userPost: userPost
     }
+    console.log(exam);
     const res = addExam(exam)
-    console.log(res.status);
+    console.log(res);
 }
 $(document).on('click', '.buttonPostExam',(e) =>{handerPostExam(e)} )
 

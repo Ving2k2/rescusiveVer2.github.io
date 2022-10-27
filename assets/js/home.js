@@ -7,6 +7,8 @@ import getAllResearch from "../apiServices/research/getAllResearch.js"
 import getAllResearchPrivate from "../apiServices/research/getAllResearchPrivate.js"
 import getAllExam from "../apiServices/exam/getAllExam.js"
 import getUserById from "../apiServices/user/getUserById.js";
+import getDepartment from "../apiServices/department/getAllDepartment.js";
+import getSubjectByIdDepartment from "../apiServices/subject/getSubjectByIdDepartment.js";
 // console.log(buttonAvatar);
 
 // Sau khi đăng nhập từ quyền của mỗi người (admin, gv, sv) sẽ hiển thị ra ở thanh sidebar khác nhau
@@ -66,11 +68,11 @@ async function getUser() {
                             <span class="h4 font-weight-semibold text-dark">${userName}</span>
                             <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
                                         <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên khoa:</label>
-                                        <input type="text" id="name-department" class="underline-only">
+                                        <select id="name-department" class="underline-only"></select>
                             </div>
                             <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
                                         <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên môn:</label>
-                                        <input type="text" id="name-subject" class="underline-only">
+                                        <select id="name-subject" class="underline-only"></select>
                             </div>
                             <div class="row h5" style="margin-left: 0.4rem; margin-bottom: 0.5rem">
                                         <label for="name-theme" class="font-weight-semibold text-dark mb-1 ">Tên đề thi:</label>
@@ -165,6 +167,22 @@ async function getUser() {
                 </div>
             </div>`;
         customPost.innerHTML = codeHTML;
+        const selectDepartment = document.querySelector('#name-department');
+        const data = await getDepartment();
+        codeHTML = '';
+        data.forEach((item) => {
+        codeHTML += `<option value="${item._id}">${item.name}</option>`;
+        })
+        selectDepartment.innerHTML = codeHTML;
+        const selectSubject = document.querySelector('#name-subject');
+        selectDepartment.addEventListener('change', async (e) => {
+        const data = await getSubjectByIdDepartment(e.target.value);
+        codeHTML = '';
+        data.forEach((item) => {
+            codeHTML += `<option value="${item._id}">${item.name}</option>`;
+            })
+            selectSubject.innerHTML = codeHTML;
+        })
         codeHTML = `<a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#"
                            role="button" aria-haspopup="false"
                            aria-expanded="false">
