@@ -1183,11 +1183,11 @@ async function getUser() {
                                                 <div class="col-auto">
                                                 <!-- Button -->
                                                 <a href="#" download=""
-                                                   class="btn btn-link btn-lg text-muted">
+                                                   class="btn btn-link btn-lg text-muted px-1">
                                                     <i class="fa-solid fa-download"></i>
                                                 </a>
                                                 <a href="#"
-                                                   class="btn btn-link btn-lg text-muted">
+                                                   class="btn btn-link btn-lg text-muted px-1">
                                                     <i class="fa-solid fa-trash-can"></i>
                                                 </a>
                                             </div>
