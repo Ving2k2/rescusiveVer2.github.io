@@ -2,14 +2,18 @@
 import getUserById from "../apiServices/user/getUserById.js"
 import getDepartment from "../apiServices/department/getAllDepartment.js"
 import getSubjectByIdDepartment from "../apiServices/subject/getSubjectByIdDepartment.js"
+import {loaded,loading} from "./enviroment.js"
 async function getUser(id) {
+    loading()
     const user = await getUserById(id)
     if (user) {
         return user
     }
+    loaded()
 }
 
 const getAllDepartment = async () => {
+    loading()
     var idDepartment = [];
     var idSubject = [];
     const data = await getDepartment()
@@ -60,5 +64,6 @@ const getAllDepartment = async () => {
             })
         });
       }
+    loaded()
 };
 getAllDepartment()

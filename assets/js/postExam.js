@@ -2,11 +2,12 @@ import addExam from "../apiServices/exam/addExam.js";
 import getUserById from "../apiServices/user/getUserById.js";
 import { getCookie } from "../utils/libCookie.js";
 import {url} from "./enviroment.js";
-
+import {loaded,loading} from "./enviroment.js"
 
 
 
 async function handerPostExam(e) {
+    loading()
     const idUserPost = getCookie("idUser");
     const user = await getUserById(idUserPost);
     const userPost = `${user.firstName} ${user.lastName}`;
@@ -34,6 +35,7 @@ async function handerPostExam(e) {
     } else {
         window.alert("Error");
     }
+    loaded()
 }
 $(document).on('click', '.buttonPostExam',(e) =>{handerPostExam(e)} )
 

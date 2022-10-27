@@ -5,8 +5,9 @@ import getFileExam from "../apiServices/exam/getFileExam.js";
 import getAllExamByName from "../apiServices/exam/getExamByName.js";
 import getExamBy2Id from "../apiServices/exam/getExamBy2Id.js";
 import getExamById from "../apiServices/exam/getExamById.js";
-
+import {loaded,loading} from "./enviroment.js"
 const getAllExam = async () => {
+    loading()
     if (sessionStorage.getItem("idDepartment") == null || sessionStorage.getItem("idSubject") == null || sessionStorage.getItem("idSubject") == "null") {
     const data = await getExam()
     if(data) {
@@ -81,6 +82,7 @@ const getAllExam = async () => {
         });
       }
     }
+    loaded()
 }
 getAllExam()
 
@@ -99,31 +101,31 @@ $(document).on('click', '#buttonDeThi',(e)=>{
             <div id="news-feed" class="col-12">
                 <div class="box__exam"></div>
             </div>
-            <div id="pagination" class="col-12">
-                <div class="page-title-box"></div>
-                <div class="page-title">
-                    <nav aria-label="Pagination">
-                        <ul class="pagination pagination-md justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="javascript: void(0);" tabindex="-1">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="javascript: void(0);">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+<!--            <div id="pagination" class="col-12">-->
+<!--                <div class="page-title-box"></div>-->
+<!--                <div class="page-title">-->
+<!--                    <nav aria-label="Pagination">-->
+<!--                        <ul class="pagination pagination-md justify-content-center">-->
+<!--                            <li class="page-item disabled">-->
+<!--                                <a class="page-link" href="javascript: void(0);" tabindex="-1">-->
+<!--                                    <i class="fa-solid fa-chevron-left"></i>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                            <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>-->
+<!--                            </li>-->
+<!--                            <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>-->
+<!--                            </li>-->
+<!--                            <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>-->
+<!--                            </li>-->
+<!--                            <li class="page-item">-->
+<!--                                <a class="page-link" href="javascript: void(0);">-->
+<!--                                    <i class="fa-solid fa-chevron-right"></i>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </nav>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     `
     mainContent.innerHTML = codeHtml;
