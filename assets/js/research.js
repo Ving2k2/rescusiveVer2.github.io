@@ -5,16 +5,19 @@ import getAllComment from "../apiServices/research/getCommentResearch.js"
 import getAlluserByType from "../apiServices/user/getAllUserByType.js"
 import getAvatarUser from "../apiServices/user/getAvatarUser.js"
 import getAllResearchByName from "../apiServices/research/getResearchByName.js"
-
+import {loaded,loading} from "./enviroment.js"
 
 async function getUser(id) {
+    loading()
     const user = await getUserById(id)
     if (user) {
         return user
     }
+    loaded()
 }
 
 const getAllResearch = async () => {
+    loading()
   const data = await getResearch()
   if(data) {
       const container = document.querySelector(".box__research")
@@ -87,6 +90,7 @@ const getAllResearch = async () => {
 
       });
     }
+  loaded()
 }
 getAllResearch()
 
@@ -101,31 +105,31 @@ $(document).on('click', '#buttonNCKH',(e)=>{
                         <div id="news-feed" class="col-12">
                             <div class="box__research"></div>
                         </div>
-                        <div id="pagination" class="col-12">
-                            <div class="page-title-box"></div>
-                            <div class="page-title">
-                                <nav aria-label="Pagination">
-                                    <ul class="pagination pagination-md justify-content-center">
-                                        <li class="page-item disabled">
-                                            <a class="page-link" href="javascript: void(0);" tabindex="-1">
-                                                <i class="fa-solid fa-chevron-left"></i>
-                                            </a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
-                                        </li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="javascript: void(0);">
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
+<!--                        <div id="pagination" class="col-12">-->
+<!--                            <div class="page-title-box"></div>-->
+<!--                            <div class="page-title">-->
+<!--                                <nav aria-label="Pagination">-->
+<!--                                    <ul class="pagination pagination-md justify-content-center">-->
+<!--                                        <li class="page-item disabled">-->
+<!--                                            <a class="page-link" href="javascript: void(0);" tabindex="-1">-->
+<!--                                                <i class="fa-solid fa-chevron-left"></i>-->
+<!--                                            </a>-->
+<!--                                        </li>-->
+<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>-->
+<!--                                        </li>-->
+<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>-->
+<!--                                        </li>-->
+<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>-->
+<!--                                        </li>-->
+<!--                                        <li class="page-item">-->
+<!--                                            <a class="page-link" href="javascript: void(0);">-->
+<!--                                                <i class="fa-solid fa-chevron-right"></i>-->
+<!--                                            </a>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </nav>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>`
   mainContent.innerHTML = codeHtml;
 })

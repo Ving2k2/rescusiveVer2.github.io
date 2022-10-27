@@ -12,10 +12,12 @@ import getSubjectById from "../apiServices/subject/getSubjectById.js"
 import getResearchById from "../apiServices/research/getResearchById.js"
 import getDepartmentById from "../apiServices/department/getDepartmentById.js"
 import deleteExam from "../apiServices/exam/deleteExam.js"
+import {loaded,loading} from "./enviroment.js"
 // console.log(buttonAvatar);
 
 // Sau khi đăng nhập từ quyền của mỗi người (admin, gv, sv) sẽ hiển thị ra ở thanh sidebar khác nhau
 async function getUser() {
+    loading()
     const idUser = getCookie("idUser")
     if (idUser == '') {
         return;
@@ -330,31 +332,31 @@ async function getUser() {
                         </table>
                     </div>
                     </div>
-                    <div id="pagination" class="col-12">
-                        <div class="page-title-box"></div>
-                        <div class="page-title">
-                            <nav aria-label="Pagination">
-                                <ul class="pagination pagination-md justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">
-                                            <i class="fa-solid fa-chevron-left"></i>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript: void(0);">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+<!--                    <div id="pagination" class="col-12">-->
+<!--                        <div class="page-title-box"></div>-->
+<!--                        <div class="page-title">-->
+<!--                            <nav aria-label="Pagination">-->
+<!--                                <ul class="pagination pagination-md justify-content-center">-->
+<!--                                    <li class="page-item disabled">-->
+<!--                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">-->
+<!--                                            <i class="fa-solid fa-chevron-left"></i>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item">-->
+<!--                                        <a class="page-link" href="javascript: void(0);">-->
+<!--                                            <i class="fa-solid fa-chevron-right"></i>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </nav>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
                 `;
                 mainContent.innerHTML = codeHTMLofTable;
@@ -436,31 +438,31 @@ async function getUser() {
                         </table>
                     </div>
                     
-                    <div id="pagination" class="col-12">
-                        <div class="page-title-box"></div>
-                        <div class="page-title">
-                            <nav aria-label="Pagination">
-                                <ul class="pagination pagination-md justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">
-                                            <i class="fa-solid fa-chevron-left"></i>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript: void(0);">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+<!--                    <div id="pagination" class="col-12">-->
+<!--                        <div class="page-title-box"></div>-->
+<!--                        <div class="page-title">-->
+<!--                            <nav aria-label="Pagination">-->
+<!--                                <ul class="pagination pagination-md justify-content-center">-->
+<!--                                    <li class="page-item disabled">-->
+<!--                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">-->
+<!--                                            <i class="fa-solid fa-chevron-left"></i>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item">-->
+<!--                                        <a class="page-link" href="javascript: void(0);">-->
+<!--                                            <i class="fa-solid fa-chevron-right"></i>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </nav>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
                 `;
                 mainContent.innerHTML = codeHTMLofTable;
@@ -569,31 +571,31 @@ async function getUser() {
                         </table>
                     </div>
                     
-                    <div id="pagination" class="col-12">
-                        <div class="page-title-box"></div>
-                        <div class="page-title">
-                            <nav aria-label="Pagination">
-                                <ul class="pagination pagination-md justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">
-                                            <i class="fa-solid fa-chevron-left"></i>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript: void(0);">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+<!--                    <div id="pagination" class="col-12">-->
+<!--                        <div class="page-title-box"></div>-->
+<!--                        <div class="page-title">-->
+<!--                            <nav aria-label="Pagination">-->
+<!--                                <ul class="pagination pagination-md justify-content-center">-->
+<!--                                    <li class="page-item disabled">-->
+<!--                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">-->
+<!--                                            <i class="fa-solid fa-chevron-left"></i>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item">-->
+<!--                                        <a class="page-link" href="javascript: void(0);">-->
+<!--                                            <i class="fa-solid fa-chevron-right"></i>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </nav>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
                 `;
                 mainContent.innerHTML = codeHTMLofTable;
@@ -747,31 +749,31 @@ async function getUser() {
                         </table>
                     </div>
                     
-                    <div id="pagination" class="col-12">
-                        <div class="page-title-box"></div>
-                        <div class="page-title">
-                            <nav aria-label="Pagination">
-                                <ul class="pagination pagination-md justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">
-                                            <i class="fa-solid fa-chevron-left"></i>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript: void(0);">
-                                            <i class="fa-solid fa-chevron-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+<!--                    <div id="pagination" class="col-12">-->
+<!--                        <div class="page-title-box"></div>-->
+<!--                        <div class="page-title">-->
+<!--                            <nav aria-label="Pagination">-->
+<!--                                <ul class="pagination pagination-md justify-content-center">-->
+<!--                                    <li class="page-item disabled">-->
+<!--                                        <a class="page-link" href="javascript: void(0);" tabindex="-1">-->
+<!--                                            <i class="fa-solid fa-chevron-left"></i>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>-->
+<!--                                    </li>-->
+<!--                                    <li class="page-item">-->
+<!--                                        <a class="page-link" href="javascript: void(0);">-->
+<!--                                            <i class="fa-solid fa-chevron-right"></i>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </nav>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
                 `;
                 mainContent.innerHTML = codeHTMLofTable;
@@ -2110,6 +2112,7 @@ async function getUser() {
             mainContent.innerHTML = codeHTMLThongTinCaNhan;
         }
     }
+    loaded()
 }
 
 
