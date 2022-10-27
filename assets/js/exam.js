@@ -56,7 +56,7 @@ const getAllExam = async () => {
 
                 <hr class="m-0">
                 <div class="post-content">
-                    Đề thi và đáp án tham khảo môn Giải Tích 1 kỳ 2 năm học 2021-2022
+                    <p class="show-more">Xem chi tiết...</p>
                     <br>
                     <iframe class="w-100 mt-3" style="height: 75vh"
                             data-src="${fileExam}">
@@ -65,8 +65,19 @@ const getAllExam = async () => {
             </div>`
           const div = document.createElement("div")
           div.innerHTML = codeHtml;
-          container.appendChild(div)
-            }
+          container.appendChild(div)}
+          const showMore = document.querySelectorAll(".show-more")
+          const postContent = document.querySelectorAll(".post-content")
+          postContent.forEach((item, index) => {
+            item.addEventListener("click", () => {
+                if (showMore[index].innerHTML === "Xem chi tiết...") {
+                    showMore[index].innerHTML = "Thu gọn"
+                } else {
+                    showMore[index].innerHTML = "Xem chi tiết..."
+                }
+            })
+        })
+            
         });
       }
     }

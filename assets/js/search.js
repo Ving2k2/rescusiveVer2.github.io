@@ -274,74 +274,27 @@ const getDataExamById = async (idExam) => {
 
                 <hr class="m-0">
                 <div class="post-content">
-                    Đề thi và đáp án tham khảo môn Giải Tích 1 kỳ 2 năm học 2021-2022
+                    <p class="show-more">Xem chi tiết...</p>
                     <br>
-                    <iframe class="w-100 mt-3" style="height: 50vh"
+                    <iframe class="w-100 mt-3" style="height: 75vh"
                             data-src="${fileExam}">
                     </iframe>
                 </div>
-                <hr class="m-0">
-
-                <div class="m-0 row">
-                    <a href="javascript: void(0);"
-                       class="like-button col-6 text-center btn btn-sm btn-link pl-0"
-                       data-id="1">
-                        <i class="fa-regular fa-thumbs-up"></i> 2 Lượt thích
-                    </a>
-
-                    <a class="comment-button col-6 text-center btn btn-sm btn-link"
-                       data-toggle="collapse" href="#comment-id-1"
-                       aria-expanded="true" aria-controls="comment-id-1">
-                        <i class="fa-solid fa-comment"></i> 2 Bình luận
-                    </a>
-
-                </div>
-
-                <hr class="m-0">
-
-                <div class="mt-3 collapse" id="comment-id-1">
-                    <div class="media">
-                        <img class="mr-2 rounded" src="./assets/img/logo-hus.png"
-                             alt="Generic placeholder image" height="40px">
-                        <div class="media-body">
-                            <h5 class="m-0">Nguyễn Văn B </h5>
-
-                            <p class="my-1">Ôi!!! Mình tìm bài này mãi</p>
-
-                        </div> <!-- end media-body -->
-                    </div>
-                    <div class="media">
-                        <img class="mr-2 rounded" src="./assets/img/logo-hus.png"
-                             alt="Generic placeholder image" height="40px">
-                        <div class="media-body">
-                            <h5 class="m-0">Phạm Văn A</h5>
-
-                            <p class="my-1">Đề này khó quá, ai có cách giải không ạ?</p>
-
-                        </div> <!-- end media-body -->
-                    </div> <!-- end media-->
-
-                    <hr>
-
-                    <div class="media mb-2">
-                        <img src="./assets/img/logo-hus.png" height="40px"
-                             class="align-self-start rounded mr-2" alt="Arya Stark">
-                        <form class="media-body mt-1 d-flex flex-row" data-id="1">
-                            <input type="text" class="form-control border-0 form-control-sm flex-grow-1"
-                                   placeholder="Write a comment">
-                            <button class="border-0 bg-white text-info ml-1" type="submit">
-                                <i class="fa-regular fa-paper-plane text-22"></i>
-                            </button>
-                        </form> <!-- end medi-body -->
-                    </div> <!-- end media-->
-
-                </div>
-            </div> <!-- end card-body -->
-
-        </div>`
-        const div = document.createElement("div")
-        div.innerHTML = codeHtml
-        container.appendChild(div)
+            </div>`
+          const div = document.createElement("div")
+          div.innerHTML = codeHtml;
+          container.appendChild(div)
+          const showMore = document.querySelectorAll(".show-more")
+          const postContent = document.querySelectorAll(".post-content")
+          postContent.forEach((item, index) => {
+            item.addEventListener("click", () => {
+                if (showMore[index].innerHTML === "Xem chi tiết...") {
+                    showMore[index].innerHTML = "Thu gọn"
+                } else {
+                    showMore[index].innerHTML = "Xem chi tiết..."
+                }
+            })
+          })
         })
      }
 }
@@ -396,75 +349,31 @@ const getDataResearchById = async (idResearch) => {
                 </div>
 
                 <hr class="m-0">
-                <div class="post-content">
-                    ${decs}
-                    <br>
-                    <iframe class="w-100 mt-3" style="height: 50vh"
-                            data-src="${file}">
-                    </iframe>
-                </div>
-                <hr class="m-0">
-
-                <div class="m-0 row">
-                    <a href="javascript: void(0);"
-                       class="like-button col-6 text-center btn btn-sm btn-link pl-0"
-                       data-id="1">
-                        <i class="fa-regular fa-thumbs-up"></i> 2 Lượt thích
-                    </a>
-
-                    <a class="comment-button col-6 text-center btn btn-sm btn-link"
-                       data-toggle="collapse" href="#comment-id-1"
-                       aria-expanded="true" aria-controls="comment-id-1">
-                        <i class="fa-solid fa-comment"></i> 2 Bình luận
-                    </a>
-
-                </div>
-
-                <hr class="m-0">
-
-                <div class="mt-3 collapse" id="comment-id-1">
-                    <div class="media">
-                        <img class="mr-2 rounded" src="./assets/img/logo-hus.png"
-                             alt="Generic placeholder image" height="40px">
-                        <div class="media-body">
-                            <h5 class="m-0">Nguyễn Văn B </h5>
-
-                            <p class="my-1">Ôi!!! Mình tìm bài này mãi</p>
-
-                        </div> <!-- end media-body -->
-                    </div>
-                    <div class="media">
-                        <img class="mr-2 rounded" src="./assets/img/logo-hus.png"
-                             alt="Generic placeholder image" height="40px">
-                        <div class="media-body">
-                            <h5 class="m-0">Phạm Văn A</h5>
-
-                            <p class="my-1">Đề này khó quá, ai có cách giải không ạ?</p>
-
-                        </div> <!-- end media-body -->
-                    </div> <!-- end media-->
-
-                    <hr>
-
-                    <div class="media mb-2">
-                        <img src="./assets/img/logo-hus.png" height="40px"
-                             class="align-self-start rounded mr-2" alt="Arya Stark">
-                        <form class="media-body mt-1 d-flex flex-row" data-id="1">
-                            <input type="text" class="form-control border-0 form-control-sm flex-grow-1"
-                                   placeholder="Write a comment">
-                            <button class="border-0 bg-white text-info ml-1" type="submit">
-                                <i class="fa-regular fa-paper-plane text-22"></i>
-                            </button>
-                        </form> <!-- end medi-body -->
-                    </div> <!-- end media-->
-
-                </div>
-            </div> <!-- end card-body -->
-
-        </div>`
+              <div class="post-content">
+                  <p class="show-more">Xem chi tiết...</p>
+                  <br>
+                  <p>${decs}</p>
+                  <iframe class="w-100 mt-3" style="height: 75vh"
+                          data-src="${file}">
+                  </iframe>
+              </div>
+          </div>`
         const div = document.createElement("div")
-        div.innerHTML = codeHtml
+        div.innerHTML = codeHtml;
         container.appendChild(div)
+
+        const showMore = document.querySelectorAll(".show-more")
+        const postContent = document.querySelectorAll(".post-content")
+        postContent.forEach((item, index) => {
+            item.addEventListener("click", () => {
+                if (showMore[index].innerHTML === "Xem chi tiết...") {
+                    showMore[index].innerHTML = "Thu gọn"
+                } else {
+                    showMore[index].innerHTML = "Xem chi tiết..."
+                }
+            })
+        })
+
         })
      } 
 }
@@ -477,7 +386,6 @@ const getDataExamBy2Id = async (idDepartment, idSubject) => {
              dataPublic.push(item)
          }
      })
-     var codeHtml = ``
      if (dataPublic.length) {
          const container = document.querySelector(".box__exam")
          container.innerHTML = null
@@ -490,7 +398,7 @@ const getDataExamBy2Id = async (idDepartment, idSubject) => {
              const idSubject = item.idExamSubject
              const imgSchool = await getImgSchool(idSubject)
              const fileExam = await getFileExam(item._id)
-             codeHtml += `
+             const codeHtml = `
              <div class="card" id="post-id-1">
               <div class="card-body pb-1">
                  <div class="media">
@@ -520,77 +428,29 @@ const getDataExamBy2Id = async (idDepartment, idSubject) => {
                          </p>
                      </div>
                  </div>
-
                  <hr class="m-0">
-                 <div class="post-content">
-                     Đề thi và đáp án tham khảo môn Giải Tích 1 kỳ 2 năm học 2021-2022
-                     <br>
-                     <iframe class="w-100 mt-3" style="height: 75vh"
-                             data-src="${fileExam}">
-                     </iframe>
-                 </div>
-                 <hr class="m-0">
-
-                 <div class="m-0 row">
-                     <a href="javascript: void(0);"
-                        class="like-button col-6 text-center btn btn-sm btn-link pl-0"
-                        data-id="1">
-                         <i class="fa-regular fa-thumbs-up"></i> 2 Lượt thích
-                     </a>
-
-                     <a class="comment-button col-6 text-center btn btn-sm btn-link"
-                        data-toggle="collapse" href="#comment-id-1"
-                        aria-expanded="true" aria-controls="comment-id-1">
-                         <i class="fa-solid fa-comment"></i> 2 Bình luận
-                     </a>
-
-                 </div>
-
-                 <hr class="m-0">
-
-                 <div class="mt-3 collapse" id="comment-id-1">
-                     <div class="media">
-                         <img class="mr-2 rounded" src="./assets/img/logo-hus.png"
-                              alt="Generic placeholder image" height="40px">
-                         <div class="media-body">
-                             <h5 class="m-0">Nguyễn Văn B </h5>
-
-                             <p class="my-1">Ôi!!! Mình tìm bài này mãi</p>
-
-                         </div> <!-- end media-body -->
-                     </div>
-                     <div class="media">
-                         <img class="mr-2 rounded" src="./assets/img/logo-hus.png"
-                              alt="Generic placeholder image" height="40px">
-                         <div class="media-body">
-                             <h5 class="m-0">Phạm Văn A</h5>
-
-                             <p class="my-1">Đề này khó quá, ai có cách giải không ạ?</p>
-
-                         </div> <!-- end media-body -->
-                     </div> <!-- end media-->
-
-                     <hr>
-
-                     <div class="media mb-2">
-                         <img src="./assets/img/logo-hus.png" height="40px"
-                              class="align-self-start rounded mr-2" alt="Arya Stark">
-                         <form class="media-body mt-1 d-flex flex-row" data-id="1">
-                             <input type="text" class="form-control border-0 form-control-sm flex-grow-1"
-                                    placeholder="Write a comment">
-                             <button class="border-0 bg-white text-info ml-1" type="submit">
-                                 <i class="fa-regular fa-paper-plane text-22"></i>
-                             </button>
-                         </form> <!-- end medi-body -->
-                     </div> <!-- end media-->
-
-                 </div>
-             </div> <!-- end card-body -->
-
-         </div>`
-         const div = document.createElement("div")
-         div.innerHTML = codeHtml
-         container.appendChild(div)
+                <div class="post-content">
+                    <p class="show-more">Xem chi tiết...</p>
+                    <br>
+                    <iframe class="w-100 mt-3" style="height: 75vh"
+                            data-src="${fileExam}">
+                    </iframe>
+                </div>
+            </div>`
+          const div = document.createElement("div")
+          div.innerHTML = codeHtml;
+          container.appendChild(div)
+          const showMore = document.querySelectorAll(".show-more")
+          const postContent = document.querySelectorAll(".post-content")
+          postContent.forEach((item, index) => {
+            item.addEventListener("click", () => {
+                if (showMore[index].innerHTML === "Xem chi tiết...") {
+                    showMore[index].innerHTML = "Thu gọn"
+                } else {
+                    showMore[index].innerHTML = "Xem chi tiết..."
+                }
+            })
+          })
          })
       } else {
         sessionStorage.setItem("idSubject", null)
