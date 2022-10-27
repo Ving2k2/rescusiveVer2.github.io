@@ -398,7 +398,7 @@ const getDataExamBy2Id = async (idDepartment, idSubject) => {
              const idSubject = item.idExamSubject
              const imgSchool = await getImgSchool(idSubject)
              const fileExam = await getFileExam(item._id)
-             const codeHtml = `
+             let codeHtml = `
              <div class="card" id="post-id-1">
               <div class="card-body pb-1">
                  <div class="media">
@@ -456,9 +456,9 @@ const getDataExamBy2Id = async (idDepartment, idSubject) => {
         sessionStorage.setItem("idSubject", null)
         const container = document.querySelector(".box__exam")
         container.innerHTML = ""
-        codeHtml += ` <div>Không có kết quả nào</div>`
+        const codehtml = ` <div>Không có kết quả nào</div>`
         const div = document.createElement("div")
-         div.innerHTML = codeHtml
+         div.innerHTML = codehtml
          container.appendChild(div)
     }
 

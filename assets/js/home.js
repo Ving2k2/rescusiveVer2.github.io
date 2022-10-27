@@ -3,7 +3,6 @@ import { getCookie } from "../utils/libCookie.js"
 import getAvatarUser from "../apiServices/user/getAvatarUser.js";
 import allUserByType from "../apiServices/user/getAllUserByType.js";
 import deleteUser from "../apiServices/user/deleteUser.js";
-import getAllResearch from "../apiServices/research/getAllResearch.js"
 import getAllResearchPrivate from "../apiServices/research/getAllResearchPrivate.js"
 import getExam from "../apiServices/exam/getAllExam.js"
 import getUserById from "../apiServices/user/getUserById.js";
