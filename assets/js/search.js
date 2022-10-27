@@ -456,9 +456,9 @@ const getDataExamBy2Id = async (idDepartment, idSubject) => {
         sessionStorage.setItem("idSubject", null)
         const container = document.querySelector(".box__exam")
         container.innerHTML = ""
-        let codeHtml = ` <div>Không có kết quả nào</div>`
+        const codehtml = ` <div>Không có kết quả nào</div>`
         const div = document.createElement("div")
-         div.innerHTML = codeHtml
+         div.innerHTML = codehtml
          container.appendChild(div)
     }
 
