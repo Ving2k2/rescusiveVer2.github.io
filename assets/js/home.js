@@ -494,19 +494,19 @@ async function getUser() {
                             <td class="table-qldtai-sv text-center">
 
                                 <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
-                                    title="" data-original-title="Mat Helme" class="d-inline-block">
+                                    title="" data-original-title="Minh Ngọc" class="d-inline-block">
                                     <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
                                         alt="image" class="img-fluid avatar-xs rounded-circle">
                                 </a>
 
                                 <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
-                                    title="" data-original-title="Michael Zenaty" class="d-inline-block">
+                                    title="" data-original-title="Minh" class="d-inline-block">
                                     <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
                                         class="img-fluid avatar-xs rounded-circle" alt="friend">
                                 </a>
 
                                 <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
-                                    title="" data-original-title="James Anderson" class="d-inline-block">
+                                    title="" data-original-title="Nam" class="d-inline-block">
                                     <img src="https://kenh14cdn.com/QuickNewsK14/4071215/2015/02/img_201502231923258226.jpg"
                                         class="img-fluid avatar-xs rounded-circle" alt="friend">
                                 </a>
@@ -515,7 +515,7 @@ async function getUser() {
                             <td class="table-qldtai-gv">
 
                                 <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
-                                    title="" data-original-title="Mat Helme" class="d-inline-block">
+                                    title="" data-original-title="Minh Ngọc" class="d-inline-block">
                                     <img src="./assets/img/default.jpg"
                                         class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                 </a>
@@ -965,42 +965,42 @@ async function getUser() {
                                             <h5>Sinh viên nghiên cứu:</h5>
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Mat Helme" class="d-inline-block">
+                                               data-original-title="Minh Ngọc" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Michael Zenaty" class="d-inline-block">
+                                               data-original-title="Minh" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="James Anderson" class="d-inline-block">
+                                               data-original-title="Nam" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Mat Helme" class="d-inline-block">
+                                               data-original-title="Minh Ngọc" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Michael Zenaty" class="d-inline-block">
+                                               data-original-title="Minh" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="James Anderson" class="d-inline-block">
+                                               data-original-title="Nam" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
@@ -1009,7 +1009,7 @@ async function getUser() {
                                             <h5>Giảng viên hướng dẫn:</h5>
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Mat Helme" class="d-inline-block">
+                                               data-original-title="Phạm Huyền" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
@@ -1480,42 +1480,42 @@ async function getUser() {
                                             <h5>Sinh viên nghiên cứu:</h5>
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Mat Helme" class="d-inline-block">
+                                               data-original-title="Minh Ngọc" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Michael Zenaty" class="d-inline-block">
+                                               data-original-title="Minh" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="James Anderson" class="d-inline-block">
+                                               data-original-title="Nam" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Mat Helme" class="d-inline-block">
+                                               data-original-title="Minh Ngọc" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Michael Zenaty" class="d-inline-block">
+                                               data-original-title="Minh" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="James Anderson" class="d-inline-block">
+                                               data-original-title="Nam" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
@@ -1524,7 +1524,7 @@ async function getUser() {
                                             <h5>Giảng viên hướng dẫn:</h5>
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Mat Helme" class="d-inline-block">
+                                               data-original-title="Đình Dũng" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
@@ -1825,42 +1825,42 @@ async function getUser() {
                                             <h5>Sinh viên nghiên cứu:</h5>
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Mat Helme" class="d-inline-block">
+                                               data-original-title="Minh Ngọc" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Michael Zenaty" class="d-inline-block">
+                                               data-original-title="Minh" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="James Anderson" class="d-inline-block">
+                                               data-original-title="Nam" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Mat Helme" class="d-inline-block">
+                                               data-original-title="Minh Ngọc" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Michael Zenaty" class="d-inline-block">
+                                               data-original-title="Minh" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
 
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="James Anderson" class="d-inline-block">
+                                               data-original-title="Nam" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
@@ -1869,7 +1869,7 @@ async function getUser() {
                                             <h5>Giảng viên hướng dẫn:</h5>
                                             <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top"
                                                title=""
-                                               data-original-title="Mat Helme" class="d-inline-block">
+                                               data-original-title="Anh Tài" class="d-inline-block">
                                                 <img src="./assets/img/default.jpg"
                                                      class="rounded-circle img-thumbnail avatar-sm" alt="friend">
                                             </a>
