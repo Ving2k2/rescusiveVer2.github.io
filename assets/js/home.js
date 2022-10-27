@@ -614,6 +614,7 @@ async function getUser() {
             // render bảng quản lí đề thi
             async function renderDeThi() {
                 const allDeThi = await getExam();
+                console.log(allDeThi);
                 let codeHTMLofChucNang = '';
                 if (allDeThi) {
                     let bodyTableDeThi = document.getElementById("table-body-qldthi");
@@ -628,8 +629,9 @@ async function getUser() {
                         const nameExam = item.name
                         const idSubject = item.idExamSubject
                         const nameSubject = await getSubjectById(idSubject);
-                        const status = item.isPublic
-                        if(status == false){
+                        const status = item.isPublic;
+                        if (status == false) {
+
                             codeHTMLofChucNang = `
                                 <tr id="row-qldthi-1">
                                     <a href="">
@@ -705,8 +707,8 @@ async function getUser() {
                                     renderDeThi();
                                 })
                                 // console.log(item);
-                                })
-                            }
+                            })
+                        }
                     });
                     // const allButtonDelete = document.getElementsByClassName("delete__user");
                     // console.log(allButtonDelete);
