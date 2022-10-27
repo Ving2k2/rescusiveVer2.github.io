@@ -219,10 +219,10 @@ btnSearch.addEventListener("click", (e) => {
     const name = elementSearchExam.value
     getDataSearch(name)
 })
-//  elementSearchExam.onkeydown=elementSearchExam.onkeyup=function () {
-//      if(elementSearchExam.value.length > 2 && elementSearchExam.value.length < 4) {
-//           getDataSearch(elementSearchExam.value)
-// }
+elementSearchExam.onkeydown=elementSearchExam.onkeyup=function () {
+      if(elementSearchExam.value.length > 2) {
+           getDataSearch(elementSearchExam.value)
+}
 
 const getDataExamById = async (idExam) => {
     const dataExam = await getExamById(idExam)
