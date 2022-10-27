@@ -3,12 +3,12 @@ import { getCookie } from "../utils/libCookie.js"
 import getAvatarUser from "../apiServices/user/getAvatarUser.js";
 import allUserByType from "../apiServices/user/getAllUserByType.js";
 import deleteUser from "../apiServices/user/deleteUser.js";
-import getAllResearch from "../apiServices/research/getAllResearch.js"
 import getAllResearchPrivate from "../apiServices/research/getAllResearchPrivate.js"
 import getAllExam from "../apiServices/exam/getAllExam.js"
 import getUserById from "../apiServices/user/getUserById.js";
 import getDepartment from "../apiServices/department/getAllDepartment.js";
 import getSubjectByIdDepartment from "../apiServices/subject/getSubjectByIdDepartment.js";
+
 // console.log(buttonAvatar);
 
 // Sau khi đăng nhập từ quyền của mỗi người (admin, gv, sv) sẽ hiển thị ra ở thanh sidebar khác nhau
