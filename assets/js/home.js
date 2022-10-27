@@ -529,10 +529,10 @@ async function getUser() {
                                 title="" data-original-title="Chỉnh sửa" 
                                 href="javascript: void(0);" class="action-icon"> <i
                                         class="fa fa-light fa-pen"></i></a>
-                                <a data-toggle="tooltip" data-placement="top"
+                                <a id ="buttonDelete" keyId = ${item._id} data-toggle="tooltip" data-placement="top"
                                 title="" data-original-title="Gỡ bỏ" 
-                                href="javascript: void(0);" class="action-icon "> <i
-                                        class="fa fa-solid fa-trash"></i></a>
+                                href="javascript: void(0);" class="action-icon delete__user"> <i
+                                        class="fa fa-solid fa-trash "></i></a>
                                 <a data-toggle="tooltip" data-placement="top"
                                 title="" data-original-title="Phê duyệt"
                                 href="javascript: void(0);" class="action-icon "> <i class="fa-solid fa-check"></i></a>
@@ -541,6 +541,15 @@ async function getUser() {
                     `;
                 });
                 bodyTableDeTai.innerHTML = codeHTMLofChucNang;
+                const allButtonDelete = document.getElementsByClassName("delete__user");
+                for (let i = 0; i < allButtonDelete.length; i++) {
+                    const element = allButtonDelete[i];
+                    element.addEventListener("click", async () => {
+                        const statusDelete = await deleteUser(element.getAttribute("keyId"))
+                        console.log(statusDelete);
+                        renderDeTai()
+                    })
+                }
             }
 
             const buttonQLDeTai = document.querySelector("#buttonQLDeTai");
