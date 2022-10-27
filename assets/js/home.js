@@ -12,6 +12,7 @@ import getSubjectById from "../apiServices/subject/getSubjectById.js"
 import getResearchById from "../apiServices/research/getResearchById.js"
 import getDepartmentById from "../apiServices/department/getDepartmentById.js"
 import deleteExam from "../apiServices/exam/deleteExam.js"
+import getPrivateExam from "../apiServices/exam/getPrivateExam.js";
 import {loaded,loading} from "./enviroment.js"
 // console.log(buttonAvatar);
 
@@ -603,8 +604,7 @@ async function getUser() {
 
             // render bảng quản lí đề thi
             async function renderDeThi() {
-                const allDeThi = await getExam();
-                console.log(allDeThi);
+                const allDeThi = await getPrivateExam();
                 let codeHTMLofChucNang = '';
                 if (allDeThi) {
                     let bodyTableDeThi = document.getElementById("table-body-qldthi");
@@ -619,8 +619,6 @@ async function getUser() {
                         const nameExam = item.name
                         const idSubject = item.idExamSubject
                         const nameSubject = await getSubjectById(idSubject);
-                        const status = item.isPublic;
-                        if (status == false) {
 
                             codeHTMLofChucNang = `
                                 <tr id="row-qldthi-1">
@@ -698,7 +696,6 @@ async function getUser() {
                                 })
                                 // console.log(item);
                             })
-                        }
                     });
                     // const allButtonDelete = document.getElementsByClassName("delete__user");
                     // console.log(allButtonDelete);
