@@ -11,7 +11,7 @@ import getFileResearchById from "../apiServices/research/getFileResearchById.js"
 import {loaded,loading} from "./enviroment.js"
 
 window.addEventListener("load" , () => {
-    sessionStorage.clear("idDeapartment")
+    sessionStorage.clear("idDepartment")
     sessionStorage.clear("idSubject")
     sessionStorage.clear("idExam")
     sessionStorage.clear("idResearch")
@@ -26,86 +26,34 @@ result.addEventListener("click", () => {
         getDataResearchById(idResearch)
         let mainContent = document.querySelector("#main-content")
         mainContent.innerHTML = ''
-       const codeHtml = `
+        let codeHtml = `
        <div id="for-homepage" class="row">
                         <div id="new-post" class="col-12">
                         </div>
                         <div id="news-feed" class="col-12">
                             <div class="box__research"></div>
                         </div>
-<!--                        <div id="pagination" class="col-12">-->
-<!--                            <div class="page-title-box"></div>-->
-<!--                            <div class="page-title">-->
-<!--                                <nav aria-label="Pagination">-->
-<!--                                    <ul class="pagination pagination-md justify-content-center">-->
-<!--                                        <li class="page-item disabled">-->
-<!--                                            <a class="page-link" href="javascript: void(0);" tabindex="-1">-->
-<!--                                                <i class="fa-solid fa-chevron-left"></i>-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item">-->
-<!--                                            <a class="page-link" href="javascript: void(0);">-->
-<!--                                                <i class="fa-solid fa-chevron-right"></i>-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </nav>-->
-<!--                            </div>-->
-<!--                        </div>-->
                     </div>`
         mainContent.innerHTML = codeHtml;
-
     }
     if(idExam) {
         sessionStorage.clear("idResearch")
         getDataExamById(idExam)
         let mainContent = document.querySelector("#main-content")
         mainContent.innerHTML = ''
-       const codeHtml = `
+        let codeHtml = `
        <div id="for-homepage" class="row">
                         <div id="new-post" class="col-12">
                         </div>
                         <div id="news-feed" class="col-12">
                             <div class="box__exam"></div>
                         </div>
-<!--                        <div id="pagination" class="col-12">-->
-<!--                            <div class="page-title-box"></div>-->
-<!--                            <div class="page-title">-->
-<!--                                <nav aria-label="Pagination">-->
-<!--                                    <ul class="pagination pagination-md justify-content-center">-->
-<!--                                        <li class="page-item disabled">-->
-<!--                                            <a class="page-link" href="javascript: void(0);" tabindex="-1">-->
-<!--                                                <i class="fa-solid fa-chevron-left"></i>-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item">-->
-<!--                                            <a class="page-link" href="javascript: void(0);">-->
-<!--                                                <i class="fa-solid fa-chevron-right"></i>-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </nav>-->
-<!--                            </div>-->
-<!--                        </div>-->
                     </div>`
         mainContent.innerHTML = codeHtml;
     }
 })
 
 const getDataSearch = async (name) => {
-    loading()
     result.innerHTML = "";
     const dataExam = await getAllExamByName(name)
     const dataResearch = await getAllResearchByName(name)
@@ -211,7 +159,6 @@ const getDataSearch = async (name) => {
         codeHtml += `</div>`        
 }
     result.innerHTML = codeHtml
-    loaded()
 
 }
 
@@ -223,8 +170,8 @@ btnSearch.addEventListener("click", (e) => {
     getDataSearch(name)
 })
 // elementSearchExam.onkeydown=elementSearchExam.onkeyup=function () {
-//       if(elementSearchExam.value.length > 2) {
-//            getDataSearch(elementSearchExam.value)
+//        if(elementSearchExam.value.length > 2) {
+//             getDataSearch(elementSearchExam.value)
 // }}
 
 const getDataExamById = async (idExam) => {
@@ -386,7 +333,6 @@ const getDataResearchById = async (idResearch) => {
 }
 
 const getDataExamBy2Id = async (idDepartment, idSubject) => {
-    loading()
      const dataExam = await getExamBy2Id(idDepartment, idSubject)
      const dataPublic = []
      dataExam.forEach(item => {
@@ -395,6 +341,7 @@ const getDataExamBy2Id = async (idDepartment, idSubject) => {
          }
      })
      if (dataPublic.length) {
+         loading()
          const container = document.querySelector(".box__exam")
          container.innerHTML = null
          dataPublic.forEach(async(item, index) => {
@@ -460,16 +407,17 @@ const getDataExamBy2Id = async (idDepartment, idSubject) => {
             })
           })
          })
+         loaded()
+        sessionStorage.removeItem("idSubject")
       } else {
-        sessionStorage.setItem("idSubject", null)
+        sessionStorage.clear("idSubject")
         const container = document.querySelector(".box__exam")
         container.innerHTML = ""
-        const codehtml = ` <div>Không có kết quả nào</div>`
+        let codehtml = ` <div>Không có kết quả nào</div>`
         const div = document.createElement("div")
          div.innerHTML = codehtml
          container.appendChild(div)
     }
-loaded()
  }
 
 const searchOnClick = document.querySelector(".search-on-click")
@@ -487,31 +435,6 @@ searchOnClick.addEventListener("click" , () => {
                         <div id="news-feed" class="col-12">
                             <div class="box__exam"></div>
                         </div>
-<!--                        <div id="pagination" class="col-12">-->
-<!--                            <div class="page-title-box"></div>-->
-<!--                            <div class="page-title">-->
-<!--                                <nav aria-label="Pagination">-->
-<!--                                    <ul class="pagination pagination-md justify-content-center">-->
-<!--                                        <li class="page-item disabled">-->
-<!--                                            <a class="page-link" href="javascript: void(0);" tabindex="-1">-->
-<!--                                                <i class="fa-solid fa-chevron-left"></i>-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">1</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a>-->
-<!--                                        </li>-->
-<!--                                        <li class="page-item">-->
-<!--                                            <a class="page-link" href="javascript: void(0);">-->
-<!--                                                <i class="fa-solid fa-chevron-right"></i>-->
-<!--                                            </a>-->
-<!--                                        </li>-->
-<!--                                    </ul>-->
-<!--                                </nav>-->
-<!--                            </div>-->
-<!--                        </div>-->
                     </div>`
         mainContent.innerHTML = codeHtml;
      }
