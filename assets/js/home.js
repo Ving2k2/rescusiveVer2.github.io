@@ -14,6 +14,7 @@ import getDepartmentById from "../apiServices/department/getDepartmentById.js"
 import deleteExam from "../apiServices/exam/deleteExam.js"
 import getPrivateExam from "../apiServices/exam/getPrivateExam.js";
 import {loaded,loading} from "./enviroment.js"
+import deleteResearch from "../apiServices/research/deleteResearch.js"
 // console.log(buttonAvatar);
 
 // Sau khi đăng nhập từ quyền của mỗi người (admin, gv, sv) sẽ hiển thị ra ở thanh sidebar khác nhau
@@ -546,7 +547,7 @@ async function getUser() {
                 for (let i = 0; i < allButtonDelete.length; i++) {
                     const element = allButtonDelete[i];
                     element.addEventListener("click", async () => {
-                        const statusDelete = await deleteUser(element.getAttribute("keyId"))
+                        const statusDelete = await deleteResearch(element.getAttribute("keyId"))
                         console.log(statusDelete);
                         renderDeTai()
                     })
