@@ -2,10 +2,7 @@ import addExam from "../apiServices/exam/addExam.js";
 import getUserById from "../apiServices/user/getUserById.js";
 import { getCookie } from "../utils/libCookie.js";
 import {url} from "./enviroment.js";
-import getDepartmentByName from "../apiServices/department/getDepartmentByName.js";
-import getSubjectByName from "../apiServices/subject/getSubjectByName.js";
-import setExamPublicOrPrivate from "../apiServices/exam/setExamPublicOrPrivate.js";
-import getExamByName from "../apiServices/exam/getExamByName.js";
+
 
 
 
