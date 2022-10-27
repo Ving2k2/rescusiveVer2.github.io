@@ -8,7 +8,10 @@ import getExam from "../apiServices/exam/getAllExam.js"
 import getUserById from "../apiServices/user/getUserById.js";
 import getDepartment from "../apiServices/department/getAllDepartment.js";
 import getSubjectByIdDepartment from "../apiServices/subject/getSubjectByIdDepartment.js";
-
+import getSubjectById from "../apiServices/subject/getSubjectById.js"
+import getResearchById from "../apiServices/research/getResearchById.js"
+import getDepartmentById from "../apiServices/department/getDepartmentById.js"
+import deleteExam from "../apiServices/exam/deleteExam.js"
 // console.log(buttonAvatar);
 
 // Sau khi đăng nhập từ quyền của mỗi người (admin, gv, sv) sẽ hiển thị ra ở thanh sidebar khác nhau
@@ -171,15 +174,15 @@ async function getUser() {
         const data = await getDepartment();
         codeHTML = '';
         data.forEach((item) => {
-        codeHTML += `<option value="${item._id}">${item.name}</option>`;
+            codeHTML += `<option value="${item._id}">${item.name}</option>`;
         })
         selectDepartment.innerHTML = codeHTML;
         const selectSubject = document.querySelector('#name-subject');
         selectDepartment.addEventListener('change', async (e) => {
-        const data = await getSubjectByIdDepartment(e.target.value);
-        codeHTML = '';
-        data.forEach((item) => {
-            codeHTML += `<option value="${item._id}">${item.name}</option>`;
+            const data = await getSubjectByIdDepartment(e.target.value);
+            codeHTML = '';
+            data.forEach((item) => {
+                codeHTML += `<option value="${item._id}">${item.name}</option>`;
             })
             selectSubject.innerHTML = codeHTML;
         })
@@ -603,28 +606,28 @@ async function getUser() {
                 let codeHTMLofChucNang = '';
                 if (allDeThi) {
                     let bodyTableDeThi = document.getElementById("table-body-qldthi");
-                    bodyTableDeThi.innerHTML ="";
+                    bodyTableDeThi.innerHTML = "";
                     console.log(bodyTableDeThi);
                     allDeThi.forEach(async (item, index) => {
                         const idUser = item.idUserPost
                         const user = await getUserById(idUser)
                         const fullName = `${user.firstName} ${user.lastName}`
+                        const idDepartment = item.idDepartment;
+                        const nameDepartment = await getDepartmentById(idDepartment);
                         const nameExam = item.name
                         const idSubject = item.idExamSubject
-                        console.log(idSubject);
-                        const nameSubject = await getSubjectByIdDepartment(idSubject);
-                        console.log(nameSubject[0]);
+                        const nameSubject = await getSubjectById(idSubject);
                         const status = item.isPublic;
                         if (status == false) {
-                            
+
                             codeHTMLofChucNang = `
                                 <tr id="row-qldthi-1">
                                     <a href="">
                                         <td class="table-qldthi-dethi ">
                                             <div class="text-center">
-                                                <div class="flex-grow-0 mr-2">${nameExam}</div>
+                                                <div class="flex-grow-0 mr-2"></div>
                                                 <div class="flex-1">
-                                                    <p class="font-semibold my-0"></p>
+                                                    <p class="font-semibold my-0">${nameExam}</p>
                                                 </div>
                                             </div>
                                         </td>
@@ -633,7 +636,7 @@ async function getUser() {
                                         <div class="text-center">
                                             <div class="flex-grow-0 mr-2"> </div>
                                             <div class="flex-1">
-                                                <p class="font-semibold my-0">Toán - Cơ - Tin học</p>
+                                                <p class="font-semibold my-0">${nameDepartment.name}</p>
                                             </div>
                                         </div>
                                     </td>
@@ -641,7 +644,7 @@ async function getUser() {
                                         <div class="text-center">
                                             <div class="flex-grow-0 mr-2"> </div>
                                             <div class="flex-1">
-                                                <p class="font-semibold my-0">Giải tích 1</p>
+                                                <p class="font-semibold my-0">${nameSubject.name}</p>
                                             </div>
                                         </div>
                                     </td>
@@ -657,7 +660,7 @@ async function getUser() {
                                                     alt="" />
                                             </div>
                                             <div class="flex-1">
-                                                <p class="font-semibold my-0">User1</p>
+                                                <p class="font-semibold my-0">${fullName}</p>
                                             </div>
                                         </div>
                                     </td>
@@ -667,23 +670,50 @@ async function getUser() {
                                         title="" data-original-title="Chỉnh sửa" 
                                         href="javascript: void(0);" class="action-icon"> <i
                                                 class="fa fa-light fa-pen"></i></a>
-                                        <a data-toggle="tooltip" data-placement="top"
+                                        <a id ="buttonDelete" keyId = ${item._id} data-toggle="tooltip" data-placement="top"
                                         title="" data-original-title="Gỡ bỏ" 
-                                        href="javascript: void(0);" class="action-icon "> <i
-                                                class="fa fa-solid fa-trash"></i></a>
+                                        href="javascript: void(0);" class="action-icon delete__user"> <i
+                                                class="fa fa-solid fa-trash "></i></a>
                                         <a data-toggle="tooltip" data-placement="top"
                                         title="" data-original-title="Phê duyệt"
                                         href="javascript: void(0);" class="action-icon "> <i class="fa-solid fa-check"></i></a>
                                     </td>
                                 </tr>
                             `;
-                            // bodyTableDeThi.innerHTML = codeHTMLofChucNang;
+                            // bodyTableDeThi.appendChild() = codeHTMLofChucNang;
                             // console.log(bodyTableDeThi);
                             const tr = document.createElement("tr")
                             tr.innerHTML = codeHTMLofChucNang;
                             bodyTableDeThi.appendChild(tr)
+                            const lis = document.querySelectorAll(".delete__user")
+                            console.log(lis);
+                            lis.forEach((item, index) => {
+                                item.addEventListener("click", async () => {
+                                    sessionStorage.setItem("idDepartment", idDepartment[index])
+                                    const statusDelete = await deleteExam(item.getAttribute("keyId"));
+                                    console.log(statusDelete);
+                                    renderDeThi();
+                                })
+                                // console.log(item);
+                            })
                         }
                     });
+                    // const allButtonDelete = document.getElementsByClassName("delete__user");
+                    // console.log(allButtonDelete);
+
+                    // const lis = document.querySelectorAll(".delete__user")
+                    // console.log(lis);
+
+
+                    for (let i = 0; i < allButtonDelete.length; i++) {
+                        let element = allButtonDelete[i];
+                        console.log(element.getAttribute("keyId"));
+                        element.addEventListener("click", async () => {
+                            const statusDelete = await deleteExam(element.getAttribute("keyId"))
+                            console.log(statusDelete);
+                            renderDeThi()
+                        })
+                    }
                 }
             }
             const buttonQLDeThi = document.querySelector("#buttonQLDeThi");
@@ -699,9 +729,11 @@ async function getUser() {
                         <table class="table table-hover table-centered mb-0 table-responsive-lg">
                             <thead>
                                 <tr>
-                                    <th>Tên đề thi</th>
+                                    <th> </th>
+                                    <th>Tên Đề thi</th>
+                                    <th> </th>
                                     <th>Tên khoa</th>
-                                    <th>Tên môn</th>
+                                    <th>Tên Môn</th>
                                     <th>Số lượng file</th>
                                     <th>Tình trạng</th>
                                     <th>Người đăng</th>
